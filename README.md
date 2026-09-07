@@ -201,60 +201,208 @@ cp .env.example .env
 
 ---
 
-## 🚀 Entry Points (How to Run)
+## 🚀 How to Run (Full Pipeline)
 
-### Prerequisites
+> All commands use the **new production structure** (`src/pipeline/`).
+> You can also use the `Makefile` shortcuts shown alongside each command.
+
+---
+
+### ⚙️ Prerequisites
 
 ```bash
+# 1. Install base dependencies
 pip install -r requirements.txt
-az login   # Azure CLI login (required for Azure Table/Blob access)
+
+# 2. (Optional) GPU support for local Qwen/LLaMA inference — skip if using Claude API
+pip install -r requirements-gpu.txt
+
+# 3. Azure CLI login (for Blob Storage + Table Storage access)
+az login
+
+# 4. Copy and fill in your secrets
+cp .env.example .env
+# → Edit .env with your MS_GRAPH_CLIENT_ID, ANTHROPIC_API_KEY, CELONIS_API_TOKEN, etc.
 ```
 
-### Step 1 — Sync Celonis Master Data (run when data changes)
+---
+
+### 🔄 Step 0 — One-Time Setup (first run only)
+
 ```bash
-python celonis_to_azure.py
+# Create Azure Blob containers (input-po, celonis-tables)
+powershell setup/setup_celonis_blob_container.ps1
+
+# Create Outlook mailbox folders (Archive, Exception POs, etc.)
+python setup/setup_mailbox_folders.py
+
+# Initialize Azure Table Storage email tracker
+python setup/setup_email_tracker.py
 ```
 
-### Step 2 — Run the Main Pipeline (Stage 1)
+---
+
+### 📥 Step 1 — Sync Celonis Master Data → Azure Blob
+
+Run this whenever Celonis CMIR / customer master data changes.
+
 ```bash
-# Normal run (unread emails only)
-python run_outlook_to_pipeline.py
+# Full sync (CMIR customer master + historical order mapping)
+python src/pipeline/celonis_to_azure.py
 
-# Process ALL emails (not just unread)
-python run_outlook_to_pipeline.py --all
-
-# Skip Outlook pull, only run extraction pipeline on existing folder
-python run_outlook_to_pipeline.py --skip-outlook
+# Makefile shortcut:
+make sync
 ```
 
-### Step 3 — Run Preflight Check (optional, review before push)
+---
+
+### 🚀 Step 2 — Run the Main Pipeline (Stage 1: Email → Extraction → Celonis)
+
+This is the **main daily command**. It:
+- Reads unread PO emails from Outlook (`salesorders@envalior.com`)
+- Extracts PO data via PaddleOCR + Claude Vision
+- Maps customer / material / Ship-To from Celonis CMIR
+- Validates via preflight check
+- Pushes valid POs to Celonis Action Flow
+- Routes exceptions to regional CSR inboxes
+
 ```bash
-python preflight_check.py
-python preflight_check.py --input results_outlook_po_extracted_enriched.jsonl
+# ── Normal run (unread emails only) ─────────────────────────
+python src/pipeline/run_outlook_to_pipeline.py
+
+# Makefile shortcut:
+make run
+
+# ── Process ALL emails (not just unread) ─────────────────────
+python src/pipeline/run_outlook_to_pipeline.py --all
+
+# Makefile shortcut:
+make run-all
+
+# ── Skip Outlook pull (re-run extraction on existing folder) ──
+python src/pipeline/run_outlook_to_pipeline.py --skip-outlook
+
+# Makefile shortcut:
+make skip-outlook
 ```
 
-### Step 4 — Stage 2 Feedback (run 30–60 min after Stage 1, after Celonis Action Flow completes)
+---
+
+### ✅ Step 3 — Preflight Validation (optional review before push)
+
+Checks every PO for readiness: confidence ≥ 0.70, Ship-To resolved, all materials mapped.
+
 ```bash
-# Current batch only (recommended)
-python run_celonis_feedback.py --current-run
+python src/pipeline/preflight_check.py
 
-# Dry-run (log only, no API calls)
-python run_celonis_feedback.py --dry-run
+# Makefile shortcut:
+make preflight
 
-# Single PO debug
-python run_celonis_feedback.py --po-number PO-1234
+# Custom input file:
+python src/pipeline/preflight_check.py --input reports/results_outlook_po_extracted_enriched.jsonl
 ```
 
-### Step 5 — Re-process Failed/Stuck POs
+---
+
+### 📬 Step 4 — Stage 2 Feedback: Celonis SO Results → Notifications
+
+Run this **30–60 minutes after Step 2**, once the Celonis Action Flow has processed POs and written SO numbers back.
+
+This step:
+- Reads SO creation results from Celonis
+- **✅ SO Created** → Sends Roborana notification email with original PO PDF + `.msg` attached
+- **⚠️ SO Blocked** → Sends CSR alert with SAP block code/reason
+- **❌ SO Failed** → Sends CSR exception email with BAPI failure reason
+
 ```bash
-python exception_resolver.py --dry-run   # review first
-python exception_resolver.py             # live mode (resets to PENDING)
+# ── Current batch only (recommended for daily runs) ──────────
+python src/pipeline/run_celonis_feedback.py --current-run
+
+# Makefile shortcut:
+make feedback
+
+# ── Dry-run (log actions only, no API calls) ─────────────────
+python src/pipeline/run_celonis_feedback.py --dry-run --current-run
+
+# Makefile shortcut:
+make feedback-dry
+
+# ── Single PO debug ───────────────────────────────────────────
+python src/pipeline/run_celonis_feedback.py --po-number PO-1234
+
+# ── Pull only SO results from Celonis (no notifications) ──────
+python src/pipeline/celonis_to_azure.py --so-results-only
+
+# Makefile shortcut:
+make so-results
 ```
 
-### Sync SO Results from Celonis (Stage 2 data only)
+---
+
+### 🔁 Step 5 — Re-process Failed / Stuck POs
+
+Resets stuck POs (status `EXCEPTION_ROUTED`, `MAPPING_FAILED`, `FOLDER_MOVED`) back to `PENDING` so the next pipeline run retries them.
+
 ```bash
-python celonis_to_azure.py --so-results-only
+# ── Dry-run first (shows what WOULD be reset — no changes) ───
+python src/validation/exception_resolver.py --dry-run
+
+# Makefile shortcut:
+make exceptions-dry
+
+# ── Live mode (resets eligible rows to PENDING) ───────────────
+python src/validation/exception_resolver.py
+
+# Makefile shortcut:
+make exceptions
+
+# ── Single customer or PO ─────────────────────────────────────
+python src/validation/exception_resolver.py --po PO-1234
+python src/validation/exception_resolver.py --customer "MCAM"
 ```
+
+---
+
+### 📮 Roborana — Manual Resend (if Roborana email was missed)
+
+```bash
+# Resend Roborana notification for a specific SO
+python tools/resend_robona_with_eml.py
+
+# Retry a specific failed PO through the exception handler
+python tools/retry_exception_po.py
+
+# Manually trigger exception email for a PO
+python tools/send_exception_manual.py
+```
+
+---
+
+### 📋 Quick Reference (all Makefile commands)
+
+```bash
+make help          # Show all available commands
+
+make run           # Stage 1: process unread PO emails (daily run)
+make run-all       # Stage 1: process ALL emails
+make sync          # Sync Celonis CMIR → Azure Blob
+make feedback      # Stage 2: send Roborana + CSR notifications
+make feedback-dry  # Stage 2 dry-run (no API calls)
+make so-results    # Pull SO results from Celonis only
+make preflight     # Validate POs before push
+make exceptions    # Re-process stuck/failed POs
+```
+
+---
+
+### 📅 Recommended Daily Schedule
+
+| Time | Command | What it does |
+|------|---------|-------------|
+| **09:00** | `make run` | Process overnight PO emails → push to Celonis |
+| **10:00** | `make feedback` | Celonis Action Flow has run → send Roborana + exceptions |
+| **On demand** | `make exceptions` | Re-try any POs that failed |
+| **Weekly** | `make sync` | Refresh Celonis master data |
 
 ---
 
