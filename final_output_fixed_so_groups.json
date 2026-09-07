@@ -1,0 +1,1139 @@
+[
+  {
+    "so_number": "SO-0001",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "999021531",
+    "customer_id": "4020010339",
+    "sales_organization": "2710",
+    "order_type": "TA",
+    "source_file": "FOXCONN (Sold-to 4020010339 - Materials 16552+47206+61262+61457).pdf",
+    "line_items": [
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-19",
+        "material_code": "901-11D6-002",
+        "customer_material_number": "901-11D6-002",
+        "internal_material": "0000016552"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-19",
+        "material_code": "901-59P9-002",
+        "customer_material_number": "901-59P9-002",
+        "internal_material": "0000047206"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-05",
+        "material_code": "901-84P9-002",
+        "customer_material_number": "901-84P9-002",
+        "internal_material": "0000061262"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-05",
+        "material_code": "901-40R2-002",
+        "customer_material_number": "901-40R2-002",
+        "internal_material": "0000061457"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0002",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "999021531",
+    "customer_id": "",
+    "sales_organization": "2710",
+    "order_type": "TA",
+    "source_file": "FOXCONN (Sold-to 4020010339 - Materials 61026+60900+60993).pdf",
+    "line_items": [
+      {
+        "material_description": "H25 Purpl 3-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-42R2-002",
+        "customer_material_number": "901-42R2-002",
+        "internal_material": "0000061026"
+      },
+      {
+        "material_description": "H25 Black 7-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-42R2-002",
+        "customer_material_number": "901-42R2-002",
+        "internal_material": "0000061026"
+      },
+      {
+        "material_description": "H25 Orange 2-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-51R2-002",
+        "customer_material_number": "901-51R2-002",
+        "internal_material": "0000060993"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0003",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE-25-02803",
+    "customer_id": "4020001301",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "MF Folien (Sold-to 4020001301 - Material 14885).pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 25000,
+        "unit": "kg",
+        "delivery_date": "12/12/2025",
+        "material_code": "Akulon F130-C2",
+        "customer_material_number": "AKULON F130-C2",
+        "internal_material": "0000014885"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0004",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE-25-02803",
+    "customer_id": "4020001301",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "MF Folien (Sold-to 4020001301 - Material 14885).pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 25000,
+        "unit": "kg",
+        "delivery_date": "15/12/2025",
+        "material_code": "Akulon F130-C2",
+        "customer_material_number": "AKULON F130-C2",
+        "internal_material": "0000014885"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0005",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE-25-02803",
+    "customer_id": "4020001301",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "MF Folien (Sold-to 4020001301 - Material 14885).pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 25000,
+        "unit": "kg",
+        "delivery_date": "16/12/2025",
+        "material_code": "Akulon F130-C2",
+        "customer_material_number": "AKULON F130-C2",
+        "internal_material": "0000014885"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0006",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE-25-02595",
+    "customer_id": "4020001301",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "MF Folien (Sold-to 4020001301 - Material 60477).pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon F-X22092",
+        "quantity": 22000,
+        "unit": "kg",
+        "delivery_date": "25.11.2025",
+        "material_code": "60477",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0007",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "01/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0008",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "03/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0009",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "04/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0010",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "05/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0011",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "08/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0012",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "09/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0013",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "10/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0014",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "11/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0015",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "12/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0016",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "15/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0017",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "17/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0018",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "18/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0019",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "22/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0020",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "BE25-00763",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "23/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0021",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "11110201",
+    "customer_id": "4020000825",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 8677).pdf",
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 24000,
+        "unit": "KG",
+        "delivery_date": "22.12.2025",
+        "material_code": "11110201",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0022",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "1235",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 44240.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW 271 B6 naturale",
+        "quantity": 1000,
+        "unit": "KG",
+        "delivery_date": "05/09/2024",
+        "material_code": "PA-211",
+        "customer_material_number": "8PA-211",
+        "internal_material": "0000044240"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0023",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "rdine N. 1813",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 930.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW 200 F3 BK (PA46-GF15) bags",
+        "quantity": 1375,
+        "unit": "KG",
+        "delivery_date": "17/09/2024",
+        "material_code": "PA-159",
+        "customer_material_number": "8PA-159",
+        "internal_material": "0000000930"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0024",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "rdine N. 2138",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 931.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW200F6 00001 10821 nat. (pa46+30 fv)",
+        "quantity": 2750,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "STANYL TW200F6 00001 10821 nat. (pa46+30 fv)",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0025",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "rdine N. 1316",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 934.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW 200 F6 NERO (PA46+30GF)",
+        "quantity": 2750,
+        "unit": "KG",
+        "delivery_date": "29/07/2024",
+        "material_code": "PA-035",
+        "customer_material_number": "8PA-035",
+        "internal_material": "0000000934"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0026",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "rdine N. 2354",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 944.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW 241 F10 11000 NERO (PA46+50FV)",
+        "quantity": 4125,
+        "unit": "KG",
+        "delivery_date": "08/11/2024",
+        "material_code": "PA-113",
+        "customer_material_number": "8PA-113",
+        "internal_material": "0000000944"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0027",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "1957",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 948.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW 271 F6 NAT.(PA46+30GF wear and friction)",
+        "quantity": 4125,
+        "unit": "KG",
+        "delivery_date": "09/10/2024",
+        "material_code": "PA-032",
+        "customer_material_number": "8PA-032",
+        "internal_material": "0000000948"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0028",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "JATF16949",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 961.pdf",
+    "line_items": [
+      {
+        "material_description": "Stanyl TW341",
+        "quantity": 2750,
+        "unit": "KG",
+        "delivery_date": "20/11/2024",
+        "material_code": "PA-193",
+        "customer_material_number": "8PA-193",
+        "internal_material": "0000000961"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0029",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "rdine N. 2053",
+    "customer_id": "4020000140",
+    "sales_organization": "2545",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020000140 - Material 966.pdf",
+    "line_items": [
+      {
+        "material_description": "STANYL TW 371 NAT. (pa46 wear and friction) ID 966",
+        "quantity": 13750,
+        "unit": "KG",
+        "delivery_date": "25/10/2024",
+        "material_code": "PA-132",
+        "customer_material_number": "8PA-132",
+        "internal_material": "0000000966"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0030",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "P177081",
+    "customer_id": "4020001469",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020001469 - Material 32814+42143+44141.pdf",
+    "line_items": [
+      {
+        "material_description": "K222-PA00028BA-Z060R735:PA6GF30FR",
+        "quantity": 11000,
+        "unit": "KG",
+        "delivery_date": "27/01/2025",
+        "material_code": "K222-PA00028BA-Z060R735:PA6GF30FR",
+        "customer_material_number": "PA00028BA OLD",
+        "internal_material": "0000032814"
+      },
+      {
+        "material_description": "PA00136BA-Z065R735:PA6-GF25FR",
+        "quantity": 20000,
+        "unit": "KG",
+        "delivery_date": "14/03/2025",
+        "material_code": "PA00136BA-Z065R735:PA6-GF25FR",
+        "customer_material_number": "PA00136BA",
+        "internal_material": "0000042143"
+      },
+      {
+        "material_description": "900661200-Z050R735:PA6-MD25 ULTRAFLOW K-FKMV5/CKN.00.73",
+        "quantity": 15000,
+        "unit": "KG",
+        "delivery_date": "20/01/2025",
+        "material_code": "900661200-Z050R735:PA6-MD25 ULTRAFLOW K-FKMV5/CKN.00.73",
+        "customer_material_number": "900661200",
+        "internal_material": "0000044141"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0031",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "P176476",
+    "customer_id": "4020001469",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020001469 - Material 32814.pdf",
+    "line_items": [
+      {
+        "material_description": "PA00028BA",
+        "quantity": 11000,
+        "unit": "KG",
+        "delivery_date": "02/12/2024",
+        "material_code": "Z060R735:PA6GF30FR",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0032",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "P176477",
+    "customer_id": "4020001469",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020001469 - Material 42143.pdf",
+    "line_items": [
+      {
+        "material_description": "PA00136BA",
+        "quantity": 72000,
+        "unit": "EUR",
+        "delivery_date": "25/11/2024",
+        "material_code": "Z065R735:PA6-GF25FR",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0033",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "P175040",
+    "customer_id": "4020001469",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020001469 - Material 44141.pdf",
+    "line_items": [
+      {
+        "material_description": "Z050R735:PA6-MD25 ULTRAFLOW",
+        "quantity": 15000,
+        "unit": "KG",
+        "delivery_date": "04/03/2025",
+        "material_code": "60300 EUR",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0034",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "P172126",
+    "customer_id": "4020001469",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020001469 - Material 5953+35359.pdf",
+    "line_items": [
+      {
+        "material_description": "PA6 NATURAL (Z009)",
+        "quantity": 22000,
+        "unit": "KG",
+        "delivery_date": "04/11/2024",
+        "material_code": "70620 EUR",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "Z031 PPS(MIN/GF) 65 NATURAL",
+        "quantity": 3000,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "P000117AA",
+        "customer_material_number": "P000117AA",
+        "internal_material": "0000035359"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0035",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "P176469",
+    "customer_id": "4020001469",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020001469 - Material 5953.pdf",
+    "line_items": [
+      {
+        "material_description": "PA6 NATURAL (Z009)",
+        "quantity": 11000,
+        "unit": "KG",
+        "delivery_date": "03/03/2025",
+        "material_code": "DINA99001180106",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0036",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "1242188",
+    "customer_id": "4020028890",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020028890 - Material 40696.pdf",
+    "line_items": [
+      {
+        "material_description": "RNY0 3NAT",
+        "quantity": 8000,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "K225-KS",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0037",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "40220",
+    "customer_id": "4020028890",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020028890 - Material 41450+40696.pdf",
+    "line_items": [
+      {
+        "material_description": "RCPE NATURAL UM551-V",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "RCPE02NAT",
+        "customer_material_number": "RCPE02NAT",
+        "internal_material": "0000041450"
+      },
+      {
+        "material_description": "RNY03NAT",
+        "quantity": 8250,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "RNY03NAT",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0038",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "1271104",
+    "customer_id": "4020028890",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020028890 - Material 8756+40696.pdf",
+    "line_items": [
+      {
+        "material_description": "NYLON COMPOUND (NATURAL)",
+        "quantity": 22000,
+        "unit": "kg",
+        "delivery_date": null,
+        "material_code": "RNY01NAT",
+        "customer_material_number": "RNY01NAT",
+        "internal_material": "0000008756"
+      },
+      {
+        "material_description": "FIRE RETARDANT PA6 DSM K225-KS",
+        "quantity": 24000,
+        "unit": "kg",
+        "delivery_date": null,
+        "material_code": "RNY03NAT",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0039",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "1263152",
+    "customer_id": "4020028890",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020028890 - Material 8756+8756+8756.pdf",
+    "line_items": [
+      {
+        "material_description": "NYLON COMPOUND (NATURAL)",
+        "quantity": 77814,
+        "unit": "kg",
+        "delivery_date": "28/11/24",
+        "material_code": "RNY01NAT",
+        "customer_material_number": "RNY01NAT",
+        "internal_material": "0000008756"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0040",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "1245919",
+    "customer_id": "4020028890",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020028890 - Material 8756.pdf",
+    "line_items": [
+      {
+        "material_description": "RNY01NAT",
+        "quantity": 22000,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "Supplier material ref. F136-DH",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0041",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "66090712 OP",
+    "customer_id": "4020030130",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020030130 - Material 17263.pdf",
+    "line_items": [
+      {
+        "material_description": "ARNITEL EM 630 H",
+        "quantity": 1200,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "ARNITEL EM 630 H",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0042",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "66090667 OP",
+    "customer_id": "4020030130",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020030130 - Material 40670.pdf",
+    "line_items": [
+      {
+        "material_description": "ARNITEL EM 630",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "ARNITEL EM 630",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0043",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "S.O No.",
+    "customer_id": "4020030130",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020030130 - Material 812.pdf",
+    "line_items": [
+      {
+        "material_description": "ARNITEL PM581/X NATURAL according to PFDE-ES31",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": "02/12/24",
+        "material_code": "AAPP0110",
+        "customer_material_number": "AAPP0110",
+        "internal_material": "0000000812"
+      },
+      {
+        "material_description": "ARNITEL PM581/X NATURAL according to PFDE-ES31",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": "02/12/24",
+        "material_code": "AAPP0110",
+        "customer_material_number": "AAPP0110",
+        "internal_material": "0000000812"
+      },
+      {
+        "material_description": "ARNITEL PM581/X NATURAL according to PFDE-ES31",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": "02/12/24",
+        "material_code": "AAPP0110",
+        "customer_material_number": "AAPP0110",
+        "internal_material": "0000000812"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0044",
+    "grouping_rule": "O - Separate SO per Item",
+    "po_number": "4500289843",
+    "customer_id": "4020036739",
+    "sales_organization": "2500",
+    "order_type": "KB",
+    "source_file": "Wipak Walsrode (Sold-to 4020036739 - Material 38779) - ORDER TYPE KB.PDF",
+    "line_items": [
+      {
+        "material_description": "Akulon XS36-C1",
+        "quantity": 22000,
+        "unit": "KG",
+        "delivery_date": "22/10/2025",
+        "material_code": "510000302",
+        "customer_material_number": "510000302",
+        "internal_material": "0000038779"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0045",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37666",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 19277.pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon K224-G6 natur (PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "25/01/21",
+        "material_code": "5208",
+        "customer_material_number": "5208 EMMEN",
+        "internal_material": "0000019277"
+      },
+      {
+        "material_description": "30% GF NA99001/71104",
+        "quantity": 12,
+        "unit": "pcs",
+        "delivery_date": "25/01/21",
+        "material_code": "3000",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0046",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37668",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 19417.pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon K224-TG9 natur (PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "24/11/26",
+        "material_code": "5427",
+        "customer_material_number": "5427",
+        "internal_material": "0000019417"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0047",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37667",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 19497.pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon K-FG0-FCUltraflow nat(PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "25/01/14",
+        "material_code": "5440",
+        "customer_material_number": "5440",
+        "internal_material": "0000019497"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0048",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37669",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 20413.pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon F232-D natur (PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "25-01-28",
+        "material_code": "5245",
+        "customer_material_number": "5245",
+        "internal_material": "0000020413"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0049",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37534",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 28645.pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon K224-G3 natur (PA6)",
+        "quantity": 300,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "5143",
+        "customer_material_number": "5143 EMMEN",
+        "internal_material": "0000028645"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0050",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37774",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 29476.pdf",
+    "line_items": [
+      {
+        "material_description": "Akulon K224-PG3 natur (PA6)",
+        "quantity": 600,
+        "unit": "KG",
+        "delivery_date": "25-02-25",
+        "material_code": "5343",
+        "customer_material_number": "5343",
+        "internal_material": "0000029476"
+      }
+    ]
+  },
+  {
+    "so_number": "SO-0051",
+    "grouping_rule": "X - One SO per PO",
+    "po_number": "37539",
+    "customer_id": "4020032023",
+    "sales_organization": "2500",
+    "order_type": "TA",
+    "source_file": "Sold-to 4020032023 - Material 8947.pdf",
+    "line_items": [
+      {
+        "material_description": "D Neukleringsmedel K-MB UF IM",
+        "quantity": 700,
+        "unit": "KG",
+        "delivery_date": "25-03-18",
+        "material_code": "10",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ]
+  }
+]

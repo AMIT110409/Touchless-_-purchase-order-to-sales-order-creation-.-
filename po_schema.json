@@ -1,0 +1,25 @@
+{
+  "header_fields": {
+    "customer_id_or_name": null,
+    "vendor_name": null,
+    "ship_to_address": null,
+    "sold_to_address": null,
+    "requested_delivery_date": null,
+    "po_number": null,
+    "order_date": null
+  },
+  "line_items": [
+    {
+      "material_description": null,
+      "quantity": null,
+      "unit": null,
+      "delivery_date": null,
+      "material_code": null,
+      "packaging": null
+    }
+  ],
+  "summary": {
+    "detected_language": null,
+    "confidence_score": null
+  }
+}

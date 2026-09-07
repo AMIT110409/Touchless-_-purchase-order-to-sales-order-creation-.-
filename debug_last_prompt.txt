@@ -1,0 +1,183 @@
+You are a specialized document extraction system.
+Your task is to extract structured data from the provided document text into JSON format.
+
+INSTRUCTIONS:
+1. **Analyze Language**: Identify the document language.
+2. **Identify Participants (Purchase Order Logic)**:
+   - **Customer (Buyer)**: The entity *placing* the order. Look for 'Buyer', 'Bill To', 'Invoice To', or the main logo at the top left/right.
+   - **Vendor (Seller)**: The entity *receiving* the order. Look for 'To:', 'Vendor:', 'Supplier:', 'Spett.'.
+   - *Example*: If header says 'ABB' and addresses 'Envalior', Customer is ABB, Vendor is Envalior.
+3. **Locate Keys**:
+   - **PO Number**: Look for 'Order No', 'Ordine N.', 'Commande', 'PO#', 'Purchase Order'.
+     - **Warning**: Do not confuse 'Vendor No', 'VAT Number', or 'Code' with PO Number.
+     - **Warning**: If you see a very long mixed string (e.g., '40220GS232819270'), it is likely a combination of IDs (Vendor+VAT). Search for a separate, shorter structural number (e.g., '1263152') found near 'Order', 'PO', or top codes.
+   - **Dates**:
+     - **Order Date**: The date the document was generated. Usually labeled 'Date', 'Order Date', 'Data Ordine'.
+     - **Delivery/Req Date**: Labeled 'Delivery Date', 'Requested Date', 'Due Date', 'Data Consegna'.
+     - *Critical*: Do not conflate multiple dates. If only one date exists near the PO number, it is usually the Order Date.
+4. **Line Items**:
+   - **Quantity**: The numeric amount ordered.
+     - **Critical**: Do NOT extract 'Pos.Nr', 'Line No', or 'Item No' (e.g., 1, 10, 0010) as Quantity.
+     - **Critical**: Do NOT extract 'Price Each', 'Unit Price', 'Preis', 'EP', 'Einzelpreis', or any price/cost column as Quantity. Prices are monetary values, Quantity is a count/weight.
+     - Look for 'Qty', 'Quantity', 'Menge', 'Qta', 'Anzahl', or numbers clearly in the quantity column of the line item row.
+     - **European decimal convention**: Some documents use comma as decimal separator and dot as thousands separator (e.g., '1.500,00' means 1500.00, '24,000' means 24.000). Convert these to standard decimal format (e.g., '1500', '24').
+     - Output quantity as a plain number string without units (e.g., '1500' not '1.500,00 KG').
+   - **Unit**: Extract the unit of measure (e.g., 'kg', 'm', 'pcs', 'BAG').
+   - **Description**: Material description.
+   - **Material Code**: The product code/ID.
+5. **Ship To & Sold To**:
+   - **Ship To**: The address where goods are delivered. Look for "Ship To", "Delivery Address", "Consegna a".
+   - **Sold To**: The entity being billed (often same as Customer). Look for "Sold To", "Bill To".
+   - Extract the full Name and Address if available.
+6. **Reasoning**: Explain your logic (e.g., "Found 'ABB' in header -> Customer").
+7. OUTPUT RAW JSON ONLY.
+
+### EXAMPLE
+SCHEMA:
+{
+  "header_fields": { "po_number": null, "order_date": null, "requested_delivery_date": null, "customer_id_or_name": null, "ship_to_address": null, "sold_to_address": null },
+  "line_items": [ { "material_description": null, "quantity": null, "unit": null, "delivery_date": null, "material_code": null } ]
+}
+
+DOCUMENT TEXT:
+HEADER_LOGO: XYZ Corp
+To: ABC Supplies
+P.O. No: 999-A
+Date: 01/01/2024
+Req Del: 02/02/2024
+Ship To: XYZ Factory, 123 Industry Rd.
+Bill To: XYZ HQ, 456 Main St.
+Item 10: Widget A   Qty: 500 pcs
+
+JSON OUTPUT:
+{
+  "reasoning": "Header is 'XYZ Corp' -> Customer. Addressed to 'ABC Supplies' -> Vendor. Found 'P.O. No: 999-A'. Date 01/01 is Order, 02/02 is Req Del. Ship To found at Industry Rd.",
+  "data": {
+      "header_fields": { "po_number": "999-A", "order_date": "01/01/2024", "requested_delivery_date": "02/02/2024", "customer_id_or_name": "XYZ Corp", "vendor_name": "ABC Supplies", "ship_to_address": "XYZ Factory, 123 Industry Rd", "sold_to_address": "XYZ HQ, 456 Main St" },
+      "line_items": [ { "material_description": "Widget A", "quantity": "500", "unit": "pcs", "delivery_date": null, "material_code": null } ]
+  }
+}
+### END EXAMPLE
+
+### REAL TASK
+SCHEMA:
+{
+  "header_fields": {
+    "customer_id_or_name": null,
+    "vendor_name": null,
+    "ship_to_address": null,
+    "sold_to_address": null,
+    "requested_delivery_date": null,
+    "po_number": null,
+    "order_date": null
+  },
+  "line_items": [
+    {
+      "material_description": null,
+      "quantity": null,
+      "unit": null,
+      "delivery_date": null,
+      "material_code": null
+    }
+  ],
+  "summary": {
+    "detected_language": null,
+    "confidence_score": null
+  }
+}
+
+DOCUMENT TEXT:
+ecororm
+multifol
+Purchase order
+4674421 from 26.11.2025
+Page
+1 of
+3
+ecoform Multifol GmbH + Co.KG, Ecoformstrasse 1, 88416, Erlenmoos, DE
+PURCHASING
+Envalior B.V.
+Urmonderbaan 22
+Contact person
+Melanie Miller
+6167 RD GELEEN
+Telephone
++49 7352 925 1182
+NIEDERLANDE
+E-Mail
+Melanie.Miller@suedpack.com
+VAT registration
+DE144892635
+number
+VENDOR
+Your vendor no.
+615315
+DELIVERY ADDRESS
+INVOICE ADDRESS
+Dachser SE - Heimertingen
+ecoform Multifol Verpackungsfolien
+Warehouse Südpack
+GmbH + Co.KG
+Grüntenstr. 6
+Ecoformstrasse 1
+87751 HEIMERTINGEN
+88416 ERLENMOOS
+DUITSLAND
+DUITSLAND
+TERMS OF PAYMENT
+14 days 3% discount, 30 days net
+Currency
+EUR
+DELIVERY CONDITIONS (INCOTERMS 2010)
+CPT
+ARRIVAL TIMES
+Dachser SE - Heimertingen opening hours:
+Monday - Friday:
+08:00 - 03:00 pm
+Timeslot-Bookings under www.cargoclix.com/dachser-memmingen
+use keyword: ecoform
+In the future, please send your invoices with the order number to the following e-mail address: credit.sp@suedpack.com
+Note: Please send us only one attachment per e-mail!
+We are pleased to place our order according to our general terms of purchase.
+Item
+Material
+Description
+00010
+8305516
+PA-AKULON F132-E1
+OCTABIN DSM
+Order quantity
+Unit
+22,000
+Kilogram
+Delivery date Day 11.12.2025
+Manufacturing details
+ecoform Multifol
+MANAGEMENT
+BANK DETAILS
+COMMERCIAL REGISTER ULM
+Verpackungsfolien GmbH & Co. KG
+Thorsten Seehars
+Baden-Württembergische Bank
+HRA 640740
+Ecoformstrae 1
+Carolin Grimbacher
+BIC
+SOLADEST600
+Tax no. 54002 / 00277
+88416 Erlenmoos | Germany
+Andreas Braun
+IBAN DE55 6005 0101 0004 4727 06
+General Partner
+Phone +49 (0)7352 925 - 01
+ecoform Multifol Verpackungsfolien
+Fax
++49 (0)7352 925 - 1299
+Verwaltungs GmbH, Erlenmoos
+Commercial Register Ulm 640720
+info@suedpack.com
+www.suedpack.com
+VAT NUMBER DE 144 892 635
+
+JSON OUTPUT:
+```json

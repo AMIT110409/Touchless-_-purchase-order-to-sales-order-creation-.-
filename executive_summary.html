@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touchless Order Creation — Executive Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: #f8fafc; color: #1e293b; padding: 40px 24px; }
+
+        .page {
+            max-width: 900px; margin: 0 auto; background: #fff;
+            border: 1px solid #e2e8f0; border-radius: 16px;
+            padding: 48px 44px; box-shadow: 0 4px 20px rgba(0,0,0,.06);
+        }
+
+        /* Header */
+        .logo-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+        .logo-bar .brand { font-size: 14px; font-weight: 700; color: #10b981; letter-spacing: .04em; }
+        .logo-bar .doc-type { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: .1em; }
+
+        h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; color: #0f172a; }
+        .subtitle { font-size: 14px; color: #64748b; margin-bottom: 36px; line-height: 1.6; }
+
+        /* Section blocks */
+        .section { margin-bottom: 32px; }
+        .section h2 {
+            font-size: 15px; font-weight: 700; color: #0f172a;
+            border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .section h2 .num {
+            background: #10b981; color: #fff; font-size: 11px; font-weight: 700;
+            width: 22px; height: 22px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+
+        p, li { font-size: 13px; line-height: 1.7; color: #334155; }
+        ul { padding-left: 20px; margin-top: 6px; }
+        li { margin-bottom: 5px; }
+        strong { color: #0f172a; }
+
+        /* Process diagram placeholder */
+        .diagram-box {
+            background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 12px;
+            padding: 20px; text-align: center; margin-bottom: 14px;
+        }
+        .diagram-box img { max-width: 100%; border-radius: 8px; }
+        .diagram-caption { font-size: 11px; color: #94a3b8; text-align: center; margin-top: 6px; font-style: italic; }
+
+        /* Data source table */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { background: #f1f5f9; font-size: 12px; font-weight: 700; text-align: left; padding: 10px 14px; border: 1px solid #e2e8f0; color: #0f172a; }
+        td { font-size: 12px; padding: 9px 14px; border: 1px solid #e2e8f0; color: #334155; }
+        tr:nth-child(even) td { background: #fafbfc; }
+
+        /* Footer */
+        .footer { text-align: center; margin-top: 28px; font-size: 10px; color: #94a3b8; letter-spacing: .04em; }
+
+        @media print { body { padding: 0; } .page { box-shadow: none; border: none; } }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="logo-bar">
+        <div class="brand">ENVALIOR</div>
+        <div class="doc-type">Executive Summary · Confidential</div>
+    </div>
+
+    <h1>Touchless Order Creation</h1>
+    <p class="subtitle">
+        A one-page overview for business stakeholders explaining what the application does,
+        who uses it, what data it requires, and how it is supported.
+    </p>
+
+    <!-- ── 1. FUNCTIONAL PROCESS ── -->
+    <div class="section">
+        <h2><span class="num">1</span> Functional Process</h2>
+        <div class="diagram-box" style="padding:16px 12px; overflow-x:auto; background:#fafbfc;">
+            <!-- INLINE ARCHITECTURE DIAGRAM -->
+            <div style="font-size:11px; font-weight:700; margin-bottom:10px; color:#0f172a;">End-to-End Architecture</div>
+            <!-- Stage Headers -->
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:3px;">
+                <div style="background:#7c3aed; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">TRIGGER</div>
+                <div style="background:#2563eb; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">OCR & EXTRACTION</div>
+                <div style="background:#0891b2; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">KB ENRICHMENT</div>
+                <div style="background:#059669; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">MATERIAL MAPPING</div>
+                <div style="background:#d97706; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">VALIDATION</div>
+                <div style="background:#16a34a; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">OUTPUT & ACTION</div>
+                <div style="background:#dc2626; color:#fff; font-size:8px; font-weight:700; padding:4px 2px; border-radius:6px 6px 0 0; text-align:center; letter-spacing:.06em;">EXCEPTIONS</div>
+            </div>
+            <!-- Stage Columns -->
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px;">
+                <!-- Col 1: Trigger -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#f5f3ff; border:1px solid #c4b5fd; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>📧 SO Email Inbox</strong><br><span style="color:#64748b;">salesorders@envalior.com</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#f5f3ff; border:1px solid #c4b5fd; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🔑 MS Graph API</strong><br><span style="color:#64748b;">MSAL Auth + Email Pull</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:6px;">
+                        <strong>☁️ Azure Blob</strong><br><span style="color:#64748b;">Raw PO archive</span>
+                    </div>
+                </div>
+                <!-- Col 2: OCR -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#eff6ff; border:1px solid #93c5fd; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>📄 PaddleOCR</strong><br><span style="color:#64748b;">PDF → Raw Text</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#eff6ff; border:1px solid #93c5fd; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🧠 Claude Sonnet</strong><br><span style="color:#64748b;">Multilingual JSON Extraction</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#fef3c7; border:1px solid #f59e0b; border-radius:6px; padding:5px; text-align:center; font-weight:600; color:#92400e;">
+                        JSON OK?
+                    </div>
+                </div>
+                <!-- Col 3: Enrichment -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#ecfeff; border:1px solid #67e8f9; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🔗 Alias Engine</strong><br><span style="color:#64748b;">Cross-language resolution</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#ecfeff; border:1px solid #67e8f9; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🔍 Fuzzy Match</strong><br><span style="color:#64748b;">Sold-To & Ship-To IDs</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:6px;">
+                        <strong>🗄️ Knowledge Base</strong><br><span style="color:#64748b;">SQLite · SAP Master</span>
+                    </div>
+                </div>
+                <!-- Col 4: Material Mapping -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>📋 Excel Mapping</strong><br><span style="color:#64748b;">Sales Org, Order Type, X/O</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🔄 Material Cross-Ref</strong><br><span style="color:#64748b;">3-tier matching logic</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#fef3c7; border:1px solid #f59e0b; border-radius:6px; padding:5px; text-align:center; font-weight:600; color:#92400e;">
+                        SO Group X/O
+                    </div>
+                </div>
+                <!-- Col 5: Validation -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#fffbeb; border:1px solid #fcd34d; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>✅ Celonis Validation</strong><br><span style="color:#64748b;">Business rules + push</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#fef3c7; border:1px solid #f59e0b; border-radius:6px; padding:5px; text-align:center; font-weight:600; color:#92400e; margin-bottom:4px;">
+                        Validation OK?
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#fffbeb; border:1px solid #fcd34d; border-radius:6px; padding:6px;">
+                        <strong>⚡ Action Flow</strong><br><span style="color:#64748b;">Webhook → SAP</span>
+                    </div>
+                </div>
+                <!-- Col 6: Output -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#ecfdf5; border:1px solid #6ee7b7; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🏭 SAP EPP</strong><br><span style="color:#64748b;">SO Creation + PO Archive</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#ecfdf5; border:1px solid #6ee7b7; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>📧 SO Confirmation</strong><br><span style="color:#64748b;">Auto email to customer</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#ecfdf5; border:1px solid #6ee7b7; border-radius:6px; padding:6px; text-align:center;">
+                        <strong style="color:#16a34a;">✔ Confirmed</strong>
+                    </div>
+                </div>
+                <!-- Col 7: Exceptions -->
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:0 0 8px 8px; padding:8px 6px; font-size:9px; text-align:left; line-height:1.5;">
+                    <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>🚨 AI Failure</strong><br><span style="color:#64748b;">OCR / mapping error</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>📬 CS Inbox</strong><br><span style="color:#64748b;">Regional routing</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:6px; padding:6px; margin-bottom:4px;">
+                        <strong>👤 CS Manual</strong><br><span style="color:#64748b;">Fix & re-submit</span>
+                    </div>
+                    <div style="text-align:center; color:#94a3b8; font-size:10px;">↓</div>
+                    <div style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:6px;">
+                        <strong>🔄 Feedback</strong><br><span style="color:#64748b;">Auto-improve KB</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Data flow tags -->
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-top:6px;">
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">Raw Email + PDF</div>
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">OCR Text → JSON</div>
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">Enriched JSON</div>
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">Mapped SOs</div>
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">Validated Payload</div>
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">SAP SO Created</div>
+                <div style="font-size:8px; color:#94a3b8; text-align:center; background:#f1f5f9; border:1px dashed #cbd5e1; border-radius:4px; padding:3px;">Error + PO</div>
+            </div>
+        </div>
+        <p>
+            The process follows a straight-through pipeline: a customer sends a Purchase Order (PO) by email →
+            the AI engine extracts and validates the data → Celonis applies business rules →
+            a Sales Order is automatically created in SAP. If anything fails, the PO is routed to the regional Customer Service team for manual handling.
+        </p>
+    </div>
+
+    <!-- ── 2. WHAT THE APP DOES ── -->
+    <div class="section">
+        <h2><span class="num">2</span> What the Application Does</h2>
+        <p>The Touchless Order Creation solution <strong>automates the conversion of inbound Purchase Orders (POs)
+        into SAP Sales Orders (SOs)</strong>, eliminating manual data entry. Specifically, it:</p>
+        <ul>
+            <li>Monitors the central sales inbox (<strong>salesorders@envalior.com</strong>) for incoming PO emails</li>
+            <li>Extracts key data from PDF attachments using AI (customer name, PO number, materials, quantities, dates)</li>
+            <li>Matches the extracted data against SAP Master Data to resolve customer IDs, material codes, and shipping addresses</li>
+            <li>Applies business rules (Sales Organisation, Order Type, SO splitting logic) from an Excel mapping file</li>
+            <li>Sends the validated data to Celonis, which triggers Sales Order creation in SAP EPP</li>
+            <li>Archives the original PO document on the Sales Order in SAP for compliance</li>
+        </ul>
+    </div>
+
+    <!-- ── 3. PREREQUISITES ── -->
+    <div class="section">
+        <h2><span class="num">3</span> Prerequisites</h2>
+        <p>The following must be in place before the application can process POs:</p>
+        <ul>
+            <li><strong>Azure App Registration</strong> — with Mail.ReadWrite and Mail.Send permissions granted by IT for the salesorders mailbox</li>
+            <li><strong>Celonis Connection</strong> — active Data Pool with write access for the PO_EXTRACTION_RESULTS table</li>
+            <li><strong>SAP Master Data</strong> — Customer (KNA1), Partner Functions (KNVP), and Material Info Records (KNMT) synced to Celonis</li>
+            <li><strong>Excel Mapping File</strong> — maintained by the business team with Sales Org, Order Type, Material cross-references, and SO splitting rules</li>
+            <li><strong>SAP Middleware</strong> — Webmethods or equivalent configured for PO document archiving (BAPI integration)</li>
+        </ul>
+    </div>
+
+    <!-- ── 4. USERS ── -->
+    <div class="section">
+        <h2><span class="num">4</span> Users of the Application</h2>
+        <table>
+            <tr><th>User Role</th><th>Interaction</th></tr>
+            <tr><td><strong>Customers / Buyers</strong></td><td>Send Purchase Orders via email to <em>salesorders@envalior.com</em>. No system access required.</td></tr>
+            <tr><td><strong>Regional CS Team</strong></td><td>Receive exception emails for POs the AI cannot process and handle them manually. Can re-submit corrected POs.</td></tr>
+            <tr><td><strong>Master Data Managers</strong></td><td>Maintain the Excel mapping file (adding new customers, materials, or rules). No coding required.</td></tr>
+            <tr><td><strong>IT / DevOps</strong></td><td>Monitor the Azure-hosted AI engine, manage API credentials, and handle system updates.</td></tr>
+        </table>
+    </div>
+
+    <!-- ── 5. SUPPORT ── -->
+    <div class="section">
+        <h2><span class="num">5</span> Support Model</h2>
+        <table>
+            <tr><th>Level</th><th>Responsibility</th><th>Handled By</th></tr>
+            <tr><td><strong>L1 — Business</strong></td><td>Failed PO exceptions, customer communication, Excel mapping updates</td><td>Regional CS Team</td></tr>
+            <tr><td><strong>L2 — Functional</strong></td><td>New customer onboarding, alias updates, Celonis validation rule changes</td><td>Business Analyst / Process Owner</td></tr>
+            <tr><td><strong>L3 — Technical</strong></td><td>AI model issues, API errors, Azure infrastructure, SAP middleware faults</td><td>IT / Development Team</td></tr>
+        </table>
+    </div>
+
+    <!-- ── 6. DATA SOURCES ── -->
+    <div class="section">
+        <h2><span class="num">6</span> Data Sources</h2>
+        <p>The application uses the following data from these sources:</p>
+        <table>
+            <tr><th>Data</th><th>Source</th><th>Update Frequency</th></tr>
+            <tr><td>Customer Master (KNA1)</td><td><strong>SAP</strong> → Celonis Extraction</td><td>Daily sync</td></tr>
+            <tr><td>Partner Functions (KNVP)</td><td><strong>SAP</strong> → Celonis Extraction</td><td>Daily sync</td></tr>
+            <tr><td>Material Info Records (KNMT)</td><td><strong>SAP</strong> → Celonis Extraction</td><td>Daily sync</td></tr>
+            <tr><td>Sales Org, Order Type, Material Cross-Ref, SO Splitting Rules</td><td><strong>Manual</strong> — Excel Mapping File</td><td>As needed (managed by business)</td></tr>
+            <tr><td>Purchase Orders (input)</td><td><strong>Customer Email</strong> — PDF attachments</td><td>Real-time (on arrival)</td></tr>
+            <tr><td>Customer Aliases</td><td><strong>Application</strong> — Knowledge Base (SQLite)</td><td>Auto-updated via feedback loop</td></tr>
+            <tr><td>Extraction Results</td><td><strong>Celonis</strong> — PO_EXTRACTION_RESULTS table</td><td>Per PO processed</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">Envalior · Touchless Order Creation · Executive Summary · Confidential</div>
+
+</div>
+
+</body>
+</html>

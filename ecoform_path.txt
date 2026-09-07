@@ -1,0 +1,10 @@
+﻿C:\Users\Abcom\Downloads\SÜDPACK-Bestellung4674421,vom26.11.2025_20260212081032.720_X.pdf
+C:\Users\Abcom\Downloads\extraction ocr scripit\debug_ecoform.py
+C:\Users\Abcom\Downloads\extraction ocr scripit\diagnose_ecoform.py
+C:\Users\Abcom\Downloads\extraction ocr scripit\diagnose_ecoform2.py
+C:\Users\Abcom\Downloads\extraction ocr scripit\diagnose_ecoform3.py
+C:\Users\Abcom\Downloads\extraction ocr scripit\diagnose_ecoform4.py
+C:\Users\Abcom\Downloads\extraction ocr scripit\ecoform_path.txt
+C:\Users\Abcom\Downloads\extraction ocr scripit\PO examples\Ecoform Multifol (Sold-to 4020000777 - Material 11284).PDF
+C:\Users\Abcom\Downloads\extraction ocr scripit\PO examples\Ecoform Multifol (Sold-to 4020000777 - Material 8677).PDF
+C:\Users\Abcom\Downloads\extraction ocr scripit\PO examples\SÜDPACK-Bestellung4674421,vom26.11.2025_20260212081032.720_X.pdf

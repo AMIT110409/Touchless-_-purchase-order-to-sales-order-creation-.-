@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envalior · Touchless Order Modular Pack</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-green: #10b981;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        h1 span {
+            color: var(--accent-green);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .unit-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unit-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.5);
+        }
+
+        .unit-card::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; width: 40px; height: 40px;
+            background: linear-gradient(135deg, transparent 50%, rgba(16, 185, 129, 0.1) 50%);
+        }
+
+        .unit-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin: 0 0 24px 0;
+        }
+
+        .file-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            gap: 8px;
+        }
+
+        .file-link svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-green);
+        }
+
+        .file-link:hover {
+            color: var(--accent-green);
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span>Envalior</span> · Touchless Modular Intelligence</h1>
+        <div class="subtitle">A modular documentation package designed for senior stakeholders, providing clarity at every layer of the PO automation ecosystem.</div>
+    </header>
+
+    <div class="grid">
+        <!-- Unit 1 -->
+        <div class="unit-card">
+            <div class="unit-badge">Unit 01</div>
+            <h2>Executive Overview</h2>
+            <p>The business case for touchless automation. Features high-level process maps, value drivers, and the strategic roadmap.</p>
+            <a href="Unit_1_Executive_Overview.docx" class="file-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                View Document
+            </a>
+        </div>
+
+        <!-- Unit 2 -->
+        <div class="unit-card">
+            <div class="unit-badge">Unit 02</div>
+            <h2>Technical Architecture</h2>
+            <p>Deep dive into the hybrid cloud stack (Azure, Celonis, Robona). Detailed component interaction maps and security prerequisites.</p>
+            <a href="Unit_2_Technical_Architecture.docx" class="file-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                View Document
+            </a>
+        </div>
+
+        <!-- Unit 3 -->
+        <div class="unit-card">
+            <div class="unit-badge">Unit 03</div>
+            <h2>Functional Logic</h2>
+            <p>Explaining the "AI Brain." Covers the Order Type Decision Tree, Material Mapping fallbacks, and multi-language alias resolution.</p>
+            <a href="Unit_3_Functional_Logic.docx" class="file-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                View Document
+            </a>
+        </div>
+
+        <!-- Unit 4 -->
+        <div class="unit-card">
+            <div class="unit-badge">Unit 04</div>
+            <h2>Operational Guide</h2>
+            <p>Empowering the Customer Service teams. Regional routing workflows, manual review interfaces, and the AI feedback loop.</p>
+            <a href="Unit_4_Support_Maintenance.docx" class="file-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                View Document
+            </a>
+        </div>
+
+        <!-- Unit 5 -->
+        <div class="unit-card">
+            <div class="unit-badge">Unit 05</div>
+            <h2>Validation Suite</h2>
+            <p>Trust but verify. Summaries of FUT/TUT cycles, UAT scenario outcomes, and final compliance checklists.</p>
+            <a href="Unit_5_Validation_Testing.docx" class="file-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                View Document
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Envalior AI Operations . Confidentially Modular Documentation Pack
+    </footer>
+
+</body>
+</html>

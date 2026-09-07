@@ -1,0 +1,2274 @@
+[
+  {
+    "header_fields": {
+      "customer_id_or_name": null,
+      "vendor_name": null,
+      "ship_to_address": null,
+      "sold_to_address": null,
+      "requested_delivery_date": null,
+      "po_number": null,
+      "order_date": null
+    },
+    "line_items": [
+      {
+        "material_description": null,
+        "quantity": null,
+        "unit": null,
+        "delivery_date": null,
+        "material_code": null
+      }
+    ],
+    "source_file": "4504063626.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "FOXCONN (KUNSHAN) COMPUTER CONNECTO",
+      "vendor_name": "Envalior Singapore Pte. Ltd.",
+      "ship_to_address": "XYZ Factory, 123 Industry Rd.",
+      "sold_to_address": "XYZ HQ, 456 Main St.",
+      "requested_delivery_date": "2025-07-30",
+      "po_number": "T121020125612",
+      "order_date": "2025/06/17",
+      "vendor_id": "0088107300",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088107300",
+        "suggestion_ship_to": "0088107300"
+      },
+      "sold_to_id": "4020030562",
+      "customer_number": "E03174",
+      "ship_to_id": "4020010502",
+      "ship_to_name": "富士康（昆山）紫竹路889号电发老厂",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020010502 - 富士康（昆山）紫竹路889号电发老厂",
+        "4020010499 - 富士康（昆山）太阳慕B仓",
+        "4020010500 - 富士康（昆山）太阳慕C仓",
+        "4020022951 - 富士康（昆山）太阳幕D仓",
+        "4020030562 - FOXCONN (KUNSHAN) COMPUTER CONNECTO"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "PA46 Envalior TS200F6 black",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-30",
+        "material_code": "901-22G1-002",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "StanyI HFX31SW JUST WHITE",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-23",
+        "material_code": "901-01M7-002",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": ":TS200F6 B-MB DSM PA46 (BLACK)",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-23",
+        "material_code": "901-61P9-002",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "TS200F6/A MB BL69100",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-30",
+        "material_code": "901-35R2-002",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "9178f76d-e7ed-4446-b17a-616ce3befa3f.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "MF Folien GmbH",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Porschestrasse 26, D-87437 Kempten",
+      "sold_to_address": "Urmonderbaan 22, NL-6167 RD Geelen",
+      "requested_delivery_date": "03/02/2026",
+      "po_number": "BE-26-00192",
+      "order_date": "15/01/2026",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020030035",
+      "customer_number": "4020040520",
+      "ship_to_id": "4020040520",
+      "ship_to_name": "Mf-Folien GmbH",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020040520 - Mf-Folien GmbH",
+        "4020001301 - MF Folien GmbH",
+        "4020030035 - MF Folien GmbH"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 27000,
+        "unit": "kg",
+        "delivery_date": "03/02/2026",
+        "material_code": null
+      }
+    ],
+    "source_file": "Bestellung BE-26-00192.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "VF-Verpackungen GmbH",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Hauptlager - VF Verpackungen GmbH, Gewerbepark 9, 87477 Sulzberg, Germany",
+      "sold_to_address": "Envalior B.V., Urmonderbaan 22, 6160 BB Geleen, Netherlands",
+      "requested_delivery_date": "14.10.2025",
+      "po_number": "127/141/30100",
+      "order_date": "17.09.2025",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020007257",
+      "customer_number": "E00585",
+      "ship_to_id": "4020012198",
+      "ship_to_name": "Spedition Lebert",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.27,
+      "review_required": true,
+      "ship_to_options": [
+        "4020012198 - Spedition Lebert",
+        "4020036081 - Lager Dachser SE - Heimertingen",
+        "4020000825 - VF Verpackungen GmbH",
+        "4020007257 - VF-Verpackungen GmbH",
+        "4020026095 - Spedition Dachser"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 24000,
+        "unit": "KG",
+        "delivery_date": "14.10.2025",
+        "material_code": "111102",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 24000,
+        "unit": "KG",
+        "delivery_date": "16.10.2025",
+        "material_code": "111102",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 24000,
+        "unit": "KG",
+        "delivery_date": "21.10.2025",
+        "material_code": "111102",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 24000,
+        "unit": "KG",
+        "delivery_date": "28.10.2025",
+        "material_code": "111102",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "BestellungBE25-00614_20260211164808.475_X.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "FOXCONN (KUNSHAN) COMPUTER CONNECTO",
+      "vendor_name": "VSG0010678",
+      "ship_to_address": "XYZ Factory, 123 Industry Rd.",
+      "sold_to_address": "XYZ HQ, 456 Main St.",
+      "requested_delivery_date": "2025-11-19",
+      "po_number": "999021531",
+      "order_date": "2025/09/19",
+      "sold_to_id": "4020010339",
+      "customer_number": "E03174",
+      "ship_to_id": "4020010502",
+      "ship_to_name": "富士康（昆山）紫竹路889号电发老厂",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020010502 - 富士康（昆山）紫竹路889号电发老厂",
+        "4020010499 - 富士康（昆山）太阳慕B仓",
+        "4020010500 - 富士康（昆山）太阳慕C仓",
+        "4020022951 - 富士康（昆山）太阳幕D仓",
+        "4020030562 - FOXCONN (KUNSHAN) COMPUTER CONNECTO"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2710",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-19",
+        "material_code": "901-11D6-002",
+        "customer_material_number": "901-11D6-002",
+        "internal_material": "0000016552"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-19",
+        "material_code": "901-59P9-002",
+        "customer_material_number": "901-59P9-002",
+        "internal_material": "0000047206"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-05",
+        "material_code": "901-84P9-002",
+        "customer_material_number": "901-84P9-002",
+        "internal_material": "0000061262"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-05",
+        "material_code": "901-40R2-002",
+        "customer_material_number": "901-40R2-002",
+        "internal_material": "0000061457"
+      }
+    ],
+    "source_file": "FOXCONN (Sold-to 4020010339 - Materials 16552+47206+61262+61457).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "999021531",
+      "order_date": "2025/10/20",
+      "requested_delivery_date": "2025-12-03",
+      "customer_id_or_name": "IEWRA",
+      "vendor_name": "Envalior Sg",
+      "ship_to_address": "20 COLLYER QUAY #11-07 20 COLLYER QUAY",
+      "sold_to_address": "XYZ HQ, 456 Main St",
+      "sales_organization": "2710",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "H25 Purpl 3-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-42R2-002",
+        "customer_material_number": "901-42R2-002",
+        "internal_material": "0000061026"
+      },
+      {
+        "material_description": "H25 Black 7-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-42R2-002",
+        "customer_material_number": "901-42R2-002",
+        "internal_material": "0000061026"
+      },
+      {
+        "material_description": "H25 Orange 2-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-51R2-002",
+        "customer_material_number": "901-51R2-002",
+        "internal_material": "0000060993"
+      }
+    ],
+    "source_file": "FOXCONN (Sold-to 4020010339 - Materials 61026+60900+60993).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "Lectron",
+      "vendor_name": "VSG0010678",
+      "ship_to_address": "20 COLLYER QUAY #11-07 20 COLLYER QUAY",
+      "sold_to_address": "20 COLLYER QUAY #11-07 20 COLLYER QUAY",
+      "requested_delivery_date": "2025-11-18",
+      "po_number": "121080096386",
+      "order_date": "2025/10/28",
+      "sold_to_id": "4020036720",
+      "customer_number": "E06467",
+      "ship_to_id": "4020035612",
+      "ship_to_name": "Huai'an Xinning public bonded wareh",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020035612 - Huai'an Xinning public bonded wareh",
+        "4020010504 - Fuyu Electronical Technology (Huaia",
+        "4020028173 - FUYU ELECTRONICAL TECHNOLOGY (HUAIA",
+        "4020028173 - FUYU ELECTRONICAL TECHNOLOGY (HUAIA",
+        "4020013723 - MATSUMURA SEISAKUSYO"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "TE250F8 33104 WHITE",
+        "quantity": 2000,
+        "unit": "kg",
+        "delivery_date": "2025-11-18",
+        "material_code": "901-0125-002",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Fuyu Electronical Technology (Sold-to 4020036720 - Material 15219).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "Lectron",
+      "vendor_name": "Envalior Singapore Pte. Ltd.",
+      "ship_to_address": "XYZ Factory, 123 Industry Rd.",
+      "sold_to_address": "XYZ HQ, 456 Main St.",
+      "requested_delivery_date": "2025-12-05",
+      "po_number": "121080096833",
+      "order_date": "2025/11/05",
+      "vendor_id": "0088107300",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088107300",
+        "suggestion_ship_to": "0088107300"
+      },
+      "sold_to_id": "4020036720",
+      "customer_number": "E06467",
+      "ship_to_id": "4020035612",
+      "ship_to_name": "Huai'an Xinning public bonded wareh",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020035612 - Huai'an Xinning public bonded wareh",
+        "4020010504 - Fuyu Electronical Technology (Huaia",
+        "4020028173 - FUYU ELECTRONICAL TECHNOLOGY (HUAIA",
+        "4020028173 - FUYU ELECTRONICAL TECHNOLOGY (HUAIA",
+        "4020013723 - MATSUMURA SEISAKUSYO"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "10:NYLON PA4T TX1 BLACK DSM",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-05",
+        "material_code": "901-01M8-002",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Fuyu Electronical Technology (Sold-to 4020036720 - Material 48029).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "MF Folien GmbH",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Kempten, Germany",
+      "sold_to_address": "Kempten, Germany",
+      "requested_delivery_date": "12/12/2025",
+      "po_number": "BE-25-02803",
+      "order_date": "01/12/2025",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001301",
+      "customer_number": "4020040520",
+      "ship_to_id": "4020040520",
+      "ship_to_name": "Mf-Folien GmbH",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020040520 - Mf-Folien GmbH",
+        "4020001301 - MF Folien GmbH",
+        "4020030035 - MF Folien GmbH"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "O"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 25000,
+        "unit": "kg",
+        "delivery_date": "12/12/2025",
+        "material_code": "Akulon F130-C2",
+        "customer_material_number": "AKULON F130-C2",
+        "internal_material": "0000014885"
+      },
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 25000,
+        "unit": "kg",
+        "delivery_date": "15/12/2025",
+        "material_code": "Akulon F130-C2",
+        "customer_material_number": "AKULON F130-C2",
+        "internal_material": "0000014885"
+      },
+      {
+        "material_description": "Akulon F130-C2",
+        "quantity": 25000,
+        "unit": "kg",
+        "delivery_date": "16/12/2025",
+        "material_code": "Akulon F130-C2",
+        "customer_material_number": "AKULON F130-C2",
+        "internal_material": "0000014885"
+      }
+    ],
+    "source_file": "MF Folien (Sold-to 4020001301 - Material 14885).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "MF Folien GmbH",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Kempten, Germany",
+      "sold_to_address": "Kempten, Germany",
+      "requested_delivery_date": "25.11.2025",
+      "po_number": "BE-25-02595",
+      "order_date": "04/11/2025",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001301",
+      "customer_number": "4020040520",
+      "ship_to_id": "4020040520",
+      "ship_to_name": "Mf-Folien GmbH",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020040520 - Mf-Folien GmbH",
+        "4020001301 - MF Folien GmbH",
+        "4020030035 - MF Folien GmbH"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "O"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon F-X22092",
+        "quantity": 22000,
+        "unit": "kg",
+        "delivery_date": "25.11.2025",
+        "material_code": "60477",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "MF Folien (Sold-to 4020001301 - Material 60477).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "MOLEX INTERCONNECT (SHANGHAI)",
+      "vendor_name": "Molex CN Shanghai",
+      "ship_to_address": "Molex CN Shanghai -1, No.889 Ying Lun Road, Waigaoqiao Free Trade Zone Pudong, Shanghai, 200131, China",
+      "sold_to_address": "Molex Interconnect (Shanghai) Co., Ltd., No.889 Ying Lun Road, Waigaoqiao Free Trade Zone Pudong, Shanghai, 200131, China",
+      "requested_delivery_date": "2026.02.05",
+      "po_number": "1014235554",
+      "order_date": "2025.12.11",
+      "sold_to_id": "4020011352",
+      "customer_number": "4020007068",
+      "ship_to_id": "4020007068",
+      "ship_to_name": "Molex Interconnect (Shanghai) Co. L",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.05,
+      "review_required": true,
+      "ship_to_options": [
+        "4020007068 - Molex Interconnect (Shanghai) Co. L",
+        "4020004883 - MOLEX",
+        "4020005463 - MOLEX INTERCONNECT",
+        "4020011352 - MOLEX INTERCONNECT (SHANGHAI)",
+        "4020007118 - MOLDEX"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "0899922173",
+        "quantity": 2000,
+        "unit": "KG",
+        "delivery_date": "2026.02.05",
+        "material_code": "PA66 BLACK UL94V-0",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Molex PO1014235554_20251211_042406.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "MOLEX INTERCONNECT (SHANGHAI)",
+      "vendor_name": "Molex CN Shanghai",
+      "ship_to_address": "Molex CN Shanghai -1, No.889 Ying Lun Road, Waigaoqiao Free Trade Zone Pudong, Shanghai, 200131, China",
+      "sold_to_address": "Molex Interconnect (Shanghai) Co., Ltd., Molex CN Shanghai -1, No.889 Ying Lun Road, Waigaoqiao Free Trade Zone Pudong, Shanghai, 200131, China",
+      "requested_delivery_date": "2026.02.15",
+      "po_number": "1014235576",
+      "order_date": "2025.12.11",
+      "sold_to_id": "4020011352",
+      "customer_number": "4020007068",
+      "ship_to_id": "4020007068",
+      "ship_to_name": "Molex Interconnect (Shanghai) Co. L",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.05,
+      "review_required": true,
+      "ship_to_options": [
+        "4020007068 - Molex Interconnect (Shanghai) Co. L",
+        "4020004883 - MOLEX",
+        "4020005463 - MOLEX INTERCONNECT",
+        "4020011352 - MOLEX INTERCONNECT (SHANGHAI)",
+        "4020007118 - MOLDEX"
+      ],
+      "master_data_source": "celonis"
+    },
+    "line_items": [
+      {
+        "material_description": "PA66 BLACK UL94V-0",
+        "quantity": 3000,
+        "unit": "KG",
+        "delivery_date": "2026.02.15",
+        "material_code": "0899922173",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Molex PO1014235576_20251211_042446.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "BE25-00763",
+      "order_date": "13/11/2025",
+      "requested_delivery_date": null,
+      "customer_id_or_name": "VF Verpackungen GmbH",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Gewerbepark 9, 87477 Sulzberg / Germany",
+      "sold_to_address": null,
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020000825",
+      "customer_number": "E00585",
+      "ship_to_id": "4020012198",
+      "ship_to_name": "Spedition Lebert",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020012198 - Spedition Lebert",
+        "4020036081 - Lager Dachser SE - Heimertingen",
+        "4020000825 - VF Verpackungen GmbH",
+        "4020007257 - VF-Verpackungen GmbH",
+        "4020026095 - Spedition Dachser"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "O"
+    },
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "01/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "03/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "04/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "05/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "08/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "09/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "10/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "11/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "12/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "15/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "17/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "18/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "22/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      },
+      {
+        "material_description": "F 132-E1",
+        "quantity": 25000,
+        "unit": "KG",
+        "delivery_date": "23/12/2025",
+        "material_code": "111102",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ],
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 11284).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "VF Verpackungen GmbH",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Hauptlager - Niederwieser GmbH, Gewerbepark 9, 87477 Sulzberg (Allgäu)",
+      "sold_to_address": "Envalior B.V., Urmonderbaan 22, 6160 BB Geleen, Deutschland, Niederlande",
+      "requested_delivery_date": "22.12.2025",
+      "po_number": "11110201",
+      "order_date": "13.11.2025",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020000825",
+      "customer_number": "E00585",
+      "ship_to_id": "4020012198",
+      "ship_to_name": "Spedition Lebert",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020012198 - Spedition Lebert",
+        "4020036081 - Lager Dachser SE - Heimertingen",
+        "4020000825 - VF Verpackungen GmbH",
+        "4020007257 - VF-Verpackungen GmbH",
+        "4020026095 - Spedition Dachser"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "O"
+    },
+    "line_items": [
+      {
+        "material_description": "F 132-E1",
+        "quantity": 24000,
+        "unit": "KG",
+        "delivery_date": "22.12.2025",
+        "material_code": "11110201",
+        "customer_material_number": "111102 OKTABIN",
+        "internal_material": "0000008677"
+      }
+    ],
+    "source_file": "Niederwieser (Sold-to 4020000825 - Material 8677).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "1235",
+      "order_date": "05/09/2024",
+      "requested_delivery_date": "05/09/2024",
+      "customer_id_or_name": "ADVANCED MOLDING SOLUTION",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "ENVALIOR B.V., URMONDERBAAN 22, 6160 BB GELEEN, THE NETHERLANDS",
+      "sold_to_address": "Ergotech, Via Ivrea 28, Fraz. Montestrutto - 10010 Settimo Vittone (TO), ITALY",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": true,
+        "master_data_matches": [],
+        "matched_ship_to_id": "0088104000",
+        "suggestion_sold_to": "0088104000"
+      },
+      "ship_to_id": "4020013909",
+      "sold_to_id": "4020000140",
+      "customer_number": "4020013909",
+      "ship_to_name": "ADVANCED MOLDING SOLUTION",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020013909 - ADVANCED MOLDING SOLUTION",
+        "4020016270 - ADVANCE",
+        "4020006624 - ADVANCED MOLDING",
+        "4020006738 - ADVANCED MOLDING"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW 271 B6 naturale",
+        "quantity": 1000,
+        "unit": "KG",
+        "delivery_date": "05/09/2024",
+        "material_code": "PA-211",
+        "customer_material_number": "8PA-211",
+        "internal_material": "0000044240"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 44240.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "rdine N. 1813",
+      "order_date": "17/09/2024",
+      "requested_delivery_date": "17/09/2024",
+      "customer_id_or_name": "Envalior B.V.",
+      "vendor_name": "DNV Advanced Moulding Solutions",
+      "ship_to_address": "ENVALIOR B.V., URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "sold_to_address": "DNV Advanced Moulding Solutions, Strada Statale 26, n.3 - 10010 Settimo Vittone (TO), ITALY",
+      "sold_to_id": "4020000140",
+      "customer_number": "0088104000",
+      "ship_to_id": "0088104000",
+      "ship_to_name": "Envalior B.V.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.21,
+      "review_required": true,
+      "ship_to_options": [
+        "0088104000 - Envalior B.V.",
+        "0088104025 - Production Site Emmen",
+        "0088104026 - Envalior B.V.",
+        "0088108006 - Envalior RESEARCH GELEEN",
+        "4020014990 - DSM Engineering Materials BV Genk"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW 200 F3 BK (PA46-GF15) bags",
+        "quantity": 1375,
+        "unit": "KG",
+        "delivery_date": "17/09/2024",
+        "material_code": "PA-159",
+        "customer_material_number": "8PA-159",
+        "internal_material": "0000000930"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 930.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "ADVANCED MOLDING SOLUTION",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "sold_to_address": "URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "requested_delivery_date": "14/10/2024",
+      "po_number": "rdine N. 2138",
+      "order_date": "14/10/2024",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020000140",
+      "customer_number": "4020013909",
+      "ship_to_id": "4020013909",
+      "ship_to_name": "ADVANCED MOLDING SOLUTION",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020013909 - ADVANCED MOLDING SOLUTION",
+        "4020016270 - ADVANCE",
+        "4020006624 - ADVANCED MOLDING",
+        "4020006738 - ADVANCED MOLDING"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW200F6 00001 10821 nat. (pa46+30 fv)",
+        "quantity": 2750,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "STANYL TW200F6 00001 10821 nat. (pa46+30 fv)",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 931.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "rdine N. 1316",
+      "order_date": "29/07/2024",
+      "requested_delivery_date": "29/07/2024",
+      "customer_id_or_name": "Envalior B.V.",
+      "vendor_name": "DNV Advanced Moulding Solutions",
+      "ship_to_address": "ENVALIOR B.V., URMONDERBAAN 22, 6160 BB GELEEN, THE NETHERLANDS",
+      "sold_to_address": "DNV Advanced Moulding Solutions, Strada Statale 26, n.3 - 10010 Settimo Vittone (TO), ITALY",
+      "sold_to_id": "4020000140",
+      "customer_number": "0088104000",
+      "ship_to_id": "0088104000",
+      "ship_to_name": "Envalior B.V.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.21,
+      "review_required": true,
+      "ship_to_options": [
+        "0088104000 - Envalior B.V.",
+        "0088104025 - Production Site Emmen",
+        "0088104026 - Envalior B.V.",
+        "0088108006 - Envalior RESEARCH GELEEN",
+        "4020014990 - DSM Engineering Materials BV Genk"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW 200 F6 NERO (PA46+30GF)",
+        "quantity": 2750,
+        "unit": "KG",
+        "delivery_date": "29/07/2024",
+        "material_code": "PA-035",
+        "customer_material_number": "8PA-035",
+        "internal_material": "0000000934"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 934.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "rdine N. 2354",
+      "order_date": "li' 03/10/2024",
+      "requested_delivery_date": "08/11/2024",
+      "customer_id_or_name": "Envalior B.V.",
+      "vendor_name": "DNV Advanced Moulding Solutions",
+      "ship_to_address": "ENVALIOR B.V., URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "sold_to_address": "DNV Advanced Moulding Solutions, Strada Statale 26, n.3 - 10010 Settimo Vittone (TO) - Italia",
+      "sold_to_id": "4020000140",
+      "customer_number": "0088104000",
+      "ship_to_id": "0088104000",
+      "ship_to_name": "Envalior B.V.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.21,
+      "review_required": true,
+      "ship_to_options": [
+        "0088104000 - Envalior B.V.",
+        "0088104025 - Production Site Emmen",
+        "0088104026 - Envalior B.V.",
+        "0088108006 - Envalior RESEARCH GELEEN",
+        "4020014990 - DSM Engineering Materials BV Genk"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW 241 F10 11000 NERO (PA46+50FV)",
+        "quantity": 4125,
+        "unit": "KG",
+        "delivery_date": "08/11/2024",
+        "material_code": "PA-113",
+        "customer_material_number": "8PA-113",
+        "internal_material": "0000000944"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 944.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "ADVANCED MOLDING SOLUTION",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "sold_to_address": "URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "requested_delivery_date": "09/10/2024",
+      "po_number": "1957",
+      "order_date": "09/10/2024",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020000140",
+      "customer_number": "4020013909",
+      "ship_to_id": "4020013909",
+      "ship_to_name": "ADVANCED MOLDING SOLUTION",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020013909 - ADVANCED MOLDING SOLUTION",
+        "4020016270 - ADVANCE",
+        "4020006624 - ADVANCED MOLDING",
+        "4020006738 - ADVANCED MOLDING"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW 271 F6 NAT.(PA46+30GF wear and friction)",
+        "quantity": 4125,
+        "unit": "KG",
+        "delivery_date": "09/10/2024",
+        "material_code": "PA-032",
+        "customer_material_number": "8PA-032",
+        "internal_material": "0000000948"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 948.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "ADVANCED MOLDING SOLUTION",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "ENVALIOR B.V., URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "sold_to_address": "ENVALIOR B.V., URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "requested_delivery_date": "20/11/2024",
+      "po_number": "JATF16949",
+      "order_date": "20/11/2024",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": true,
+        "master_data_matches": [],
+        "matched_ship_to_id": "0088104000",
+        "suggestion_sold_to": "0088104000"
+      },
+      "ship_to_id": "4020013909",
+      "sold_to_id": "4020000140",
+      "customer_number": "4020013909",
+      "ship_to_name": "ADVANCED MOLDING SOLUTION",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020013909 - ADVANCED MOLDING SOLUTION",
+        "4020016270 - ADVANCE",
+        "4020006624 - ADVANCED MOLDING",
+        "4020006738 - ADVANCED MOLDING"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Stanyl TW341",
+        "quantity": 2750,
+        "unit": "KG",
+        "delivery_date": "20/11/2024",
+        "material_code": "PA-193",
+        "customer_material_number": "8PA-193",
+        "internal_material": "0000000961"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 961.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "rdine N. 2053",
+      "order_date": "25/10/2024",
+      "requested_delivery_date": "27/08/2024",
+      "customer_id_or_name": "ADVANCED MOLDING SOLUTION",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "URMONDERBAAN 22, 6167 RD GELEEN, THE NETHERLANDS",
+      "sold_to_address": "ENTE RICHIEDIMENTO ACQUISTI, SETTIMO VITTONE, ITALY",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020000140",
+      "customer_number": "4020013909",
+      "ship_to_id": "4020013909",
+      "ship_to_name": "ADVANCED MOLDING SOLUTION",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020013909 - ADVANCED MOLDING SOLUTION",
+        "4020016270 - ADVANCE",
+        "4020006624 - ADVANCED MOLDING",
+        "4020006738 - ADVANCED MOLDING"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2545",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "STANYL TW 371 NAT. (pa46 wear and friction) ID 966",
+        "quantity": 13750,
+        "unit": "KG",
+        "delivery_date": "25/10/2024",
+        "material_code": "PA-132",
+        "customer_material_number": "8PA-132",
+        "internal_material": "0000000966"
+      }
+    ],
+    "source_file": "Sold-to 4020000140 - Material 966.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "P177081",
+      "order_date": "31/10/2024",
+      "requested_delivery_date": null,
+      "customer_id_or_name": "Legrand Elektrik Sanayi A.S.",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "LEGRAND ELEKTRIK SANAYI A.S, Gebze Organize Sanayi Bolgesi",
+      "sold_to_address": "LEGRAND ELEKTRIK SANAYI A.S",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001469",
+      "customer_number": "4020001469",
+      "ship_to_id": "4020001469",
+      "ship_to_name": "Legrand Elektrik Sanayi A.S.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020039814 - LEGRAND Elektrik San. A.S."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "K222-PA00028BA-Z060R735:PA6GF30FR",
+        "quantity": 11000,
+        "unit": "KG",
+        "delivery_date": "27/01/2025",
+        "material_code": "K222-PA00028BA-Z060R735:PA6GF30FR",
+        "customer_material_number": "PA00028BA OLD",
+        "internal_material": "0000032814"
+      },
+      {
+        "material_description": "PA00136BA-Z065R735:PA6-GF25FR",
+        "quantity": 20000,
+        "unit": "KG",
+        "delivery_date": "14/03/2025",
+        "material_code": "PA00136BA-Z065R735:PA6-GF25FR",
+        "customer_material_number": "PA00136BA",
+        "internal_material": "0000042143"
+      },
+      {
+        "material_description": "900661200-Z050R735:PA6-MD25 ULTRAFLOW K-FKMV5/CKN.00.73",
+        "quantity": 15000,
+        "unit": "KG",
+        "delivery_date": "20/01/2025",
+        "material_code": "900661200-Z050R735:PA6-MD25 ULTRAFLOW K-FKMV5/CKN.00.73",
+        "customer_material_number": "900661200",
+        "internal_material": "0000044141"
+      }
+    ],
+    "source_file": "Sold-to 4020001469 - Material 32814+42143+44141.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "P176476",
+      "order_date": "15/10/2024",
+      "requested_delivery_date": "02/12/2024",
+      "customer_id_or_name": "Legrand Elektrik Sanayi A.S.",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "LEGRAND ELEKTRIK SANAYI A.S, Gebze Organize Sanayi Bolgesi",
+      "sold_to_address": "ENVALIOR B.V.",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001469",
+      "customer_number": "4020001469",
+      "ship_to_id": "4020001469",
+      "ship_to_name": "Legrand Elektrik Sanayi A.S.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020039814 - LEGRAND Elektrik San. A.S."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "PA00028BA",
+        "quantity": 11000,
+        "unit": "KG",
+        "delivery_date": "02/12/2024",
+        "material_code": "Z060R735:PA6GF30FR",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020001469 - Material 32814.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "P176477",
+      "order_date": "15/10/2024",
+      "requested_delivery_date": null,
+      "customer_id_or_name": "Legrand Elektrik Sanayi A.S.",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "LEGRAND ELEKTRIK SANAYI A.S, Gebze Organize Sanayi Bolgesi",
+      "sold_to_address": null,
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001469",
+      "customer_number": "4020001469",
+      "ship_to_id": "4020001469",
+      "ship_to_name": "Legrand Elektrik Sanayi A.S.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020039814 - LEGRAND Elektrik San. A.S."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "PA00136BA",
+        "quantity": 72000,
+        "unit": "EUR",
+        "delivery_date": "25/11/2024",
+        "material_code": "Z065R735:PA6-GF25FR",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020001469 - Material 42143.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "P175040",
+      "order_date": "13/09/2024",
+      "requested_delivery_date": null,
+      "customer_id_or_name": "Legrand Elektrik Sanayi A.S.",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "LEGRAND ELEKTRIK SANAYI A.S, Gebze Organize Sanayi Bolgesi",
+      "sold_to_address": null,
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001469",
+      "customer_number": "4020001469",
+      "ship_to_id": "4020001469",
+      "ship_to_name": "Legrand Elektrik Sanayi A.S.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020039814 - LEGRAND Elektrik San. A.S."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Z050R735:PA6-MD25 ULTRAFLOW",
+        "quantity": 15000,
+        "unit": "KG",
+        "delivery_date": "04/03/2025",
+        "material_code": "60300 EUR",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020001469 - Material 44141.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "P172126",
+      "order_date": "22/07/2024",
+      "requested_delivery_date": null,
+      "customer_id_or_name": "Legrand Elektrik Sanayi A.S.",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "LEGRAND ELEKTRIK SANAYI A.S",
+      "sold_to_address": "ENVALIOR B.V.",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001469",
+      "customer_number": "4020001469",
+      "ship_to_id": "4020001469",
+      "ship_to_name": "Legrand Elektrik Sanayi A.S.",
+      "ship_to_selection_method": "fuzzy_match",
+      "ship_to_confidence": 0.96,
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "PA6 NATURAL (Z009)",
+        "quantity": 22000,
+        "unit": "KG",
+        "delivery_date": "04/11/2024",
+        "material_code": "70620 EUR",
+        "customer_material_number": null,
+        "internal_material": null
+      },
+      {
+        "material_description": "Z031 PPS(MIN/GF) 65 NATURAL",
+        "quantity": 3000,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "P000117AA",
+        "customer_material_number": "P000117AA",
+        "internal_material": "0000035359"
+      }
+    ],
+    "source_file": "Sold-to 4020001469 - Material 5953+35359.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "P176469",
+      "order_date": "30/10/2024",
+      "requested_delivery_date": "03/03/2025",
+      "customer_id_or_name": "Legrand Elektrik Sanayi A.S.",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "LEGRAND ELEKTRIK SANAYI A.S, Gebze Organize Sanayi Bolgesi",
+      "sold_to_address": "ENVALIOR B.V.",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020001469",
+      "customer_number": "4020001469",
+      "ship_to_id": "4020001469",
+      "ship_to_name": "Legrand Elektrik Sanayi A.S.",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020001469 - Legrand Elektrik Sanayi A.S.",
+        "4020039814 - LEGRAND Elektrik San. A.S."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "PA6 NATURAL (Z009)",
+        "quantity": 11000,
+        "unit": "KG",
+        "delivery_date": "03/03/2025",
+        "material_code": "DINA99001180106",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020001469 - Material 5953.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "1242188",
+      "order_date": "23/05/24",
+      "requested_delivery_date": null,
+      "customer_id_or_name": "ABB Cable Management Products Ltd",
+      "vendor_name": "ENVALIOR BV",
+      "ship_to_address": "Station Road, Coleshill, BIRMINGHAM, UK",
+      "sold_to_address": "ABB Cable Management Products Ltd., COLESHILL, Birmingham, UK",
+      "sold_to_id": "4020028890",
+      "customer_number": "4020028890",
+      "ship_to_id": "4020032008",
+      "ship_to_name": "RAPID COLOUR SERVICES LTD",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032008 - RAPID COLOUR SERVICES LTD",
+        "4020027997 - Thomas and Betts Corporation",
+        "4020027981 - Thomas & Betts Co",
+        "4020028890 - ABB Cable Management Products Ltd",
+        "4020025971 - TSK - Bad Kissingen GmbH & Co, KG-W"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "RNY0 3NAT",
+        "quantity": 8000,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "K225-KS",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020028890 - Material 40696.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "ABB",
+      "vendor_name": "ENVALIOR BV",
+      "ship_to_address": "Station Road, Coleshill, Birmingh, B46 1HT, UK",
+      "sold_to_address": "Coleshill, Birmingh, B46 1HT, UK",
+      "requested_delivery_date": "13/01/25",
+      "po_number": "40220",
+      "order_date": "24/10/2024",
+      "sold_to_id": "4020028890",
+      "customer_number": "4020032716",
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "RCPE NATURAL UM551-V",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "RCPE02NAT",
+        "customer_material_number": "RCPE02NAT",
+        "internal_material": "0000041450"
+      },
+      {
+        "material_description": "RNY03NAT",
+        "quantity": 8250,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "RNY03NAT",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020028890 - Material 41450+40696.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "ABB",
+      "vendor_name": "ENVALIOR BV",
+      "ship_to_address": "GELEEN, Station Road, 6160 BB, Geleen, West Midlands, GB 6160 BB",
+      "sold_to_address": "ABB Cable Management Products Ltd, Coleshill, Coleshill, Birmingham, B46 1HT, GB B46 1HT",
+      "requested_delivery_date": "22/10/24",
+      "po_number": "1271104",
+      "order_date": "22/10/24",
+      "sold_to_id": "4020028890",
+      "customer_number": "4020032716",
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "NYLON COMPOUND (NATURAL)",
+        "quantity": 22000,
+        "unit": "kg",
+        "delivery_date": null,
+        "material_code": "RNY01NAT",
+        "customer_material_number": "RNY01NAT",
+        "internal_material": "0000008756"
+      },
+      {
+        "material_description": "FIRE RETARDANT PA6 DSM K225-KS",
+        "quantity": 24000,
+        "unit": "kg",
+        "delivery_date": null,
+        "material_code": "RNY03NAT",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020028890 - Material 8756+40696.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "1263152",
+      "order_date": "14/11/24",
+      "requested_delivery_date": "28/11/24",
+      "customer_id_or_name": "ABB",
+      "vendor_name": "ENVALIOR BV",
+      "ship_to_address": "Station Road, Coleshill, Birmingh, West Midlands, GB B46 1HT",
+      "sold_to_address": "Coleshill, Birmingh, West Midlands, GB B46 1HT",
+      "sold_to_id": "4020028890",
+      "customer_number": "4020032716",
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "NYLON COMPOUND (NATURAL)",
+        "quantity": 77814,
+        "unit": "kg",
+        "delivery_date": "28/11/24",
+        "material_code": "RNY01NAT",
+        "customer_material_number": "RNY01NAT",
+        "internal_material": "0000008756"
+      }
+    ],
+    "source_file": "Sold-to 4020028890 - Material 8756+8756+8756.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "ABB Cable Management Products Ltd",
+      "vendor_name": "ENVALIOR BV",
+      "ship_to_address": "Station Road, Coleshill, Birmingh, West Midlands, GB B46 1HT",
+      "sold_to_address": "ABB Cable Management Products Ltd., Coleshill, Birmingh, West Midlands, GB B46 1HT",
+      "requested_delivery_date": "11/06/24",
+      "po_number": "1245919",
+      "order_date": "11/06/24",
+      "sold_to_id": "4020028890",
+      "customer_number": "4020028890",
+      "ship_to_id": "4020032008",
+      "ship_to_name": "RAPID COLOUR SERVICES LTD",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032008 - RAPID COLOUR SERVICES LTD",
+        "4020027997 - Thomas and Betts Corporation",
+        "4020027981 - Thomas & Betts Co",
+        "4020028890 - ABB Cable Management Products Ltd",
+        "4020025971 - TSK - Bad Kissingen GmbH & Co, KG-W"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "RNY01NAT",
+        "quantity": 22000,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "Supplier material ref. F136-DH",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020028890 - Material 8756.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "66090712 OP",
+      "order_date": "03/10/24",
+      "requested_delivery_date": "28/11/24",
+      "customer_id_or_name": "Parker Hannifin EMEA Sàrl",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "ENVALIOR B.V, URMONDERBAAN 22, ZI EST, Transpo: Delivery Duty Paid, 6167 RD GEELEN, BP 70049, Netherlands",
+      "sold_to_address": "Parker Hannifin Manufacturing France SAS, URMONDERBAAN 22, ZI EST, France",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020030130",
+      "customer_number": "4020030130",
+      "ship_to_id": "4020031828",
+      "ship_to_name": "Parker Hannifin Manufacturing",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020031828 - Parker Hannifin Manufacturing",
+        "4020033858 - DEDIENNE ATLANTIQUE",
+        "4020022043 - Parker Hannifin Europe Sarl Lu",
+        "4020030130 - Parker Hannifin EMEA Sàrl"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "ARNITEL EM 630 H",
+        "quantity": 1200,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "ARNITEL EM 630 H",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020030130 - Material 17263.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "66090667 OP",
+      "order_date": "2/10/24",
+      "requested_delivery_date": "30/09/24",
+      "customer_id_or_name": "Parker Hannifin EMEA Sàrl",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "ENVALIOR B.V, Netherlands",
+      "sold_to_address": "Parker Hannifin EMEASàrl, Switzerland",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020030130",
+      "customer_number": "4020030130",
+      "ship_to_id": "4020031828",
+      "ship_to_name": "Parker Hannifin Manufacturing",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020031828 - Parker Hannifin Manufacturing",
+        "4020033858 - DEDIENNE ATLANTIQUE",
+        "4020022043 - Parker Hannifin Europe Sarl Lu",
+        "4020030130 - Parker Hannifin EMEA Sàrl"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "ARNITEL EM 630",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "ARNITEL EM 630",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020030130 - Material 40670.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "Parker Hannifin EMEA Sàrl",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "ENVALIOR B.V",
+      "sold_to_address": "Parker Hannifin EMEA Sàrl",
+      "requested_delivery_date": "02/12/24",
+      "po_number": "S.O No.",
+      "order_date": "07/10/24",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020030130",
+      "customer_number": "4020030130",
+      "ship_to_id": "4020031828",
+      "ship_to_name": "Parker Hannifin Manufacturing",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020031828 - Parker Hannifin Manufacturing",
+        "4020033858 - DEDIENNE ATLANTIQUE",
+        "4020022043 - Parker Hannifin Europe Sarl Lu",
+        "4020030130 - Parker Hannifin EMEA Sàrl"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "ARNITEL PM581/X NATURAL according to PFDE-ES31",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": "02/12/24",
+        "material_code": "AAPP0110",
+        "customer_material_number": "AAPP0110",
+        "internal_material": "0000000812"
+      },
+      {
+        "material_description": "ARNITEL PM581/X NATURAL according to PFDE-ES31",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": "02/12/24",
+        "material_code": "AAPP0110",
+        "customer_material_number": "AAPP0110",
+        "internal_material": "0000000812"
+      },
+      {
+        "material_description": "ARNITEL PM581/X NATURAL according to PFDE-ES31",
+        "quantity": 1250,
+        "unit": "KG",
+        "delivery_date": "02/12/24",
+        "material_code": "AAPP0110",
+        "customer_material_number": "AAPP0110",
+        "internal_material": "0000000812"
+      }
+    ],
+    "source_file": "Sold-to 4020030130 - Material 812.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "4500289843",
+      "order_date": "23/09/2025",
+      "requested_delivery_date": "22/10/2025",
+      "customer_id_or_name": "WIPAK",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Wipak Walsrode GmbH, Bahnhofstrae 13, DE-29699 WALSRODE, GERMANY",
+      "sold_to_address": "Wipak Walsrode GmbH, Bahnhofstrae 13, DE-29699 WALSRODE, GERMANY",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088108006"
+      },
+      "sold_to_id": "4020036739",
+      "customer_number": "4020002543",
+      "ship_to_id": "4020002543",
+      "ship_to_name": "WIPAK",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.08,
+      "review_required": true,
+      "ship_to_options": [
+        "4020002543 - WIPAK",
+        "4020002543 - WIPAK"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "KB",
+      "so_grouping_rule": "O"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon XS36-C1",
+        "quantity": 22000,
+        "unit": "KG",
+        "delivery_date": "22/10/2025",
+        "material_code": "510000302",
+        "customer_material_number": "510000302",
+        "internal_material": "0000038779"
+      }
+    ],
+    "source_file": "Wipak Walsrode (Sold-to 4020036739 - Material 38779) - ORDER TYPE KB.PDF",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "requested_delivery_date": "1/1/22",
+      "po_number": "37666",
+      "order_date": "24/10/22",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon K224-G6 natur (PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "25/01/21",
+        "material_code": "5208",
+        "customer_material_number": "5208 EMMEN",
+        "internal_material": "0000019277"
+      },
+      {
+        "material_description": "30% GF NA99001/71104",
+        "quantity": 12,
+        "unit": "pcs",
+        "delivery_date": "25/01/21",
+        "material_code": "3000",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 19277.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37666\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-10-22\n24-10-22\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nPrice each\n%\nAmount\nPos. Part no.\nName\nDel. date\nQuantity\n4 125,00 KG\n3,04\n12 540,00\n10\n5208\nAkulon K224-G6 natur (PA6)\n25-01-21\nYour part number: 0000046469 (19277)\n30% GF NA99001/71104\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n12 540,00\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "header_fields": {
+      "po_number": "37668",
+      "order_date": "01/01/2022",
+      "requested_delivery_date": "24/10/22",
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "STEBRO PLAST AB, Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "STEBRO PLAST AB, Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.22,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon K224-TG9 natur (PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "24/11/26",
+        "material_code": "5427",
+        "customer_material_number": "5427",
+        "internal_material": "0000019417"
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 19417.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37668\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-10-22\n24-10-22\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nQuantity\nPrice each\n%\nAmount\nPos.\nPart no.\nName\nDel. date\n4 125,00 KG\n3,13\n12 911,25\n10\n5427\nAkulon K224-TG9 natur (PA6)\n24-11-26\nYour part number: 19417\n45% GF NA99001/71104\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n12 911,25\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "requested_delivery_date": "1/1/2022",
+      "po_number": "37667",
+      "order_date": "24/10/22",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon K-FG0-FCUltraflow nat(PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "25/01/14",
+        "material_code": "5440",
+        "customer_material_number": "5440",
+        "internal_material": "0000019497"
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 19497.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37667\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-10-22\n24-10-22\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nQuantity\nPrice each\n%\nAmount\nPos.\nPart no.\nName\nDel. date\n4 125,00 KG\n4,10\n16 912,50\n10\n5440\nAkulon K-FG0-FCUltraflow nat(PA6)\n25-01-14\nYour part number: 19497\nNA99001/71104\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n16 912,50\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "requested_delivery_date": "24-10-22",
+      "po_number": "37669",
+      "order_date": "24-10-22",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon F232-D natur (PA6)",
+        "quantity": 125,
+        "unit": "KG",
+        "delivery_date": "25-01-28",
+        "material_code": "5245",
+        "customer_material_number": "5245",
+        "internal_material": "0000020413"
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 20413.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37669\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-10-22\n24-10-22\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nPrice each\n%\nAmount\nPos.\nPart no.\nName\nDel. date\nQuantity\n4 125,00 KG\n3,13\n12 911,25\n10\n5245\nAkulon F232-D natur (PA6)\n25-01-28\nYour part number: 20413\nNA99001/71104 AD\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n12 911,25\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "requested_delivery_date": "1/1/2024",
+      "po_number": "37534",
+      "order_date": "24-10-07",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon K224-G3 natur (PA6)",
+        "quantity": 300,
+        "unit": "KG",
+        "delivery_date": null,
+        "material_code": "5143",
+        "customer_material_number": "5143 EMMEN",
+        "internal_material": "0000028645"
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 28645.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37534\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-10-07\n24-10-07\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nName\nDel. date\nQuantity\nPrice each\n%\nAmount\nPos. Part no.\n25-01-28\n3 300,00 KG\n3,11\n10 263,00\n10\n5143\nAkulon K224-G3 natur (PA6)\nYour part number: 50018\n15% GF\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n10 263,00\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "requested_delivery_date": "24-11-05",
+      "po_number": "37774",
+      "order_date": "1/1/2025",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "Akulon K224-PG3 natur (PA6)",
+        "quantity": 600,
+        "unit": "KG",
+        "delivery_date": "25-02-25",
+        "material_code": "5343",
+        "customer_material_number": "5343",
+        "internal_material": "0000029476"
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 29476.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37774\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-11-05\n24-11-05\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nName\nDel. date\nQuantity\nPrice each\n%\nAmount\nPos.\nPart no.\n25-02-25\n6 600,00 KG\n3,46\n22 836,00\n10\n5343\nAkulon K224-PG3 natur (PA6)\nYour part number: 29476\n15% GF NA99001/71109\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n22 836,00\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "STEBRO PLAST AB",
+      "vendor_name": "Envalior B.V.",
+      "ship_to_address": "Verktygsgatan 1, PO Box 1077, Port 1, 6160 BB Geleen",
+      "sold_to_address": "Verktygsgatan 1, Gislaved, 333 92 BROARYD",
+      "requested_delivery_date": "24-10-07",
+      "po_number": "37539",
+      "order_date": "24-10-07",
+      "vendor_id": "0088104000",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088104000",
+        "suggestion_ship_to": "0088104025"
+      },
+      "sold_to_id": "4020032023",
+      "customer_number": "4020032023",
+      "ship_to_id": "4020032023",
+      "ship_to_name": "STEBRO PLAST AB",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020032023 - STEBRO PLAST AB",
+        "4020041677 - Sebro Plastics Inc."
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2500",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "D Neukleringsmedel K-MB UF IM",
+        "quantity": 700,
+        "unit": "KG",
+        "delivery_date": "25-03-18",
+        "material_code": "10",
+        "customer_material_number": null,
+        "internal_material": null
+      }
+    ],
+    "source_file": "Sold-to 4020032023 - Material 8947.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "Stebro\nPlast\nPurcnase order\nOrder number\nSupplier number\nPage\n37539\n2238\n1/1\nSTEBRO GROUP\nOrder date\nPrintout date\n24-10-07\n24-10-07\nYour VAT reg. no.\nYour quote no.\nOur cust. no.\nOur reference\nYour reference\nNL004184543B01\nAnna Stenberg\nDelivery address\nMailing address\nSTEBRO PLAST AB\nEnvalior B.V\nVerktygsgatan 1\nPO Box 1077\nPort 1\n6160 BB Geleen\n333 92 BROARYD\nTHE NETHERLANDS\nSWEDEN\nDelivery terms\nPayment terms\nCIP Broaryd\n60 days net\nDelivery method\nTruck\nCustomer no., shipping agent\nDel. date = Arrival at our warehouse\nName\nDel. date\nQuantity\nPrice each\n%\nAmount\nPos.\nPart no.\n10\n5641\nD Neukleringsmedel K-MB UF IM\n25-03-18\n700,00 KG\n3,73\n2611,00\nAkulon K-MB UF IM 99.99.99\n3.1 certifikat skall bifogas leveransen, tack. / 3.1 certificate must be attached to the delivery, thank you.\nTotal excl. VAT (EUR)\n2 611,00\nMailing address\nVisiting address\nCorp. ID:\n556558-2987\nSTEBRO PLAST AB\nSTEBRO PLAST AB\nVAT reg. no.: SE556558298701\nVerktygsgatan 1\nVerktygsgatan 1\nDomicile:\nGislaved\n333 92 BROARYD\n333 92 BROARYD\nPhone:\n+46(0)371-583230\nBIC\nNDEASESS\nSWEDEN\nSWEDEN\nIBAN:\nSE8895000099601808155640\ninfo@stebro.se\nwww.stebro.se\nApproved for F-tax\nNordea Bank ABP 105 71 Stockh"
+  },
+  {
+    "error": "No JSON found",
+    "raw": "{\n  \"reasoning\": \"Header is 'ecoform Multifol GmbH + Co.KG' -> Customer. Addressed to 'Envalior B.V.' -> Vendor. Found 'PURCHASING' -> Customer. Found 'VAT registration' -> Vendor. Found 'PURCHASING' ",
+    "header_fields": {
+      "po_number": "4674421",
+      "order_date": "26.11.2025"
+    },
+    "source_file": "SÜDPACK-Bestellung4674421,vom26.11.2025_20260212081032.720_X.pdf",
+    "ocr_engine": "paddleocr",
+    "raw_text": "ecororm\nmultifol\nPurchase order\n4674421 from 26.11.2025\nPage\n1 of\n3\necoform Multifol GmbH + Co.KG, Ecoformstrasse 1, 88416, Erlenmoos, DE\nPURCHASING\nEnvalior B.V.\nUrmonderbaan 22\nContact person\nMelanie Miller\n6167 RD GELEEN\nTelephone\n+49 7352 925 1182\nNIEDERLANDE\nE-Mail\nMelanie.Miller@suedpack.com\nVAT registration\nDE144892635\nnumber\nVENDOR\nYour vendor no.\n615315\nDELIVERY ADDRESS\nINVOICE ADDRESS\nDachser SE - Heimertingen\necoform Multifol Verpackungsfolien\nWarehouse Südpack\nGmbH + Co.KG\nGrüntenstr. 6\nEcoformstrasse 1\n87751 HEIMERTINGEN\n88416 ERLENMOOS\nDUITSLAND\nDUITSLAND\nTERMS OF PAYMENT\n14 days 3% discount, 30 days net\nCurrency\nEUR\nDELIVERY CONDITIONS (INCOTERMS 2010)\nCPT\nARRIVAL TIMES\nDachser SE - Heimertingen opening hours:\nMonday - Friday:\n08:00 - 03:00 pm\nTimeslot-Bookings under www.cargoclix.com/dachser-memmingen\nuse keyword: ecoform\nIn the future, please send your invoices with the order number to the following e-mail address: credit.sp@suedpack.com\nNote: Please send us only one attachment per e-mail!\nWe are pleased to place our order according to our general terms of purchase.\nItem\nMaterial\nDescription\n00010\n8305516\nPA-AKULON F132-E1\nOCTABIN DSM\nOrder quantity\nUnit\n22,000\nKilogram\nDelivery date Day 11.12.2025\nManufacturing details\necoform Multifol\nMANAGEMENT\nBANK DETAILS\nCOMMERCIAL REGISTER ULM\nVerpackungsfolien GmbH & Co. KG\nThorsten Seehars\nBaden-Württembergische Bank\nHRA 640740\nEcoformstrae 1\nCarolin Grimbacher\nBIC\nSOLADEST600\nTax no. 54002 / 00277\n88416 Erlenmoos | Germany\nAndreas Braun\nIBAN DE55 6005 0101 0004 4727 06\nGeneral Partner\nPhone +49 (0)7352 925 - 01\necoform Multifol Verpackungsfolien\nFax\n+49 (0)7352 925 - 1299\nVerwaltungs GmbH, Erlenmoos\nCommercial Register Ulm 640720\ninfo@suedpack.com\nwww.suedpack.com\nVAT NUMBER DE 144 892 635"
+  }
+]

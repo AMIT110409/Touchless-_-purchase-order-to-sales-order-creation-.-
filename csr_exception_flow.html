@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSR Exception Flow</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  width:100%;height:100%;overflow:hidden;
+  font-family:'Inter',sans-serif;
+  background:#0d1623;color:#e2e8f0;
+}
+
+/* ── SHELL ─────────────────────────────────────────────────── */
+.shell{
+  width:100vw;height:100vh;
+  display:flex;flex-direction:column;
+  padding:14px 18px 12px;
+  gap:10px;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────── */
+.hdr{text-align:center;flex-shrink:0}
+.hdr h1{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.2px}
+.hdr p{font-size:11px;color:#475569;margin-top:2px}
+
+/* ── MAIN ROW (the whole diagram) ───────────────────────────── */
+.diagram{
+  flex:1;
+  display:flex;
+  align-items:center;
+  gap:0;
+  min-height:0;
+}
+
+/* ── SHARED SPINE (left section) ────────────────────────────── */
+.spine{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+  gap:0;
+}
+
+/* ── FORK SECTION (right section) ───────────────────────────── */
+.fork-wrap{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  gap:10px;
+  min-width:0;
+}
+
+.fork-path{
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+
+/* ── GENERIC NODE ───────────────────────────────────────────── */
+.nd{
+  border-radius:9px;
+  padding:9px 13px;
+  font-size:11px;
+  line-height:1.45;
+  text-align:center;
+  flex-shrink:0;
+  white-space:pre-line;
+}
+.lbl{
+  font-size:8.5px;font-weight:700;letter-spacing:.7px;
+  text-transform:uppercase;opacity:.7;display:block;margin-bottom:3px;
+}
+
+/* colour variants */
+.c-blue  {background:linear-gradient(135deg,#1e3a5f,#1a4a7a);border:1.5px solid #3b82f6;color:#93c5fd}
+.c-purple{background:linear-gradient(135deg,#2d1b4e,#3d1f5e);border:1.5px solid #8b5cf6;color:#c4b5fd}
+.c-slate {background:#1e293b;border:1.5px solid #334155;color:#cbd5e1}
+.c-red   {background:linear-gradient(135deg,#3b0d0d,#4c1515);border:1.5px solid #dc2626;color:#fca5a5}
+.c-amber {background:#2d1000;border:1.5px dashed #f97316;color:#fdba74;font-size:10.5px}
+.c-green {background:linear-gradient(135deg,#052e16,#064e24);border:1.5px solid #16a34a;color:#86efac}
+.c-gsys  {background:linear-gradient(135deg,#1e3a5f,#1a4a7a);border:1.5px solid #3b82f6;color:#93c5fd}
+.c-gwin  {background:linear-gradient(135deg,#052e16,#073d1c);border:2px solid #22c55e;color:#4ade80;font-weight:600}
+
+/* ── DIAMOND ───────────────────────────────────────────────── */
+.diamond-wrap{
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  width:100px;height:100px;
+}
+.diamond{
+  width:84px;height:84px;
+  background:linear-gradient(135deg,#1c3040,#0f2b3d);
+  border:2px solid #38bdf8;
+  transform:rotate(45deg);
+  display:flex;align-items:center;justify-content:center;
+}
+.diamond-in{
+  transform:rotate(-45deg);
+  text-align:center;width:80px;
+}
+.diamond-in .lbl{color:#7dd3fc;font-size:8px}
+.diamond-in span{font-size:11px;font-weight:700;color:#e0f2fe;line-height:1.3}
+
+/* ── ARROWS ─────────────────────────────────────────────────── */
+/* Horizontal arrow connector */
+.arr{
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.arr-line{
+  height:2px;
+  display:flex;align-items:center;
+  position:relative;
+}
+.arr-line::after{
+  content:'';
+  position:absolute;right:-1px;top:50%;transform:translateY(-50%);
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+}
+.arr-grey .arr-line{background:#334155}
+.arr-grey .arr-line::after{border-left:8px solid #334155}
+
+.arr-red .arr-line{background:#dc2626}
+.arr-red .arr-line::after{border-left:8px solid #dc2626}
+
+.arr-green .arr-line{background:#16a34a}
+.arr-green .arr-line::after{border-left:8px solid #16a34a}
+
+/* Arrow with label */
+.arr-lbl{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  font-size:8.5px;font-weight:700;letter-spacing:.4px;
+  padding:1px 7px;border-radius:8px;white-space:nowrap;
+}
+.lbl-yes{background:#7f1d1d;color:#fca5a5}
+.lbl-no {background:#14532d;color:#86efac}
+
+/* Fork arrow: vertical connector from diamond to two rows */
+.fork-connector{
+  flex-shrink:0;
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:0;
+  position:relative;
+  width:56px;
+}
+.fork-vert{
+  width:2px;
+  flex:1;
+  min-height:0;
+}
+.fv-red  {background:#dc2626}
+.fv-green{background:#16a34a}
+
+.fork-horiz{
+  height:2px;
+  position:relative;
+  display:flex;align-items:center;
+}
+.fork-horiz::after{
+  content:'';
+  position:absolute;right:-1px;top:50%;transform:translateY(-50%);
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+}
+.fh-red  {background:#dc2626}
+.fh-red::after{border-left:8px solid #dc2626}
+.fh-green{background:#16a34a}
+.fh-green::after{border-left:8px solid #16a34a}
+
+/* The vertical bar that connects top fork to bottom fork */
+.vert-stem{
+  width:2px;
+  background:#334155;
+  position:absolute;
+  left:0;
+}
+
+/* ── PATH BADGE ─────────────────────────────────────────────── */
+.path-badge{
+  flex-shrink:0;
+  font-size:9px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;
+  padding:4px 10px;border-radius:14px;margin-right:6px;white-space:nowrap;
+}
+.badge-a{background:#7f1d1d;color:#fca5a5;border:1px solid #ef4444}
+.badge-b{background:#14532d;color:#86efac;border:1px solid #22c55e}
+
+/* ── BOTTOM STRIP ───────────────────────────────────────────── */
+.strip{
+  display:flex;gap:8px;flex-shrink:0;
+}
+.sc{
+  flex:1;border-radius:8px;padding:8px 12px;font-size:10.5px;line-height:1.5;
+}
+.sc-a{background:#120505;border:1px solid #7f1d1d;color:#fca5a5}
+.sc-b{background:#021005;border:1px solid #14532d;color:#86efac}
+.sc-v{background:linear-gradient(135deg,#052e16,#073d1c);border:1.5px solid #22c55e;color:#d1fae5;flex:1.5}
+.sc .sh{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;opacity:.8;margin-bottom:3px;display:block}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <h1>📋 CSR Exception Handling — Process Flow &nbsp;(Left → Right)</h1>
+    <p>Two resolution paths · after exception email is received</p>
+  </div>
+
+  <!-- DIAGRAM -->
+  <div class="diagram">
+
+    <!-- ══ SHARED SPINE ════════════════════════════════════════ -->
+    <div class="spine">
+
+      <!-- Node 1: Trigger -->
+      <div class="nd c-blue" style="width:114px">
+        <span class="lbl">🔴 Trigger</span>
+        PO fails<br>to map<br><small style="opacity:.7;font-size:9.5px">missing material<br>/ unknown customer</small>
+      </div>
+
+      <!-- Arrow -->
+      <div class="arr arr-grey" style="width:28px">
+        <div class="arr-line" style="width:28px"></div>
+      </div>
+
+      <!-- Node 2: Email sent -->
+      <div class="nd c-purple" style="width:124px">
+        <span class="lbl">📧 System Action</span>
+        Exception email<br>sent to CSR<br><small style="opacity:.7;font-size:9.5px">PO PDF + reason<br>attached</small>
+      </div>
+
+      <!-- Arrow -->
+      <div class="arr arr-grey" style="width:28px">
+        <div class="arr-line" style="width:28px"></div>
+      </div>
+
+      <!-- Node 3: CSR reads -->
+      <div class="nd c-slate" style="width:110px">
+        <span class="lbl">👤 CSR Receives</span>
+        Reviews PO<br>details &amp;<br>failure reason
+      </div>
+
+      <!-- Arrow -->
+      <div class="arr arr-grey" style="width:28px">
+        <div class="arr-line" style="width:28px"></div>
+      </div>
+
+      <!-- Diamond -->
+      <div class="diamond-wrap">
+        <div class="diamond">
+          <div class="diamond-in">
+            <span class="lbl">Decision</span>
+            <span>Order<br>URGENT?</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /spine -->
+
+    <!-- ══ FORK CONNECTOR (vertical stem + two horizontal branches) ══ -->
+    <!-- We use a mini flex-column that holds the two branch-rows tightly -->
+    <div style="display:flex;flex-direction:column;flex-shrink:0;align-self:stretch;justify-content:center;width:60px;position:relative">
+
+      <!-- vertical stem from center going both ways -->
+      <div style="flex:1;display:flex;flex-direction:column">
+
+        <!-- Top half: goes UP then RIGHT to Path A -->
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start">
+          <!-- vertical segment going up -->
+          <div style="width:2px;flex:1;background:#dc2626;margin-left:0"></div>
+          <!-- horizontal segment going right with arrow -->
+          <div style="height:2px;width:58px;background:#dc2626;position:relative;align-self:flex-end">
+            <div style="position:absolute;right:-1px;top:50%;transform:translateY(-50%);
+                        border-top:5px solid transparent;border-bottom:5px solid transparent;
+                        border-left:8px solid #dc2626"></div>
+            <!-- YES label -->
+            <div style="position:absolute;top:-14px;left:4px;
+                        font-size:8.5px;font-weight:700;background:#7f1d1d;color:#fca5a5;
+                        padding:1px 6px;border-radius:8px;white-space:nowrap">YES — Urgent</div>
+          </div>
+        </div>
+
+        <!-- Center dot / junction -->
+        <div style="width:8px;height:8px;background:#475569;border-radius:50%;margin-left:-3px;flex-shrink:0"></div>
+
+        <!-- Bottom half: goes DOWN then RIGHT to Path B -->
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start">
+          <!-- vertical segment going down -->
+          <div style="width:2px;flex:1;background:#16a34a;margin-left:0"></div>
+          <!-- horizontal segment going right with arrow -->
+          <div style="height:2px;width:58px;background:#16a34a;position:relative;align-self:flex-end">
+            <div style="position:absolute;right:-1px;top:50%;transform:translateY(-50%);
+                        border-top:5px solid transparent;border-bottom:5px solid transparent;
+                        border-left:8px solid #16a34a"></div>
+            <!-- NO label -->
+            <div style="position:absolute;bottom:-14px;left:4px;
+                        font-size:8.5px;font-weight:700;background:#14532d;color:#86efac;
+                        padding:1px 6px;border-radius:8px;white-space:nowrap">NO — Fix it</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══ TWO FORK PATHS ════════════════════════════════════════ -->
+    <div class="fork-wrap">
+
+      <!-- ── PATH A (top row) ─────────────────────────────── -->
+      <div class="fork-path">
+
+        <div class="path-badge badge-a">⚡ Path A</div>
+
+        <div class="nd c-red" style="width:130px">
+          <span class="lbl">Step 1</span>
+          CSR opens SAP<br>Creates SO manually<br><small style="opacity:.7;font-size:9.5px">using PO PDF as ref</small>
+        </div>
+
+        <div class="arr arr-red" style="width:22px"><div class="arr-line" style="width:22px"></div></div>
+
+        <div class="nd c-red" style="width:120px">
+          <span class="lbl">Step 2</span>
+          Sales Order<br>created ✓<br><small style="opacity:.7;font-size:9.5px">customer served urgently</small>
+        </div>
+
+        <div class="arr arr-red" style="width:22px"><div class="arr-line" style="width:22px"></div></div>
+
+        <div class="nd c-amber" style="flex:1;min-width:0">
+          <span class="lbl">⚠️ But — Limitations</span>
+          <div style="display:flex;gap:10px;text-align:left;flex-wrap:wrap;font-size:10px">
+            <span>❌ No audit trail</span>
+            <span>❌ Robona not notified</span>
+            <span>❌ Root cause stays broken</span>
+            <span>❌ Same PO will fail again</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── PATH B (bottom row) ─────────────────────────── -->
+      <div class="fork-path">
+
+        <div class="path-badge badge-b">✅ Path B</div>
+
+        <div class="nd c-green" style="width:130px">
+          <span class="lbl">Step 1 — Fix Root Cause</span>
+          Add missing material<br>to SAP master data<br><small style="opacity:.7;font-size:9.5px">or update customer master</small>
+        </div>
+
+        <div class="arr arr-green" style="width:22px"><div class="arr-line" style="width:22px"></div></div>
+
+        <div class="nd c-green" style="width:120px">
+          <span class="lbl">Step 2 — Resubmit</span>
+          Forward PO email<br>to shared mailbox<br><code style="font-size:8.5px;opacity:.8">salesorders@...</code>
+        </div>
+
+        <div class="arr arr-green" style="width:22px"><div class="arr-line" style="width:22px"></div></div>
+
+        <div class="nd c-gsys" style="width:130px">
+          <span class="lbl">🤖 Pipeline Auto-Runs</span>
+          OCR → Extract<br>→ Map → Celonis<br><small style="opacity:.7;font-size:9.5px">resolves successfully now</small>
+        </div>
+
+        <div class="arr arr-green" style="width:22px"><div class="arr-line" style="width:22px"></div></div>
+
+        <div class="nd c-gwin" style="flex:1;min-width:0">
+          <span class="lbl">🎉 Full Success</span>
+          <div style="display:flex;gap:10px;text-align:left;flex-wrap:wrap;font-size:10.5px">
+            <span>✅ SO created in SAP automatically</span>
+            <span>✅ Robona RPA notified &amp; audit linked</span>
+            <span>✅ Future POs auto-process — zero CSR effort</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /fork-wrap -->
+
+  </div><!-- /diagram -->
+
+  <!-- BOTTOM STRIP -->
+  <div class="strip">
+    <div class="sc sc-a">
+      <span class="sh">⚡ Path A — When to use</span>
+      Only when the customer needs the order <strong>within the hour</strong> and fixing master data would take too long. Even then — fix root cause afterwards.
+    </div>
+    <div class="sc sc-b">
+      <span class="sh">✅ Path B — When to use</span>
+      <strong>All other cases.</strong> One fix → every future PO from that customer auto-processes. Exception volume drops over time.
+    </div>
+    <div class="sc sc-v">
+      <span class="sh">🏆 Recommendation</span>
+      <strong>Path B is the default.</strong> It maintains full audit trail, triggers Robona RPA, and fixes the underlying data gap permanently. Path A is the emergency-only fallback.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touchless Order Creation — 1 Month Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --surface: #111827;
+            --border: #1e2d45;
+            --green: #10b981;
+            --blue: #3b82f6;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --purple: #8b5cf6;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --dim: #4b5563;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); padding: 40px 24px; }
+
+        .header { text-align: center; margin-bottom: 36px; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.25);
+            color: var(--green); font-size: 11px; font-weight: 600; letter-spacing: .12em;
+            text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+        }
+        .eyebrow::before { content:''; width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+        h1 { font-size: 28px; font-weight: 700; letter-spacing: -.02em; }
+        h1 .green { color: var(--green); }
+        .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+        .timeline { max-width: 1100px; margin: 0 auto; }
+
+        .week {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+            padding: 24px 28px; margin-bottom: 16px;
+            display: grid; grid-template-columns: 220px 1fr; gap: 20px; align-items: start;
+        }
+
+        .week-header h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+        .week-header .dates { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+        .week-header .owner { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing:.08em; }
+
+        .tasks { display: flex; flex-direction: column; gap: 8px; }
+        .task {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(255,255,255,.03); border: 1px solid var(--border);
+            border-radius: 10px; padding: 10px 16px;
+        }
+        .task .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .task .label { font-size: 13px; flex: 1; }
+        .task .day { font-size: 11px; color: var(--muted); white-space: nowrap; }
+
+        .milestone {
+            background: var(--surface); border: 2px solid var(--green); border-radius: 16px;
+            padding: 20px 28px; text-align: center;
+        }
+        .milestone h3 { font-size: 18px; color: var(--green); }
+        .milestone p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+        .legend {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px;
+        }
+        .legend-item {
+            display: flex; align-items: center; gap: 8px;
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 5px 12px; border-radius: 8px; font-size: 12px; color: var(--muted);
+        }
+        .ldot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="eyebrow">Project Timeline</div>
+    <h1><span class="green">Touchless Order Creation</span> — 1 Month Plan</h1>
+    <p class="sub">Mar 24 – Apr 24, 2026 &middot; 4 Weeks + Buffer</p>
+</div>
+
+<div class="legend">
+    <div class="legend-item"><span class="ldot" style="background:#3b82f6"></span> Development</div>
+    <div class="legend-item"><span class="ldot" style="background:#8b5cf6"></span> Integration</div>
+    <div class="legend-item"><span class="ldot" style="background:#f59e0b"></span> Coordination</div>
+    <div class="legend-item"><span class="ldot" style="background:#ef4444"></span> UAT / Critical</div>
+    <div class="legend-item"><span class="ldot" style="background:#10b981"></span> Deployment</div>
+</div>
+
+<div class="timeline">
+
+    <!-- WEEK 1 -->
+    <div class="week">
+        <div class="week-header">
+            <h3>Week 1</h3>
+            <div class="dates">Mar 24 – Mar 28</div>
+            <div class="owner">MS Graph Email Integration</div>
+        </div>
+        <div class="tasks">
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">MSAL Authentication (Client Credentials Flow)</span><span class="day">Mon</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Email Fetching — Pull unread emails with PDF attachments</span><span class="day">Tue</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Attachment Download + Handoff to Extraction Pipeline</span><span class="day">Wed</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Email Archiving — Move processed emails via Graph API</span><span class="day">Thu</span></div>
+            <div class="task"><span class="dot" style="background:#f59e0b"></span><span class="label">End-to-End Testing: Inbox → Pull → Extract → Archive</span><span class="day">Fri</span></div>
+        </div>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week">
+        <div class="week-header">
+            <h3>Week 2</h3>
+            <div class="dates">Mar 31 – Apr 4</div>
+            <div class="owner">Exception Routing & CS Handoff</div>
+        </div>
+        <div class="tasks">
+            <div class="task"><span class="dot" style="background:#f59e0b"></span><span class="label">CS Email Routing via SAP ER Mapping</span><span class="day">Mon</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Failure Detection — Classify extraction/mapping errors</span><span class="day">Tue</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Email Forwarding — Send failed PO + error to CS Inbox</span><span class="day">Wed</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Celonis Error Handler — Catch push failures, route to CS</span><span class="day">Thu</span></div>
+            <div class="task"><span class="dot" style="background:#f59e0b"></span><span class="label">Exception Testing: Bad PDF, unknown customer, timeout</span><span class="day">Fri</span></div>
+        </div>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="week">
+        <div class="week-header">
+            <h3>Week 3</h3>
+            <div class="dates">Apr 7 – Apr 11</div>
+            <div class="owner">SAP PO Archiving & Integration</div>
+        </div>
+        <div class="tasks">
+            <div class="task"><span class="dot" style="background:#f59e0b"></span><span class="label">BAPI Coordination with Integration / Webmethods Team</span><span class="day">Mon</span></div>
+            <div class="task"><span class="dot" style="background:#8b5cf6"></span><span class="label">PDF Transfer: Azure Blob → SAP Application Server</span><span class="day">Tue</span></div>
+            <div class="task"><span class="dot" style="background:#8b5cf6"></span><span class="label">SO_DOCUMENT_INSERT_API1 — Attach PO to Sales Order</span><span class="day">Wed</span></div>
+            <div class="task"><span class="dot" style="background:#8b5cf6"></span><span class="label">SAP Output Config — SO Confirmation + Middleware Setup</span><span class="day">Thu</span></div>
+            <div class="task"><span class="dot" style="background:#f59e0b"></span><span class="label">Integration Testing: Full Happy Path End-to-End</span><span class="day">Fri</span></div>
+        </div>
+    </div>
+
+    <!-- WEEK 4 -->
+    <div class="week">
+        <div class="week-header">
+            <h3>Week 4</h3>
+            <div class="dates">Apr 14 – Apr 18</div>
+            <div class="owner">UAT & Sign-off</div>
+        </div>
+        <div class="tasks">
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">AI Feedback Loop — CS corrections update Knowledge Base</span><span class="day">Mon</span></div>
+            <div class="task"><span class="dot" style="background:#3b82f6"></span><span class="label">Alias Migration — Move CUSTOMER_ALIASES to DB table</span><span class="day">Tue</span></div>
+            <div class="task"><span class="dot" style="background:#ef4444"></span><span class="label">UAT Day 1 — Run all test scenarios with Client Team</span><span class="day">Wed</span></div>
+            <div class="task"><span class="dot" style="background:#ef4444"></span><span class="label">UAT Day 2 — Fix gaps, re-test failing scenarios</span><span class="day">Thu</span></div>
+            <div class="task"><span class="dot" style="background:#ef4444"></span><span class="label">UAT Sign-off — Gap Log finalized, client approval</span><span class="day">Fri</span></div>
+        </div>
+    </div>
+
+    <!-- BUFFER -->
+    <div class="week">
+        <div class="week-header">
+            <h3>Buffer</h3>
+            <div class="dates">Apr 21 – Apr 24</div>
+            <div class="owner">Production Deployment</div>
+        </div>
+        <div class="tasks">
+            <div class="task"><span class="dot" style="background:#10b981"></span><span class="label">Containerization (Dockerfile) + Azure Deployment</span><span class="day">Mon</span></div>
+            <div class="task"><span class="dot" style="background:#10b981"></span><span class="label">Production Smoke Test — 5 real POs through full pipeline</span><span class="day">Tue</span></div>
+            <div class="task"><span class="dot" style="background:#10b981"></span><span class="label">Documentation Handover + CS Team Training Session</span><span class="day">Wed</span></div>
+        </div>
+    </div>
+
+    <!-- MILESTONE -->
+    <div class="milestone">
+        <h3>🚀 GO-LIVE — April 24, 2026</h3>
+        <p>Full production deployment with automated email ingestion, exception routing, and SAP integration</p>
+    </div>
+
+</div>
+
+</body>
+</html>

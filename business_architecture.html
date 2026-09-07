@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envalior · Business Architecture</title>
+    <style>
+        :root {
+            --bg-color: #1e1e1e;
+            --box-bg: rgba(30,30,30,0.8);
+            --text-color: #f1f5f9;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            
+            --color-customer: #1e3a8a; /* Dark Blue */
+            --color-ai: #312e81; /* Indigo */
+            --color-celonis: #064e3b; /* Dark Green */
+            --color-sap: #1d4ed8; /* Blue */
+            --color-cs: #9a3412; /* Orange/Rust */
+            --color-white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: #10b981; /* Envalior Green */
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Legend */
+        .legend-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .l-customer { background-color: #60a5fa; }
+        .l-ai { background-color: #818cf8; }
+        .l-celonis { background-color: #34d399; }
+        .l-sap { background-color: #93c5fd; }
+        .l-cs { background-color: #fb923c; }
+
+        /* Flowchart Container */
+        .flow-container {
+            position: relative;
+            width: 1100px;
+            height: 750px;
+            background-color: #18191a;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 60px;
+        }
+
+        /* SVG Background for lines */
+        .flow-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .line {
+            fill: none;
+            stroke: #cbd5e1;
+            stroke-width: 1.5;
+        }
+        
+        .line-dashed {
+            fill: none;
+            stroke: #cbd5e1;
+            stroke-width: 1.5;
+            stroke-dasharray: 6 4;
+        }
+
+        .arrow {
+            fill: #cbd5e1;
+        }
+
+        /* Text Overlays for Lines */
+        .line-label {
+            position: absolute;
+            background: #18191a;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        /* HTML Nodes */
+        .node {
+            position: absolute;
+            z-index: 3;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .node:hover {
+            transform: scale(1.02);
+            cursor: default;
+        }
+
+        .node strong {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .node-customer { background-color: var(--color-customer); width: 180px; }
+        .node-inbox { background-color: var(--color-customer); width: 200px; border-radius: 40px / 20px; } /* Cylinder roughly */
+        
+        /* Cylinder effect for Database icons */
+        .db-shape {
+            border-radius: 50% / 15%;
+            position: relative;
+        }
+        .db-shape::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 30px;
+            border-radius: 50%;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            background: inherit;
+            filter: brightness(1.2);
+        }
+
+        .node-ai { background-color: var(--color-ai); width: 280px; }
+        .node-celonis { background-color: var(--color-celonis); width: 220px; }
+        .node-sap { background-color: var(--color-sap); width: 200px; }
+        .node-cs-inbox { background-color: var(--color-customer); width: 200px; }
+        .node-cs-team { background-color: var(--color-cs); width: 220px; }
+        
+        .node-robona { background-color: var(--bg-color); border-color: #64748b; width: 120px; padding: 10px; }
+        
+        .node-white { background-color: var(--color-white); width: 140px; height: 80px; padding: 0; }
+        
+        /* Celonis Logo inside white node */
+        .celonis-logo-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 800;
+            font-size: 1.5rem;
+            width: 100%;
+            height: 100%;
+        }
+        .c-icon {
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1><span>Envalior</span> · AI-Driven Purchase Order Workflow</h1>
+        <div class="subtitle">End-to-end extraction, business validation, SAP integration, and regional exception routing — powered by Azure + Celonis.</div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-item"><div class="legend-dot l-customer"></div> Customer / Inbox</div>
+        <div class="legend-item"><div class="legend-dot l-ai"></div> Azure AI Engine</div>
+        <div class="legend-item"><div class="legend-dot l-celonis"></div> Celonis Validation</div>
+        <div class="legend-item"><div class="legend-dot l-sap"></div> SAP EPP</div>
+        <div class="legend-item"><div class="legend-dot l-cs"></div> Manual / CS Team</div>
+    </div>
+
+    <div class="flow-container">
+        <!-- SVG lines layer -->
+        <svg class="flow-svg" viewBox="0 0 1100 750">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" class="arrow" />
+                </marker>
+            </defs>
+
+            <!-- 1. Sends PDF Format (Customer to Inbox) -->
+            <path class="line" d="M 550 95 L 550 145" marker-end="url(#arrowhead)" />
+            
+            <!-- 2. Graph API (Inbox to AI Engine) -->
+            <path class="line" d="M 550 225 L 550 270" marker-end="url(#arrowhead)" />
+
+            <!-- 3. Valid JSON (AI Engine left edge to Celonis top) -->
+            <path class="line" d="M 400 320 L 250 320 L 250 365" marker-end="url(#arrowhead)" />
+
+            <!-- 4. Triggers SO (Celonis to SAP EPP) -->
+            <path class="line" d="M 250 445 L 250 535" marker-end="url(#arrowhead)" />
+
+            <!-- 5. AI Failure (AI Engine right to CS Inbox) -->
+            <path class="line" d="M 700 320 L 800 320 L 800 480 L 610 480 L 610 535" marker-end="url(#arrowhead)" />
+
+            <!-- 6. Pickup (CS Inbox to CS Team) -->
+            <path class="line" d="M 550 615 L 550 635" marker-end="url(#arrowhead)" />
+
+            <!-- 7a. Request Fixed PO (CS Team to Customer) -->
+            <path class="line" d="M 770 670 L 980 670 L 980 65 L 640 65" marker-end="url(#arrowhead)" />
+
+            <!-- 7b. Retain Pipeline (CS Team to White Celonis to AI Engine) -->
+            <path class="line" d="M 740 635 L 740 540" marker-end="url(#arrowhead)" />
+            <path class="line" d="M 740 460 L 740 400 L 680 400" marker-end="url(#arrowhead)" />
+
+            <!-- 8. Attach Email (Robona dashed line to SAP EPP) -->
+            <path class="line-dashed" d="M 550 455 L 550 480 L 320 480 L 320 535" marker-end="url(#arrowhead)" />
+
+            <!-- 9. Validation Error (Celonis to CS Inbox) -->
+            <path class="line" d="M 330 420 L 480 545" marker-end="url(#arrowhead)" />
+
+        </svg>
+
+        <!-- Node 1: Customer -->
+        <div class="node node-customer" style="top: 30px; left: 460px;">
+            <strong>Customer / Buyer</strong>
+            Sends PO via Email
+        </div>
+
+        <!-- Node 2: Central Inbox -->
+        <div class="node node-inbox db-shape" style="top: 155px; left: 450px; height: 40px; padding-top: 30px;">
+            <strong>Central SO Inbox</strong>
+            salesorders@envalior.com
+        </div>
+
+        <!-- Node 3: AI Engine -->
+        <div class="node node-ai" style="top: 280px; left: 400px; padding-bottom: 30px;">
+            <strong>AI Solution Engine</strong>
+            Graph API + OCR + Claude LLM<br>&<br>Order type determination using<br>decision tree
+        </div>
+
+        <!-- Node 6: Robona (embedded bottom of AI engine visually) -->
+        <div class="node node-robona" style="top: 415px; left: 490px; border-radius: 6px;">
+            Robona
+        </div>
+
+        <!-- Node 4: Celonis -->
+        <div class="node node-celonis" style="top: 365px; left: 140px;">
+            <strong>Celonis Validation Core</strong>
+            Business Rules and Writeback
+        </div>
+
+        <!-- Node 5: SAP EPP -->
+        <div class="node node-sap db-shape" style="top: 535px; left: 150px; height: 40px; padding-top: 30px;">
+            <strong>SAP EPP</strong>
+            Master System of Records
+        </div>
+
+        <!-- Node 7: CS Inbox -->
+        <div class="node node-cs-inbox db-shape" style="top: 535px; left: 450px; height: 40px; padding-top: 30px;">
+            <strong>Regional CS Inbox</strong>
+            Exception Queue
+        </div>
+
+        <!-- Node 8: CS Team -->
+        <div class="node node-cs-team" style="top: 635px; left: 550px;">
+            <strong>Regional CS Team</strong>
+            Manual and Exception Handling
+        </div>
+
+        <!-- Node 9: White Celonis Box -->
+        <div class="node node-white" style="top: 460px; left: 670px;">
+            <div class="celonis-logo-box">
+                <div class="c-icon">c</div> celonis
+            </div>
+        </div>
+
+        <!-- Line Labels -->
+        <div class="line-label" style="top: 110px; left: 560px;">1. Sends PDF Format</div>
+        <div class="line-label" style="top: 240px; left: 370px;">2. Automated Pull via Graph API</div>
+        <div class="line-label" style="top: 295px; left: 270px;">3. Valid JSON Payload</div>
+        <div class="line-label" style="top: 470px; left: 110px;">4. Triggers SO Creation</div>
+        <div class="line-label" style="top: 400px; left: 740px;">5. AI Failure / Missing Mapping</div>
+        <div class="line-label" style="top: 595px; left: 390px;">6. Pickup Unprocessable PO</div>
+        <div class="line-label" style="top: 350px; left: 990px;">7a. Request Fixed PO</div>
+        <div class="line-label" style="top: 420px; left: 755px;">7b. Retain Pipeline</div>
+        <div class="line-label" style="top: 485px; left: 390px;">8. Attach Email</div>
+        <div class="line-label" style="top: 440px; left: 360px; transform: rotate(32deg);">9. Validation Error Summary</div>
+
+    </div>
+
+</body>
+</html>

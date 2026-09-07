@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touchless Order Creation — 5-Day Sprint Work Items</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: #f8fafc; color: #1e293b; padding: 32px 20px; }
+
+        .page { max-width: 960px; margin: 0 auto; }
+
+        .header { text-align: center; margin-bottom: 32px; }
+        .badge {
+            display: inline-block; background: #ecfdf5; border: 1px solid #6ee7b7;
+            color: #059669; font-size: 10px; font-weight: 700; letter-spacing: .1em;
+            text-transform: uppercase; padding: 4px 14px; border-radius: 100px; margin-bottom: 12px;
+        }
+        h1 { font-size: 24px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+        .sub { font-size: 13px; color: #64748b; }
+
+        /* Day Card */
+        .day-card {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
+            margin-bottom: 14px; overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,.04);
+        }
+        .day-header {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 20px; border-bottom: 1px solid #f1f5f9;
+        }
+        .day-num {
+            width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; font-weight: 700; color: #fff;
+        }
+        .day-info h3 { font-size: 14px; font-weight: 700; color: #0f172a; }
+        .day-info .date { font-size: 11px; color: #94a3b8; }
+        .day-info .tag {
+            display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: .06em;
+            text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-top: 3px;
+        }
+
+        .day-body { padding: 14px 20px; }
+        .task-list { list-style: none; padding: 0; }
+        .task-list li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 7px 0; border-bottom: 1px solid #f8fafc; font-size: 12px; line-height: 1.6;
+        }
+        .task-list li:last-child { border-bottom: none; }
+        .check { flex-shrink: 0; width: 16px; height: 16px; border: 2px solid #cbd5e1; border-radius: 4px; margin-top: 2px; }
+        .deliverable { font-size: 11px; color: #64748b; margin-top: 6px; padding-left: 26px; }
+        .deliverable strong { color: #334155; }
+
+        /* Color themes */
+        .c-purple { background: #7c3aed; }
+        .c-blue   { background: #2563eb; }
+        .c-green  { background: #059669; }
+        .c-amber  { background: #d97706; }
+        .c-red    { background: #dc2626; }
+
+        .t-summary   { background: #f5f3ff; color: #7c3aed; }
+        .t-arch      { background: #eff6ff; color: #2563eb; }
+        .t-dev       { background: #ecfdf5; color: #059669; }
+        .t-test      { background: #fffbeb; color: #d97706; }
+        .t-deploy    { background: #fef2f2; color: #dc2626; }
+
+        .footer { text-align: center; margin-top: 20px; font-size: 10px; color: #94a3b8; }
+
+        @media print {
+            body { padding: 10px; }
+            .day-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <div class="header">
+        <div class="badge">5-Day Sprint</div>
+        <h1>Touchless Order Creation — Work Items</h1>
+        <p class="sub">Mar 28 – Apr 3, 2026 &middot; Summary · Architecture · Development</p>
+    </div>
+
+    <!-- ── DAY 1 ── -->
+    <div class="day-card">
+        <div class="day-header">
+            <div class="day-num c-purple">D1</div>
+            <div class="day-info">
+                <h3>Project Summary & Documentation</h3>
+                <div class="date">Friday, Mar 28</div>
+                <span class="tag t-summary">Summary</span>
+            </div>
+        </div>
+        <div class="day-body">
+            <ul class="task-list">
+                <li><div class="check"></div> Finalize Executive Summary page (functional process, prerequisites, users, support model, data sources)</li>
+                <li><div class="check"></div> Update Touchless_Order_Creation_Documentation.docx with Section 08 — Change Log (LLM upgrade, alias system, Celonis push, Graph API)</li>
+                <li><div class="check"></div> Prepare client-ready email answering open queries (Steps 5, 7b, 8, 9, 10)</li>
+                <li><div class="check"></div> Review and finalize 1-month project timeline for stakeholder alignment</li>
+            </ul>
+            <div class="deliverable"><strong>Deliverables:</strong> Executive Summary HTML/PDF, Updated .docx, Client Email Draft, Timeline</div>
+        </div>
+    </div>
+
+    <!-- ── DAY 2 ── -->
+    <div class="day-card">
+        <div class="day-header">
+            <div class="day-num c-blue">D2</div>
+            <div class="day-info">
+                <h3>Architecture Finalization & Diagrams</h3>
+                <div class="date">Monday, Mar 31</div>
+                <span class="tag t-arch">Architecture</span>
+            </div>
+        </div>
+        <div class="day-body">
+            <ul class="task-list">
+                <li><div class="check"></div> Finalize End-to-End Architecture diagram (7-stage pipeline: Trigger → OCR → Enrichment → Mapping → Validation → Output → Exceptions)</li>
+                <li><div class="check"></div> Update client's process landscape with agreed changes (Steps 5, 8, 9 resolved)</li>
+                <li><div class="check"></div> Document exception routing flow — AI failures routed by SAP ER mapping to regional CS inboxes</li>
+                <li><div class="check"></div> Document PO archiving approach — SO_DOCUMENT_INSERT_API1 BAPI + middleware dependency</li>
+                <li><div class="check"></div> Architecture review with internal team before client presentation</li>
+            </ul>
+            <div class="deliverable"><strong>Deliverables:</strong> Final architecture_detailed.html, Updated process landscape, Exception flow document</div>
+        </div>
+    </div>
+
+    <!-- ── DAY 3 ── -->
+    <div class="day-card">
+        <div class="day-header">
+            <div class="day-num c-green">D3</div>
+            <div class="day-info">
+                <h3>MS Graph API — Email Ingestion Development</h3>
+                <div class="date">Tuesday, Apr 1</div>
+                <span class="tag t-dev">Development</span>
+            </div>
+        </div>
+        <div class="day-body">
+            <ul class="task-list">
+                <li><div class="check"></div> Install <code>msal</code> and <code>requests</code> libraries</li>
+                <li><div class="check"></div> Implement MSAL authentication using Client Credentials Flow (MS_GRAPH_CLIENT_ID, TENANT_ID, SECRET from .env)</li>
+                <li><div class="check"></div> Build email fetch function — GET /users/salesorders@envalior.com/mailFolders/Inbox/messages?$filter=hasAttachments</li>
+                <li><div class="check"></div> Build PDF attachment download and save to local processing folder</li>
+                <li><div class="check"></div> Build email archive function — POST /messages/{id}/move to "Processed" folder</li>
+                <li><div class="check"></div> Test authentication and email pull against live salesorders@envalior.com inbox</li>
+            </ul>
+            <div class="deliverable"><strong>Deliverables:</strong> graph_email_handler.py (auth + fetch + archive), Successful test log</div>
+        </div>
+    </div>
+
+    <!-- ── DAY 4 ── -->
+    <div class="day-card">
+        <div class="day-header">
+            <div class="day-num c-amber">D4</div>
+            <div class="day-info">
+                <h3>Exception Routing & Pipeline Integration</h3>
+                <div class="date">Wednesday, Apr 2</div>
+                <span class="tag t-dev">Development</span>
+            </div>
+        </div>
+        <div class="day-body">
+            <ul class="task-list">
+                <li><div class="check"></div> Build failure classification — detect OCR errors, unmatched customers, unmapped materials</li>
+                <li><div class="check"></div> Build sendMail function — forward failed PO + error summary to Regional CS inbox via Graph API</li>
+                <li><div class="check"></div> Integrate graph_email_handler.py with po_extraction_enhanced.py pipeline</li>
+                <li><div class="check"></div> Wire up end-to-end flow: Email Pull → Extract → Map → Celonis Push → Archive/Exception</li>
+                <li><div class="check"></div> Add CS email routing lookup using SAP ER mapping (Sales Org → CS inbox)</li>
+            </ul>
+            <div class="deliverable"><strong>Deliverables:</strong> Exception routing in graph_email_handler.py, Integrated pipeline_run.py</div>
+        </div>
+    </div>
+
+    <!-- ── DAY 5 ── -->
+    <div class="day-card">
+        <div class="day-header">
+            <div class="day-num c-red">D5</div>
+            <div class="day-info">
+                <h3>End-to-End Testing & Handoff</h3>
+                <div class="date">Thursday, Apr 3</div>
+                <span class="tag t-test">Testing</span>
+            </div>
+        </div>
+        <div class="day-body">
+            <ul class="task-list">
+                <li><div class="check"></div> Happy Path test — send real PO email → auto-extract → Celonis push → email archived</li>
+                <li><div class="check"></div> Exception Path test — send unprocessable PO → verify CS inbox receives forwarded email with error</li>
+                <li><div class="check"></div> Multilingual test — German (MF Folien), Chinese (Molex Shanghai), Standard (Niederwieser)</li>
+                <li><div class="check"></div> Bug fixes and edge case handling</li>
+                <li><div class="check"></div> Update documentation with final test results</li>
+                <li><div class="check"></div> Demo preparation for client team</li>
+            </ul>
+            <div class="deliverable"><strong>Deliverables:</strong> Test results log, Updated documentation, Demo-ready pipeline</div>
+        </div>
+    </div>
+
+    <div class="footer">Envalior · Touchless Order Creation · 5-Day Sprint · Confidential</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envalior – AI Purchase Order Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0e1a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 32px 24px 48px;
+        }
+
+        /* ── Header ─────────────────────────────────── */
+        .page-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16,185,129,.1);
+            border: 1px solid rgba(16,185,129,.3);
+            color: #10b981;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+        .badge::before {
+            content: '';
+            width: 7px; height: 7px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.6)} }
+
+        .page-header h1 {
+            font-size: clamp(20px, 3.5vw, 34px);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            margin-bottom: 8px;
+        }
+        .page-header h1 .accent { color: #10b981; }
+        .page-header h1 .dim { color: #64748b; font-weight: 400; }
+        .page-subtitle {
+            color: #94a3b8;
+            font-size: 13px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ── Main Container ─────────────────────────── */
+        .arch-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* ── Diagram Card ───────────────────────────── */
+        .diagram-card {
+            background: #111827;
+            border: 1px solid #1e2d45;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 0 60px rgba(0,0,0,.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .diagram-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #0ea5e9, #3b82f6, #f59e0b);
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* ── Zone Headers ───────────────────────────── */
+        .zone-row {
+            display: grid;
+            grid-template-columns: 140px 1fr 140px;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+        .zone-label {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid;
+        }
+        .zone-label.customer { color: #94a3b8; border-color: #334155; background: rgba(148,163,184,.06); }
+        .zone-label.envalior { color: #0ea5e9; border-color: #0c4a6e; background: rgba(14,165,233,.06); }
+        .zone-label.celonis  { color: #10b981; border-color: #064e3b; background: rgba(16,185,129,.06); }
+
+        /* ── SVG Architecture Diagram ───────────────── */
+        .diagram-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* ── Legend Card ─────────────────────────────── */
+        .legend-card {
+            background: #111827;
+            border: 1px solid #1e2d45;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 0 60px rgba(0,0,0,.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .legend-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #10b981);
+            border-radius: 20px 20px 0 0;
+        }
+        .legend-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-title::before {
+            content: '';
+            width: 4px; height: 18px;
+            background: linear-gradient(180deg, #10b981, #0ea5e9);
+            border-radius: 2px;
+        }
+
+        .legend-item {
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(30,45,69,.6);
+            align-items: start;
+        }
+        .legend-item:last-child { border-bottom: none; }
+        .step-num {
+            width: 30px; height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-num.blue   { background: rgba(14,165,233,.15); color: #0ea5e9; border: 1px solid rgba(14,165,233,.3); }
+        .step-num.green  { background: rgba(16,185,129,.15); color: #10b981; border: 1px solid rgba(16,185,129,.3); }
+        .step-num.amber  { background: rgba(245,158,11,.15); color: #f59e0b; border: 1px solid rgba(245,158,11,.3); }
+        .step-num.red    { background: rgba(239,68,68,.15);  color: #ef4444; border: 1px solid rgba(239,68,68,.3);  }
+        .step-num.purple { background: rgba(139,92,246,.15); color: #8b5cf6; border: 1px solid rgba(139,92,246,.3); }
+
+        .step-text {
+            font-size: 12.5px;
+            color: #cbd5e1;
+            line-height: 1.55;
+        }
+        .step-text strong { color: #f1f5f9; font-weight: 600; }
+        .step-text .query {
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 11px;
+            color: #f59e0b;
+            font-weight: 500;
+        }
+
+        /* ── Color Legend ────────────────────────────── */
+        .color-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #1e2d45;
+        }
+        .color-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #94a3b8;
+            background: #0f172a;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #1e2d45;
+        }
+        .color-chip .cdot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Footer ──────────────────────────────────── */
+        .page-footer {
+            text-align: center;
+            margin-top: 28px;
+            color: #334155;
+            font-size: 11px;
+            letter-spacing: .06em;
+        }
+
+        /* ── SVG Styles ──────────────────────────────── */
+        .node-box {
+            rx: 12; ry: 12;
+            stroke-width: 2;
+        }
+        .node-db {
+            stroke-width: 2;
+        }
+        .label-main {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            fill: #f1f5f9;
+        }
+        .label-sub {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 9.5px;
+            fill: #94a3b8;
+        }
+        .arrow-line {
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .arrow-dashed {
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 6 4;
+            marker-end: url(#arrowhead-dim);
+        }
+        .step-badge-svg {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+        }
+
+        @media (max-width: 1000px) {
+            .arch-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-header">
+    <div class="badge">Technical Architecture</div>
+    <h1>
+        <span class="accent">Envalior</span>
+        <span class="dim"> · </span>
+        AI-Driven Purchase Order Workflow
+    </h1>
+    <p class="page-subtitle">
+        End-to-end extraction, business validation, SAP integration,
+        and regional exception routing — powered by Azure + Celonis + Excel Mapping.
+    </p>
+</div>
+
+<div class="arch-wrapper">
+
+    <!-- ═══════════ LEFT: SVG DIAGRAM ═══════════ -->
+    <div class="diagram-card">
+
+        <!-- Zone Headers -->
+        <div class="zone-row">
+            <div class="zone-label customer">Customer</div>
+            <div class="zone-label envalior">Envalior</div>
+            <div class="zone-label celonis">Celonis</div>
+        </div>
+
+        <svg viewBox="0 0 820 560" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Arrowheads -->
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+                </marker>
+                <marker id="arrowhead-dim" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+                </marker>
+                <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+                </marker>
+                <marker id="arrowhead-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+                </marker>
+                <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#0ea5e9"/>
+                </marker>
+
+                <!-- Glow Filters -->
+                <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feFlood flood-color="#0ea5e9" flood-opacity="0.15"/>
+                    <feComposite in2="blur" operator="in"/>
+                    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feFlood flood-color="#10b981" flood-opacity="0.15"/>
+                    <feComposite in2="blur" operator="in"/>
+                    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+
+            <!-- ── Zone Backgrounds ─────────────────── -->
+            <!-- Customer Zone -->
+            <rect x="0" y="0" width="130" height="560" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1" opacity=".5"/>
+            <!-- Envalior Zone (yellow tint like reference) -->
+            <rect x="145" y="0" width="420" height="560" rx="14" fill="rgba(245,199,50,.04)" stroke="rgba(245,199,50,.2)" stroke-width="1.5"/>
+            <!-- Celonis Zone -->
+            <rect x="580" y="0" width="240" height="560" rx="14" fill="rgba(16,185,129,.03)" stroke="rgba(16,185,129,.15)" stroke-width="1"/>
+
+            <!-- ══════════ NODES ══════════ -->
+
+            <!-- 📧 Customer Email (left) -->
+            <g transform="translate(20, 45)">
+                <rect width="90" height="58" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                <text x="45" y="24" text-anchor="middle" class="label-main" font-size="20">📧</text>
+                <text x="45" y="42" text-anchor="middle" class="label-sub" font-size="10" fill="#cbd5e1">Customer</text>
+            </g>
+
+            <!-- 🗄️ SO Email Box -->
+            <g transform="translate(170, 30)">
+                <rect width="150" height="30" rx="6" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1.5" opacity=".8"/>
+                <ellipse cx="75" cy="30" rx="75" ry="12" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1.5"/>
+                <rect width="150" height="30" rx="0" fill="#0c4a6e" stroke="none" y="12"/>
+                <rect width="150" height="1" fill="#0ea5e9" opacity=".3" y="12"/>
+                <ellipse cx="75" cy="42" rx="75" ry="12" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="1.5"/>
+                <text x="75" y="20" text-anchor="middle" class="label-main" fill="#e0f2fe" font-size="11">SO Email Box</text>
+                <text x="75" y="35" text-anchor="middle" class="label-sub" font-size="8.5" fill="#7dd3fc">salesorders@envalior.com</text>
+            </g>
+
+            <!-- 🤖 AI Solution (on Azure) -->
+            <g transform="translate(145, 100)" filter="url(#glow-blue)">
+                <rect width="180" height="75" rx="12" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="2"/>
+                <text x="90" y="25" text-anchor="middle" class="label-main" fill="#e0f2fe" font-size="12">AI Solution Engine</text>
+                <text x="90" y="42" text-anchor="middle" class="label-sub" font-size="9" fill="#7dd3fc">OCR + Multi-LLM Extraction</text>
+                <text x="90" y="58" text-anchor="middle" class="label-sub" font-size="8" fill="#38bdf8">Graph API · Claude / Qwen 2.5</text>
+            </g>
+
+            <!-- 🧩 KB & Mapping (New Layer) -->
+            <g transform="translate(360, 100)">
+                <rect width="180" height="95" rx="12" fill="#064e3b" stroke="#10b981" stroke-width="2" opacity=".9"/>
+                <text x="90" y="22" text-anchor="middle" class="label-main" fill="#d1fae5" font-size="11">KB Enrichment & Mapping</text>
+                <text x="90" y="40" text-anchor="middle" class="label-sub" font-size="8.5" fill="#6ee7b7">Customer Alias Engine (SQLite)</text>
+                <text x="90" y="55" text-anchor="middle" class="label-sub" font-size="8.5" fill="#6ee7b7">Fuzzy Match (SequenceMatcher)</text>
+                <text x="90" y="70" text-anchor="middle" class="label-sub" font-size="8.5" fill="#34d399">Material Cross-Ref (Excel/DB)</text>
+                <text x="90" y="85" text-anchor="middle" class="label-sub" font-size="8.5" fill="#34d399">SO Grouping (Rule X or O)</text>
+            </g>
+
+            <!-- 📩 Email Node -->
+            <g transform="translate(390, 120)">
+                <rect width="110" height="55" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                <text x="55" y="24" text-anchor="middle" font-size="18">📩</text>
+                <text x="55" y="42" text-anchor="middle" class="label-main" font-size="10" fill="#cbd5e1">Email</text>
+            </g>
+
+            <!-- 👤 CS Team (smiley) -->
+            <g transform="translate(170, 340)">
+                <rect width="130" height="70" rx="12" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+                <text x="65" y="28" text-anchor="middle" font-size="22">👤</text>
+                <text x="65" y="48" text-anchor="middle" class="label-main" fill="#fef3c7" font-size="10">Regional CS Team</text>
+                <text x="65" y="60" text-anchor="middle" class="label-sub" font-size="8" fill="#fbbf24">Manual Handling</text>
+            </g>
+
+            <!-- 🗄️ Regional CS Email Boxes (EMEA, APAC, AMS) -->
+            <g transform="translate(195, 440)">
+                <rect width="140" height="26" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1.5" opacity=".8"/>
+                <ellipse cx="70" cy="26" rx="70" ry="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                <rect width="140" height="22" rx="0" fill="#1e293b" stroke="none" y="10"/>
+                <ellipse cx="70" cy="32" rx="70" ry="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                <text x="70" y="18" text-anchor="middle" class="label-main" fill="#cbd5e1" font-size="9">Reg. CS Boxes (EMEA/APAC/AMS)</text>
+                <text x="70" y="30" text-anchor="middle" class="label-sub" font-size="8" fill="#64748b">Exception Queues</text>
+            </g>
+
+            <!-- ❓ Question marks for unresolved items -->
+            <g transform="translate(360, 240)">
+                <circle r="16" cx="16" cy="16" fill="rgba(245,158,11,.1)" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="16" y="21" text-anchor="middle" font-size="16" font-weight="700" fill="#f59e0b">?</text>
+            </g>
+            <g transform="translate(410, 280)">
+                <circle r="14" cx="14" cy="14" fill="rgba(245,158,11,.08)" stroke="#f59e0b" stroke-width="1" opacity=".6"/>
+                <text x="14" y="19" text-anchor="middle" font-size="14" font-weight="700" fill="#f59e0b" opacity=".6">?</text>
+            </g>
+
+            <!-- 🟢 Celonis -->
+            <g transform="translate(620, 230)" filter="url(#glow-green)">
+                <rect width="160" height="70" rx="14" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+                <text x="80" y="30" text-anchor="middle" class="label-main" fill="#d1fae5" font-size="13">Celonis</text>
+                <text x="80" y="46" text-anchor="middle" class="label-sub" font-size="9" fill="#6ee7b7">Validation Core</text>
+                <text x="80" y="58" text-anchor="middle" class="label-sub" font-size="7.5" fill="#34d399">Business Rules & Writeback</text>
+            </g>
+
+            <!-- 🏢 SAP EPP -->
+            <g transform="translate(300, 510)">
+                <rect width="160" height="45" rx="10" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+                <text x="80" y="22" text-anchor="middle" class="label-main" fill="#dbeafe" font-size="13">SAP EPP</text>
+                <text x="80" y="36" text-anchor="middle" class="label-sub" font-size="8.5" fill="#93c5fd">Master System of Record</text>
+            </g>
+
+            <!-- 📧 Robona Email Box (New Label) -->
+            <g transform="translate(500, 480)">
+                <rect width="130" height="26" rx="5" fill="#4c1d95" stroke="#7c3aed" stroke-width="1.5" opacity=".8"/>
+                <ellipse cx="65" cy="26" rx="65" ry="10" fill="#4c1d95" stroke="#7c3aed" stroke-width="1.5"/>
+                <rect width="130" height="22" rx="0" fill="#4c1d95" stroke="none" y="10"/>
+                <ellipse cx="65" cy="32" rx="65" ry="10" fill="#4c1d95" stroke="#7c3aed" stroke-width="1.5"/>
+                <text x="65" y="18" text-anchor="middle" class="label-main" fill="#ede9fe" font-size="10">Robona Email Box</text>
+                <text x="65" y="30" text-anchor="middle" class="label-sub" font-size="8" fill="#c4b5fd">Final Output Point</text>
+            </g>
+
+            <!-- 🤖 Roborana RPA Process -->
+            <g transform="translate(660, 495)">
+                <rect width="140" height="50" rx="12" fill="#2e1065" stroke="#6d28d9" stroke-width="2"/>
+                <text x="70" y="22" text-anchor="middle" class="label-main" fill="#ddd6fe" font-size="12">Roborana RPA</text>
+                <text x="70" y="36" text-anchor="middle" class="label-sub" font-size="8.5" fill="#a78bfa">Final Processing</text>
+            </g>
+
+            <!-- ✅ SO Confirmation -->
+            <g transform="translate(480, 400)">
+                <rect width="100" height="35" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.5" opacity=".9"/>
+                <text x="50" y="22" text-anchor="middle" class="label-main" fill="#d1fae5" font-size="10">SO Confirmation</text>
+            </g>
+
+
+            <!-- ══════════ CONNECTION ARROWS ══════════ -->
+
+            <!-- 1. Customer → SO Email Box -->
+            <line x1="110" y1="74" x2="168" y2="55" class="arrow-line" stroke="#64748b" marker-end="url(#arrowhead)"/>
+            <g transform="translate(122, 52)">
+                <rect width="20" height="16" rx="4" fill="#0ea5e9" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">1</text>
+            </g>
+
+            <!-- 2. SO Email Box → AI Solution -->
+            <line x1="245" y1="56" x2="260" y2="108" class="arrow-line" stroke="#0ea5e9" marker-end="url(#arrowhead-blue)"/>
+            <g transform="translate(232, 72)">
+                <rect width="20" height="16" rx="4" fill="#0ea5e9" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">2</text>
+            </g>
+
+            <!-- 3. AI Solution → KB Enrichment -->
+            <line x1="325" y1="137" x2="352" y2="137" class="arrow-line" stroke="#10b981" marker-end="url(#arrowhead-green)"/>
+            <g transform="translate(328, 125)">
+                <rect width="20" height="16" rx="4" fill="#10b981" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">3</text>
+            </g>
+
+            <!-- 3b. KB Enrichment → Celonis -->
+            <path d="M 450 195 L 450 265 L 612 265" class="arrow-line" stroke="#10b981" marker-end="url(#arrowhead-green)"/>
+
+            <!-- 4. Celonis → SAP EPP -->
+            <path d="M 700 300 L 700 530 L 462 530" class="arrow-line" stroke="#3b82f6" marker-end="url(#arrowhead)"/>
+            <g transform="translate(690, 420)">
+                <rect width="20" height="16" rx="4" fill="#3b82f6" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">4</text>
+            </g>
+
+            <!-- 5. AI Solution → CS Email Boxes (failure) -->
+            <path d="M 260 190 L 260 290 L 265 440" class="arrow-line" stroke="#f59e0b" marker-end="url(#arrowhead-amber)"/>
+            <g transform="translate(238, 290)">
+                <rect width="20" height="16" rx="4" fill="#f59e0b" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">5</text>
+            </g>
+
+            <!-- 6. CS Email Boxes → CS Team -->
+            <line x1="250" y1="440" x2="240" y2="412" class="arrow-line" stroke="#f59e0b" marker-end="url(#arrowhead-amber)"/>
+            <g transform="translate(220, 418)">
+                <rect width="20" height="16" rx="4" fill="#f59e0b" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">6</text>
+            </g>
+
+            <!-- 7a. CS Team → Customer (request fixed PO) -->
+            <path d="M 170 375 L 65 375 L 65 105" class="arrow-line" stroke="#64748b" marker-end="url(#arrowhead)"/>
+            <g transform="translate(45, 230)">
+                <rect width="28" height="16" rx="4" fill="#64748b" opacity=".9"/>
+                <text x="14" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="8">7a</text>
+            </g>
+
+            <!-- 7b1. CS Team → Celonis (submit corrected PO) -->
+            <path d="M 300 360 L 500 360 L 618 280" class="arrow-line" stroke="#10b981" marker-end="url(#arrowhead-green)"/>
+            <g transform="translate(460, 320)">
+                <rect width="32" height="16" rx="4" fill="#10b981" opacity=".9"/>
+                <text x="16" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="7.5">7b1</text>
+            </g>
+
+            <!-- 7b2. Celonis → AI (retrain pipeline) -->
+            <path d="M 620 245 L 530 200 L 352 150" class="arrow-dashed" stroke="#0ea5e9" marker-end="url(#arrowhead-blue)"/>
+            <g transform="translate(520, 178)">
+                <rect width="32" height="16" rx="4" fill="#0ea5e9" opacity=".9"/>
+                <text x="16" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="7.5">7b2</text>
+            </g>
+
+            <!-- 8. Robona → SAP (attach original email) -->
+            <path d="M 500 493 L 420 493 L 400 502" class="arrow-dashed" stroke="#475569" marker-end="url(#arrowhead-dim)"/>
+            <g transform="translate(405, 475)">
+                <rect width="20" height="16" rx="4" fill="#475569" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">8</text>
+            </g>
+
+            <!-- 9. Celonis → CS Email Boxes (validation error) -->
+            <path d="M 620 290 L 480 420 L 332 455" class="arrow-line" stroke="#ef4444" marker-end="url(#arrowhead)"/>
+            <g transform="translate(500, 380)">
+                <rect width="20" height="16" rx="4" fill="#ef4444" opacity=".9"/>
+                <text x="10" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">9</text>
+            </g>
+
+            <!-- 10. SAP EPP Output → Robona Email Box -->
+            <path d="M 460 530 L 480 500 L 500 500" class="arrow-line" stroke="#7c3aed" marker-end="url(#arrowhead)"/>
+            <g transform="translate(460, 497)">
+                <rect width="24" height="16" rx="4" fill="#7c3aed" opacity=".9"/>
+                <text x="12" y="12" text-anchor="middle" class="step-badge-svg" fill="#fff" font-size="9">10</text>
+            </g>
+
+        </svg>
+    </div>
+
+    <!-- ═══════════ RIGHT: LEGEND ═══════════ -->
+    <div class="legend-card">
+        <div class="legend-title">Architecture Phases</div>
+
+        <div class="legend-item">
+            <div class="step-num" style="border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.12);">①</div>
+            <div class="step-text">
+                <strong>TRIGGER:</strong> Customer PO → MS Graph API (MSAL) → Azure Blob Storage.
+            </div>
+        </div>
+
+        <div class="legend-item">
+            <div class="step-num" style="border-color:#f97316;color:#f97316;background:rgba(249,115,22,.12);">②</div>
+            <div class="step-text">
+                <strong>OCR &amp; EXTRACTION:</strong> PaddleOCR v2.8 → Claude Sonnet LLM → Structured JSON → Knowledge Base (SQLite · SAP KNA1).
+            </div>
+        </div>
+
+        <div class="legend-item">
+            <div class="step-num" style="border-color:#eab308;color:#eab308;background:rgba(234,179,8,.12);">③</div>
+            <div class="step-text">
+                <strong>KB ENRICHMENT:</strong> Customer Alias Engine → Fuzzy Match (SequenceMatcher &gt; 0.3) → Resolve Sold-To &amp; Ship-To.
+            </div>
+        </div>
+
+        <div class="legend-item">
+            <div class="step-num green">④</div>
+            <div class="step-text">
+                <strong>MATERIAL MAPPING:</strong> Excel Mapping File → Material Cross-Ref → SO Grouping (Rule X or O).
+            </div>
+        </div>
+
+        <div class="legend-item">
+            <div class="step-num" style="border-color:#8b5cf6;color:#8b5cf6;background:rgba(139,92,246,.12);">⑤</div>
+            <div class="step-text">
+                <strong>VALIDATION:</strong> Celonis business rules → Action Flow (Webhook) → Posts SO to SAP.
+            </div>
+        </div>
+
+        <div class="legend-item">
+            <div class="step-num blue">⑥</div>
+            <div class="step-text">
+                <strong>OUTPUT &amp; ACTION:</strong> SAP EPP creates SO → Robona attaches email → SO Confirmation sent to customer. ✅
+            </div>
+        </div>
+
+        <div class="legend-item">
+            <div class="step-num amber">⑦</div>
+            <div class="step-text">
+                <strong>EXCEPTIONS:</strong> AI Failure → Regional CS Inbox → CS Manual Handling → <span class="highlight">Feedback Loop</span> (KB aliases auto-improve).
+            </div>
+        </div>
+
+        <!-- Color Legend -->
+        <div class="color-legend">
+            <div class="color-chip"><span class="cdot" style="background:#94a3b8"></span>Customer / Inbox</div>
+            <div class="color-chip"><span class="cdot" style="background:#0ea5e9"></span>Azure AI Engine</div>
+            <div class="color-chip"><span class="cdot" style="background:#10b981"></span>Celonis</div>
+            <div class="color-chip"><span class="cdot" style="background:#3b82f6"></span>SAP EPP</div>
+            <div class="color-chip"><span class="cdot" style="background:#f59e0b"></span>CS Team / Manual</div>
+            <div class="color-chip"><span class="cdot" style="background:#ef4444"></span>Error / Fallback</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-footer">Envalior · AI-Driven SO Architecture · Confidential</div>
+
+<!-- ═══════════════════ PROCESS STEPS SECTION ═══════════════════ -->
+<div class="process-section" id="process-steps">
+
+    <div class="process-header">
+        <div class="badge">Process Flow</div>
+        <h2>Step-by-Step Workflow</h2>
+        <p class="page-subtitle">How a Purchase Order travels from customer email to SAP Sales Order — every actor, decision, and handoff explained.</p>
+
+        <!-- Path filter tabs -->
+        <div class="path-tabs">
+            <button class="path-tab active" onclick="filterPath('all', this)">All Steps</button>
+            <button class="path-tab" onclick="filterPath('happy', this)">✅ Happy Path</button>
+            <button class="path-tab" onclick="filterPath('exception', this)">⚠️ Exception Path</button>
+            <button class="path-tab" onclick="filterPath('retrain', this)">🔄 Retrain Loop</button>
+        </div>
+    </div>
+
+    <div class="steps-container">
+
+        <!-- ═══ PHASE 1: TRIGGER ═══ -->
+        <div class="path-divider" style="color:#ef4444;">⬤ Phase 1 — Trigger / Ingestion</div>
+
+        <!-- STEP 1 -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#ef4444; color:#ef4444;">1</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(239,68,68,.12);color:#ef4444;border-color:rgba(239,68,68,.3);">📧 SO Email Inbox</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Customer Sends PO via Email</h3>
+                <p class="step-desc">Customer sends a Purchase Order in <strong>any format</strong> (PDF, scanned image, Excel) to <code>salesorders@envalior.com</code>.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Raw Email + PDF attachment</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Email arrives in SO Email Inbox</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#ef4444; color:#ef4444;">2</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(239,68,68,.12);color:#ef4444;border-color:rgba(239,68,68,.3);">⚙️ MS Graph API</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Graph API Pulls Emails + Archives to Azure Blob</h3>
+                <p class="step-desc">The AI agent uses <strong>MSAL Client Credentials</strong> to poll the SO inbox via Microsoft Graph API. Emails are pulled, attachments extracted, and raw POs are archived to <strong>Azure Blob Storage</strong> for auditability. The script <code>graph_email_handler.py</code> handles this.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Unread emails from SO Inbox</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Raw Email + PDF saved locally + uploaded to Azure Blob</span></div>
+                </div>
+                <div class="step-tech">
+                    <span class="tech-chip">Microsoft Graph API</span>
+                    <span class="tech-chip">MSAL Auth</span>
+                    <span class="tech-chip">Azure Blob Storage</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PHASE 2: OCR & EXTRACTION ═══ -->
+        <div class="path-divider" style="color:#f97316;">⬤ Phase 2 — OCR &amp; AI Extraction</div>
+
+        <!-- STEP 3 -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#f97316; color:#f97316;">3</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(249,115,22,.12);color:#f97316;border-color:rgba(249,115,22,.3);">🔍 PaddleOCR</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">PaddleOCR Extracts Raw Text from PO Document</h3>
+                <p class="step-desc"><strong>PaddleOCR v2.8</strong> (GPU-accelerated) performs optical character recognition on scanned/image PDFs. For native digital PDFs, <strong>PyMuPDF</strong> extracts text directly. Output is raw multi-language text ready for LLM processing.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">PDF / Image → Raw Text</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">OCR Text + JSON metadata</span></div>
+                </div>
+                <div class="step-tech">
+                    <span class="tech-chip">PaddleOCR v2.8</span>
+                    <span class="tech-chip">PyMuPDF</span>
+                    <span class="tech-chip">GPU CUDA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#f97316; color:#f97316;">4</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(249,115,22,.12);color:#f97316;border-color:rgba(249,115,22,.3);">🤖 Claude Sonnet LLM</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Claude Sonnet LLM Extracts Structured JSON</h3>
+                <p class="step-desc"><strong>Claude Sonnet</strong> (via Anthropic API) processes the raw OCR text and performs multilingual JSON extraction — pulling Customer name, PO number, dates, quantities, material codes, and delivery addresses. Cross-language resolution handles terms like <em>Niederweisen → VF</em>, <em>Verpackungen</em>, <em>高仕 → Molex Shanghai</em>.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">OCR Text + JSON</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Enriched JSON → <code>results_*.jsonl</code></span></div>
+                </div>
+                <div class="step-tech">
+                    <span class="tech-chip">Claude Sonnet (Anthropic)</span>
+                    <span class="tech-chip">claude_client.py</span>
+                    <span class="tech-chip">Multilingual NLP</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3b: Decision -->
+        <!-- ═══ PHASE 3: KB ENRICHMENT ═══ -->
+        <div class="path-divider" style="color:#eab308;">⬤ Phase 3 — KB Enrichment</div>
+
+        <!-- STEP 5: Customer Alias Engine -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#eab308; color:#eab308;">5</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(234,179,8,.12);color:#eab308;border-color:rgba(234,179,8,.3);">🔗 Customer Alias Engine</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Customer Alias Resolution + Fuzzy Match</h3>
+                <p class="step-desc">The <strong>CUSTOMER_ALIASES</strong> dictionary performs cross-language resolution (e.g., <em>Niederweisen → VF</em>, <em>高仕 → Molex Shanghai</em>). If no exact match is found, the <strong>Fuzzy Match Engine</strong> (difflib SequenceMatcher, threshold &gt; 0.3) resolves <strong>Sold-To &amp; Ship-To IDs</strong> from the Knowledge Base (SQLite · SAP KNA1, KNVP, KNMT).</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Structured JSON (raw customer name)</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Enriched JSON (resolved SAP Sold-To / Ship-To IDs)</span></div>
+                </div>
+                <div class="step-tech">
+                    <span class="tech-chip">CUSTOMER_ALIASES</span>
+                    <span class="tech-chip">SequenceMatcher</span>
+                    <span class="tech-chip">SQLite KB (52K+ vendors)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PHASE 4: MATERIAL MAPPING ═══ -->
+        <div class="path-divider" style="color:#10b981;">⬤ Phase 4 — Material Mapping</div>
+
+        <!-- STEP 6: Excel Mapping + Cross-Ref -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#10b981; color:#10b981;">6</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(16,185,129,.12);color:#10b981;border-color:rgba(16,185,129,.3);">📊 Material Cross-Ref</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Excel Mapping + Material Cross-Reference + SO Grouping</h3>
+                <p class="step-desc">The <strong>Excel Mapping File</strong> provides business-managed rules for Sales Org, Order Type, and Material. The <strong>Material Cross-Ref</strong> engine (<code>sales_order_mapper.py</code>) performs case-insensitive, startsWith, and reverse-prefix matching to convert customer material codes → internal SAP material numbers. <strong>SO Grouping</strong> (Rule X or O) determines how line items are grouped into Sales Orders.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Enriched JSON + Customer material codes</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Mapped Sales Orders (SAP material codes + SO groups)</span></div>
+                </div>
+                <div class="step-tech">
+                    <span class="tech-chip">Excel Mapping File</span>
+                    <span class="tech-chip">sales_order_mapper.py</span>
+                    <span class="tech-chip">SO Grouping (X/O)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ DECISION POINT ═══ -->
+        <div class="decision-card">
+            <div class="decision-icon">⚡</div>
+            <div class="decision-body">
+                <h4>Decision: Validation Passed?</h4>
+                <div class="decision-branches">
+                    <div class="branch branch-yes">
+                        <span class="branch-label">✅ YES — All data resolved</span>
+                        <span class="branch-desc">Sends validated payload to Celonis → continues to Phase 5</span>
+                    </div>
+                    <div class="branch branch-no">
+                        <span class="branch-label">❌ NO — AI Failure / missing mapping</span>
+                        <span class="branch-desc">Routes PO to Regional CS Exception Queue → Phase 7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PHASE 5: VALIDATION ═══ -->
+        <div class="path-divider" style="color:#8b5cf6;">⬤ Phase 5 — Celonis Validation</div>
+
+        <!-- STEP 7: Celonis Validation -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#8b5cf6; color:#8b5cf6;">7</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(139,92,246,.12);color:#8b5cf6;border-color:rgba(139,92,246,.3);">✅ Celonis Validation + Action Flow</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Celonis Validates + Triggers SO Creation in SAP</h3>
+                <p class="step-desc">AI posts the validated payload to <strong>PO_EXTRACTION_RESULTS</strong> via Pycelonis SDK (<code>push_to_celonis.py</code>). Celonis applies business rule validation (customer, material, delivery, order type). If all rules pass, the <strong>Celonis Action Flow</strong> triggers a Webhook that posts the SO payload to SAP EPP for Sales Order creation.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Validated payload → PO_EXTRACTION_RESULTS</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">SAP Sales Order created (SO_DOCUMENT_INSERT_API)</span></div>
+                </div>
+                <div class="step-tech">
+                    <span class="tech-chip">Celonis EMS</span>
+                    <span class="tech-chip">Pycelonis SDK</span>
+                    <span class="tech-chip">Action Flow (Webhook)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ PHASE 6: OUTPUT & ACTION ═══ -->
+        <div class="path-divider" style="color:#3b82f6;">⬤ Phase 6 — Output &amp; Action</div>
+
+        <!-- STEP 8: SAP EPP -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#3b82f6; color:#3b82f6;">8</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(59,130,246,.12);color:#3b82f6;border-color:rgba(59,130,246,.3);">🗄️ SAP EPP</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">SAP EPP Creates Sales Order</h3>
+                <p class="step-desc">SAP EPP receives the SO payload via <strong>SO_DOCUMENT_INSERT_API</strong> and creates the Sales Order. The original PO is archived on the specific SO record for full traceability.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">SO payload from Celonis Action Flow</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">SAP SO Created</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 9: Robona -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#3b82f6; color:#3b82f6;">9</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(59,130,246,.12);color:#3b82f6;border-color:rgba(59,130,246,.3);">📎 Robona</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">Robona Attaches Original Email to SAP SO</h3>
+                <p class="step-desc"><strong>Robona</strong> pulls the original customer email (EML/MSG) and attaches it directly to the SAP Sales Order record, ensuring full auditability.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Original email + SAP SO number</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Email archived on SAP SO record</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 10: SO Confirmation -->
+        <div class="step-card" data-path="happy">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#10b981; color:#10b981;">10</div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(16,185,129,.12);color:#10b981;border-color:rgba(16,185,129,.3);">✅ Confirmed</span>
+                    <span class="step-tag happy-tag">Happy Path</span>
+                </div>
+                <h3 class="step-title">SO Confirmation Sent to Customer</h3>
+                <p class="step-desc">SAP Output Determination auto-emails the <strong>Sales Order Confirmation</strong> to the customer. Requires middleware config. <strong>Touchless cycle complete.</strong> ✅</p>
+            </div>
+        </div>
+
+        <!-- ═══ PHASE 7: EXCEPTIONS ═══ -->
+        <div class="path-divider">⬤ Phase 7 — Exception Handling</div>
+
+        <!-- STEP E1: AI Failure -->
+        <div class="step-card" data-path="exception">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#f59e0b; color:#f59e0b;">E1</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(245,158,11,.12);color:#f59e0b;border-color:rgba(245,158,11,.3);">⚠️ AI Failure</span>
+                    <span class="step-tag exception-tag">Exception Path</span>
+                </div>
+                <h3 class="step-title">AI Failure → Routes to Regional CS Inbox</h3>
+                <p class="step-desc">When the AI encounters an <strong>OCR failure, unknown customer, or unmapped material</strong>, it auto-forwards the PO + error reason to the <strong>Regional CS Inbox</strong> via Graph API, routed by SAP ER mapping (EMEA, APAC, or AMS).</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Error + original PO</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">PO forwarded to Regional CS Exception Queue</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP E2: CS Manual Handling -->
+        <div class="step-card" data-path="exception">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#f59e0b; color:#f59e0b;">E2</div>
+                <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(245,158,11,.12);color:#f59e0b;border-color:rgba(245,158,11,.3);">👥 CS Manual Handling</span>
+                    <span class="step-tag exception-tag">Exception Path</span>
+                </div>
+                <h3 class="step-title">CS Team Reviews + Fixes or Replies to Customer</h3>
+                <p class="step-desc">Regional CS team picks up unprocessable PO. If fixable, they <strong>fix &amp; re-submit to SO inbox</strong>. If not fixable, they <strong>reply to customer</strong> requesting a corrected PO.</p>
+                <div class="step-io">
+                    <div class="io-block"><span class="io-label in">Input</span><span class="io-val">Error + original PO in CS inbox</span></div>
+                    <div class="io-block"><span class="io-label out">Output</span><span class="io-val">Fixed PO re-submitted or customer notified</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP E3: Feedback Loop -->
+        <div class="step-card" data-path="retrain">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#0ea5e9; color:#0ea5e9;">E3</div>
+            </div>
+            <div class="step-body">
+                <div class="step-meta">
+                    <span class="step-actor" style="background:rgba(14,165,233,.12);color:#0ea5e9;border-color:rgba(14,165,233,.3);">🔄 Feedback Loop</span>
+                    <span class="step-tag retrain-tag">Retrain Loop</span>
+                </div>
+                <h3 class="step-title">Corrections Update KB — Aliases Auto-Improve</h3>
+                <p class="step-desc">Manual corrections from CS are fed back to the <strong>Knowledge Base</strong>. Customer aliases and material mappings <strong>auto-improve</strong>, ensuring the same PO type is processed touchlessly next time.</p>
+                <div class="step-tech">
+                    <span class="tech-chip">Feedback Loop</span>
+                    <span class="tech-chip">KB Auto-Update</span>
+                    <span class="tech-chip">Alias Improvement</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Swimlane Table -->
+        <div class="summary-table-wrap">
+            <h3 class="summary-title">Quick Reference — Process Swimlane</h3>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Who</th>
+                        <th>What Happens</th>
+                        <th>Path</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>SO Email Inbox</td><td>Customer sends PO to salesorders@envalior.com</td><td><span class="sum-tag happy-tag">Trigger</span></td></tr>
+                    <tr><td>2</td><td>MS Graph API</td><td>Pulls emails, archives to Azure Blob Storage</td><td><span class="sum-tag happy-tag">Trigger</span></td></tr>
+                    <tr><td>3</td><td>PaddleOCR</td><td>OCR extracts raw text from PDF / Image</td><td><span class="sum-tag happy-tag">OCR</span></td></tr>
+                    <tr><td>4</td><td>Claude Sonnet</td><td>LLM extracts structured JSON (multilingual)</td><td><span class="sum-tag happy-tag">OCR</span></td></tr>
+                    <tr><td>5</td><td>Alias Engine</td><td>Customer Alias + Fuzzy Match → resolves Sold-To/Ship-To</td><td><span class="sum-tag happy-tag">KB Enrich</span></td></tr>
+                    <tr><td>6</td><td>Cross-Ref</td><td>Excel Mapping + Material Cross-Ref + SO Grouping</td><td><span class="sum-tag happy-tag">Mapping</span></td></tr>
+                    <tr><td>7</td><td>Celonis</td><td>Business rules → Action Flow → triggers SAP SO</td><td><span class="sum-tag happy-tag">Validate</span></td></tr>
+                    <tr><td>8</td><td>SAP EPP</td><td>Creates Sales Order (SO_DOCUMENT_INSERT_API)</td><td><span class="sum-tag happy-tag">Output</span></td></tr>
+                    <tr><td>9</td><td>Robona</td><td>Attaches original email to SAP SO record</td><td><span class="sum-tag happy-tag">Output</span></td></tr>
+                    <tr><td>10</td><td>SAP Output</td><td>SO Confirmation sent to customer ✅</td><td><span class="sum-tag happy-tag">Output</span></td></tr>
+                    <tr><td>E1</td><td>AI Engine</td><td>AI Failure → routes to Regional CS Inbox</td><td><span class="sum-tag exception-tag">Exception</span></td></tr>
+                    <tr><td>E2</td><td>CS Team</td><td>Manual handling: fix & re-submit or reply to customer</td><td><span class="sum-tag exception-tag">Exception</span></td></tr>
+                    <tr><td>E3</td><td>Feedback</td><td>Corrections update KB — aliases auto-improve</td><td><span class="sum-tag retrain-tag">Retrain</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class="page-footer2">Envalior · AI-Driven SO Architecture v2 · Confidential · 2026</div>
+
+<style>
+/* ── Process Section ───────────────────────── */
+.process-section {
+    max-width: 1400px;
+    margin: 40px auto 0;
+    padding: 0 24px 60px;
+}
+.process-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.process-header h2 {
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    margin-bottom: 10px;
+    color: #f1f5f9;
+}
+.path-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.path-tab {
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1px solid #1e2d45;
+    background: #111827;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all .2s;
+}
+.path-tab:hover { border-color: #10b981; color: #10b981; }
+.path-tab.active { background: rgba(16,185,129,.12); border-color: #10b981; color: #10b981; }
+
+/* ── Steps Container ───────────────────────── */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ── Step Card ─────────────────────────────── */
+.step-card {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0;
+    margin-bottom: 0;
+    transition: opacity .3s, transform .3s;
+}
+.step-card.hidden { display: none; }
+
+.step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border: 2px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    background: #0a0e1a;
+    z-index: 1;
+    flex-shrink: 0;
+}
+.step-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(180deg, #1e2d45 0%, #1e2d45 100%);
+    min-height: 24px;
+}
+
+.step-body {
+    background: #111827;
+    border: 1px solid #1e2d45;
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin: 0 0 16px 12px;
+    transition: border-color .2s, box-shadow .2s;
+}
+.step-body:hover {
+    border-color: #334155;
+    box-shadow: 0 4px 24px rgba(0,0,0,.3);
+}
+
+.step-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+.step-actor {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid;
+    letter-spacing: .04em;
+}
+.step-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 100px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+.happy-tag     { background: rgba(16,185,129,.12);  color: #10b981; }
+.exception-tag { background: rgba(245,158,11,.12);  color: #f59e0b; }
+.retrain-tag   { background: rgba(14,165,233,.12);  color: #0ea5e9; }
+
+.step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+    letter-spacing: -.01em;
+}
+.step-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+.step-desc strong { color: #cbd5e1; font-weight: 600; }
+.step-desc code {
+    background: #1e2d45;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #38bdf8;
+}
+
+.step-list {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.7;
+    padding-left: 18px;
+    margin-bottom: 14px;
+}
+.step-list li { margin-bottom: 3px; }
+.step-list strong { color: #cbd5e1; font-weight: 600; }
+
+.step-io {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.io-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0f172a;
+    border: 1px solid #1e2d45;
+    border-radius: 8px;
+    padding: 6px 12px;
+    flex: 1;
+    min-width: 200px;
+}
+.io-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.io-label.in  { background: rgba(14,165,233,.15); color: #38bdf8; }
+.io-label.out { background: rgba(16,185,129,.15); color: #34d399; }
+.io-val { font-size: 11.5px; color: #64748b; }
+
+.step-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.tech-chip {
+    font-size: 10px;
+    font-weight: 500;
+    background: #1e2d45;
+    color: #64748b;
+    padding: 3px 9px;
+    border-radius: 6px;
+    border: 1px solid #283548;
+}
+
+/* ── Decision Card ─────────────────────────── */
+.decision-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: #0f172a;
+    border: 1px dashed #334155;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 4px 0 20px 52px;
+}
+.decision-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.decision-body h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 12px;
+    letter-spacing: -.01em;
+}
+.decision-branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.branch {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 14px;
+    border-radius: 10px;
+}
+.branch-yes { background: rgba(16,185,129,.08); border: 1px solid rgba(16,185,129,.2); }
+.branch-no  { background: rgba(239,68,68,.08);  border: 1px solid rgba(239,68,68,.2); }
+.branch-label { font-size: 12px; font-weight: 600; color: #e2e8f0; }
+.branch-desc  { font-size: 11px; color: #64748b; }
+
+/* ── Path Divider ──────────────────────────── */
+.path-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 12px 0 20px;
+    color: #f59e0b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.path-divider::before,
+.path-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(245,158,11,.2);
+}
+
+/* ── Summary Table ─────────────────────────── */
+.summary-table-wrap {
+    margin: 32px 0 0 52px;
+    background: #111827;
+    border: 1px solid #1e2d45;
+    border-radius: 16px;
+    padding: 24px;
+    overflow-x: auto;
+}
+.summary-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 16px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+.summary-table th {
+    text-align: left;
+    padding: 8px 14px;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1e2d45;
+}
+.summary-table td {
+    padding: 9px 14px;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(30,45,69,.4);
+    vertical-align: middle;
+}
+.summary-table td:first-child { font-weight: 700; color: #e2e8f0; }
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:hover td { background: rgba(255,255,255,.02); }
+.sum-tag {
+    font-size: 9px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 4px;
+}
+
+.page-footer2 {
+    text-align: center;
+    margin-top: 32px;
+    color: #334155;
+    font-size: 11px;
+    letter-spacing: .06em;
+    padding-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+    .decision-branches { grid-template-columns: 1fr; }
+    .step-card { grid-template-columns: 40px 1fr; }
+    .decision-card, .summary-table-wrap { margin-left: 0; }
+}
+</style>
+
+<script>
+function filterPath(path, el) {
+    document.querySelectorAll('.path-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.step-card').forEach(card => {
+        if (path === 'all' || card.dataset.path === path) {
+            card.style.display = 'grid';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+
+</body>
+</html>

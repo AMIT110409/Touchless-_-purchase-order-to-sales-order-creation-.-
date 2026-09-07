@@ -1,0 +1,51 @@
+{
+    "EU": {
+        "region_name": "Europe",
+        "cs_email": "CustomerCare-EU@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2500", "2540", "2561"]
+    },
+    "EU05": {
+        "region_name": "Europe (Sales Org 2545)",
+        "cs_email": "CustomerCare-EU05@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2545"]
+    },
+    "AMS": {
+        "region_name": "Americas (US/MX/BR)",
+        "cs_email": "customerservice.dem-am@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2600", "2610", "2620", "2630"]
+    },
+    "CN_GC": {
+        "region_name": "China & Greater China",
+        "cs_email": "CSR-GC@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2700", "2701", "2730", "2750", "2780"]
+    },
+    "JP": {
+        "region_name": "Japan",
+        "cs_email": "CSR-Japan@envalior.com",
+        "secondary_email": "CSR-GC@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2710"]
+    },
+    "KR": {
+        "region_name": "Korea",
+        "cs_email": "CSR-KR@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2760"]
+    },
+    "IN": {
+        "region_name": "India",
+        "cs_email": "CS-India.Team@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": ["2720", "2721"]
+    },
+    "DEFAULT": {
+        "region_name": "Default / Fallback",
+        "cs_email": "CustomerCare-EU@envalior.com",
+        "test_cs_email": "a.rathore@ofiservices.com",
+        "sales_orgs": []
+    }
+}

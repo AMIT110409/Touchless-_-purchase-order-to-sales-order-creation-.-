@@ -1,0 +1,43 @@
+location: westeurope
+name: po-extraction-gpu
+resourceGroup: rg-envalior-automation
+type: Microsoft.App/containerApps
+tags:
+  app: smart-po-extraction
+properties:
+  managedEnvironmentId: /subscriptions/$(azureSubscriptionId)/resourceGroups/$(resourceGroup)/providers/Microsoft.App/managedEnvironments/my-gpu-env
+  configuration:
+    activeRevisionsMode: Single
+    ingress:
+      external: false
+      targetPort: 80
+    secrets:
+      - name: container-registry-password
+        value: $(acrPassword)
+    registries:
+      - server: envalioracr.azurecr.io
+        username: envalioracr
+        passwordSecretRef: container-registry-password
+  template:
+    containers:
+      - image: envalioracr.azurecr.io/smart-po-extraction:$(tag)
+        name: po-extraction-app
+        resources:
+          cpu: 4.0
+          memory: 8.0Gi
+        env:
+          - name: CELONIS_API_TOKEN
+            value: release-variable-or-secret
+          - name: DB_PATH
+            value: /app/knowledge_base.db
+    scale:
+      minReplicas: 0
+      maxReplicas: 10
+      rules:
+        - name: azure-queue
+          custom:
+            type: azure-storage-queue
+            metadata:
+              queueName: po-processing-queue
+              accountName: envaliorstorage
+    workloadProfileName: Consumption-GPU

@@ -1,0 +1,190 @@
+[
+  {
+    "header_fields": {
+      "customer_id_or_name": "FOXCONN (KUNSHAN) COMPUTER CONNECTO",
+      "vendor_name": "Envalior Singapore Pte. Ltd.",
+      "ship_to_address": "XYZ Factory, 123 Industry Rd.",
+      "sold_to_address": "XYZ HQ, 456 Main St.",
+      "requested_delivery_date": "2025-07-30",
+      "po_number": "T121020125612",
+      "order_date": "2025/06/17",
+      "vendor_id": "0088107300",
+      "validation_info": {
+        "valid_sold_to": false,
+        "valid_ship_to": false,
+        "master_data_matches": [],
+        "suggestion_sold_to": "0088107300",
+        "suggestion_ship_to": "0088107300"
+      },
+      "sold_to_id": "4020010339",
+      "customer_number": "4020010339",
+      "ship_to_id": "4020010502",
+      "ship_to_name": "富士康（昆山）紫竹路889号电发老厂",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020010502 - 富士康（昆山）紫竹路889号电发老厂",
+        "4020010499 - 富士康（昆山）太阳慕B仓",
+        "4020010500 - 富士康（昆山）太阳慕C仓",
+        "4020022951 - 富士康（昆山）太阳幕D仓",
+        "4020030562 - FOXCONN (KUNSHAN) COMPUTER CONNECTO"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2710",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "PA46 Envalior TS200F6 black",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-30",
+        "material_code": "901-22G1-002",
+        "customer_material_number": "901-22G1-002",
+        "internal_material": "0000038995"
+      },
+      {
+        "material_description": "StanyI HFX31SW JUST WHITE",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-23",
+        "material_code": "901-01M7-002",
+        "customer_material_number": "901-01M7-002",
+        "internal_material": "0000047784"
+      },
+      {
+        "material_description": ":TS200F6 B-MB DSM PA46 (BLACK)",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-23",
+        "material_code": "901-61P9-002",
+        "customer_material_number": "901-61P9-002",
+        "internal_material": "0000047958"
+      },
+      {
+        "material_description": "TS200F6/A MB BL69100",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-07-30",
+        "material_code": "901-35R2-002",
+        "customer_material_number": "901-35R2-002",
+        "internal_material": "0000049944"
+      }
+    ],
+    "source_file": "9178f76d-e7ed-4446-b17a-616ce3befa3f.pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "customer_id_or_name": "FOXCONN (KUNSHAN) COMPUTER CONNECTO",
+      "vendor_name": "VSG0010678",
+      "ship_to_address": "XYZ Factory, 123 Industry Rd.",
+      "sold_to_address": "XYZ HQ, 456 Main St.",
+      "requested_delivery_date": "2025-11-19",
+      "po_number": "999021531",
+      "order_date": "2025/09/19",
+      "sold_to_id": "4020010339",
+      "customer_number": "4020010339",
+      "ship_to_id": "4020010502",
+      "ship_to_name": "富士康（昆山）紫竹路889号电发老厂",
+      "ship_to_selection_method": "default_low_confidence",
+      "ship_to_confidence": 0.0,
+      "review_required": true,
+      "ship_to_options": [
+        "4020010502 - 富士康（昆山）紫竹路889号电发老厂",
+        "4020010499 - 富士康（昆山）太阳慕B仓",
+        "4020010500 - 富士康（昆山）太阳慕C仓",
+        "4020022951 - 富士康（昆山）太阳幕D仓",
+        "4020030562 - FOXCONN (KUNSHAN) COMPUTER CONNECTO"
+      ],
+      "master_data_source": "celonis",
+      "sales_organization": "2710",
+      "order_type": "TA",
+      "so_grouping_rule": "X"
+    },
+    "line_items": [
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-19",
+        "material_code": "901-11D6-002",
+        "customer_material_number": "901-11D6-002",
+        "internal_material": "0000016552"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-19",
+        "material_code": "901-59P9-002",
+        "customer_material_number": "901-59P9-002",
+        "internal_material": "0000047206"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-05",
+        "material_code": "901-84P9-002",
+        "customer_material_number": "901-84P9-002",
+        "internal_material": "0000061262"
+      },
+      {
+        "material_description": "TS200F6 B-MB GY86015 Moon Gray",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-11-05",
+        "material_code": "901-40R2-002",
+        "customer_material_number": "901-40R2-002",
+        "internal_material": "0000061457"
+      }
+    ],
+    "source_file": "FOXCONN (Sold-to 4020010339 - Materials 16552+47206+61262+61457).pdf",
+    "ocr_engine": "paddleocr"
+  },
+  {
+    "header_fields": {
+      "po_number": "999021531",
+      "order_date": "2025/10/20",
+      "requested_delivery_date": "2025-12-03",
+      "customer_id_or_name": "IEWRA",
+      "vendor_name": "Envalior Sg",
+      "ship_to_address": "20 COLLYER QUAY #11-07 20 COLLYER QUAY",
+      "sold_to_address": "XYZ HQ, 456 Main St"
+    },
+    "line_items": [
+      {
+        "material_description": "H25 Purpl 3-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-42R2-002",
+        "customer_material_number": "901-42R2-002",
+        "internal_material": "0000061026"
+      },
+      {
+        "material_description": "H25 Black 7-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-42R2-002",
+        "customer_material_number": "901-42R2-002",
+        "internal_material": "0000061026"
+      },
+      {
+        "material_description": "H25 Orange 2-kg",
+        "quantity": 1000,
+        "unit": "kg",
+        "delivery_date": "2025-12-03",
+        "material_code": "901-51R2-002",
+        "customer_material_number": "901-51R2-002",
+        "internal_material": "0000060993"
+      }
+    ],
+    "source_file": "FOXCONN (Sold-to 4020010339 - Materials 61026+60900+60993).pdf",
+    "ocr_engine": "paddleocr"
+  }
+]

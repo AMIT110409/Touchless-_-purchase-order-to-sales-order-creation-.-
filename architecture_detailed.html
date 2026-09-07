@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touchless Order Creation — End-to-End Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text: #0f172a;
+            --muted: #64748b;
+            --dim: #94a3b8;
+            --trigger: #7c3aed;
+            --extract: #2563eb;
+            --enrich: #0891b2;
+            --map: #059669;
+            --validate: #d97706;
+            --output: #16a34a;
+            --exception: #dc2626;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); padding: 30px 20px; }
+
+        .page {
+            max-width: 1500px; margin: 0 auto;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+            padding: 36px 32px; box-shadow: 0 4px 24px rgba(0,0,0,.06);
+        }
+
+        h1 { text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+        .sub { text-align: center; font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+
+        /* ── STAGE HEADERS ── */
+        .stages-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px; margin-bottom: 4px;
+        }
+        .stage-label {
+            text-align: center; font-size: 10px; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase; color: #fff;
+            padding: 6px 4px; border-radius: 8px 8px 0 0;
+        }
+
+        /* ── MAIN FLOW ── */
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px; margin-bottom: 20px;
+        }
+        .stage {
+            background: #fafbfc; border: 1px solid var(--border); border-radius: 0 0 12px 12px;
+            padding: 14px 10px; display: flex; flex-direction: column; gap: 8px; min-height: 320px;
+        }
+
+        .node {
+            border-radius: 10px; padding: 10px 12px;
+            font-size: 11px; line-height: 1.5; position: relative;
+        }
+        .node .title { font-weight: 700; font-size: 11px; margin-bottom: 3px; }
+        .node .desc { color: var(--muted); font-size: 10px; }
+        .node .tech { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--dim); margin-top: 4px; }
+
+        /* Node color variants */
+        .n-purple  { background: #f5f3ff; border: 1px solid #c4b5fd; }
+        .n-blue    { background: #eff6ff; border: 1px solid #93c5fd; }
+        .n-cyan    { background: #ecfeff; border: 1px solid #67e8f9; }
+        .n-green   { background: #f0fdf4; border: 1px solid #86efac; }
+        .n-amber   { background: #fffbeb; border: 1px solid #fcd34d; }
+        .n-emerald { background: #ecfdf5; border: 1px solid #6ee7b7; }
+        .n-red     { background: #fef2f2; border: 1px solid #fca5a5; }
+        .n-gray    { background: #f1f5f9; border: 1px solid #cbd5e1; }
+
+        /* Diamond / Decision */
+        .diamond {
+            background: #fef3c7; border: 2px solid #f59e0b;
+            border-radius: 10px; padding: 8px 10px; text-align: center;
+            font-size: 10px; font-weight: 600; color: #92400e;
+        }
+
+        /* Database icon styling */
+        .db {
+            border-radius: 10px; padding: 10px 12px; text-align: center;
+            font-size: 10px; font-weight: 600;
+        }
+
+        /* ── ARROWS BETWEEN STAGES ── */
+        .arrow-row {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 6px; margin-bottom: 8px; align-items: center;
+        }
+        .arrow-cell { text-align: center; font-size: 18px; color: var(--dim); }
+
+        /* ── DATA FLOW ROW ── */
+        .data-row {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 6px; margin-bottom: 20px;
+        }
+        .data-tag {
+            text-align: center; font-size: 9px; font-family: 'DM Mono', monospace;
+            color: var(--muted); background: #f1f5f9; border: 1px dashed #cbd5e1;
+            border-radius: 6px; padding: 5px 4px;
+        }
+
+        /* ── EXCEPTION ROW ── */
+        .exception-section {
+            background: #fef2f2; border: 1px solid #fca5a5; border-radius: 14px;
+            padding: 16px 20px; display: flex; align-items: flex-start; gap: 20px;
+        }
+        .exception-section .exc-title {
+            font-size: 11px; font-weight: 700; color: #dc2626;
+            text-transform: uppercase; letter-spacing: .08em; white-space: nowrap;
+        }
+        .exc-cards { display: flex; gap: 10px; flex-wrap: wrap; flex: 1; }
+        .exc-card {
+            background: #fff; border: 1px solid #fca5a5; border-radius: 10px;
+            padding: 10px 14px; font-size: 10px; flex: 1; min-width: 200px;
+        }
+        .exc-card .title { font-weight: 700; font-size: 11px; color: #dc2626; margin-bottom: 3px; }
+        .exc-card .desc { color: var(--muted); }
+
+        /* ── LEGEND ── */
+        .legend {
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px;
+        }
+        .legend-item {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 10px; color: var(--muted); background: #f8fafc;
+            border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px;
+        }
+        .ldot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+        .footer {
+            text-align: center; margin-top: 16px; font-size: 10px;
+            color: var(--dim); font-family: 'DM Mono', monospace;
+        }
+
+        /* connector lines inside stages */
+        .connector { text-align: center; font-size: 14px; color: var(--dim); padding: 2px 0; }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <h1>Touchless Order Creation Agent — End-to-End Architecture</h1>
+    <p class="sub">Automated PO Extraction, Master Data Enrichment, Sales Order Generation & Exception Routing</p>
+
+    <!-- STAGE HEADERS -->
+    <div class="stages-header">
+        <div class="stage-label" style="background:var(--trigger)">TRIGGER</div>
+        <div class="stage-label" style="background:var(--extract)">OCR & EXTRACTION</div>
+        <div class="stage-label" style="background:var(--enrich)">KB ENRICHMENT</div>
+        <div class="stage-label" style="background:var(--map)">MATERIAL MAPPING</div>
+        <div class="stage-label" style="background:var(--validate)">VALIDATION</div>
+        <div class="stage-label" style="background:var(--output)">OUTPUT & ACTION</div>
+        <div class="stage-label" style="background:var(--exception)">EXCEPTIONS</div>
+    </div>
+
+    <!-- MAIN FLOW -->
+    <div class="flow">
+
+        <!-- COL 1: TRIGGER -->
+        <div class="stage">
+            <div class="node n-purple">
+                <div class="title">📧 SO Email Inbox</div>
+                <div class="desc">salesorders@envalior.com<br>Customers send POs in any format</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-purple">
+                <div class="title">🔑 MS Graph API</div>
+                <div class="desc">MSAL Client Credentials Flow<br>Pull unread emails + PDF attachments</div>
+                <div class="tech">graph_email_handler.py</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-gray db">
+                <div class="title">☁️ Azure Blob Storage</div>
+                <div class="desc">Raw PO archive</div>
+            </div>
+        </div>
+
+        <!-- COL 2: OCR & EXTRACTION -->
+        <div class="stage">
+            <div class="node n-blue">
+                <div class="title">📄 PaddleOCR</div>
+                <div class="desc">GPU-accelerated OCR<br>PDF / Image → Raw Text</div>
+                <div class="tech">PaddleOCR v2.8</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-blue">
+                <div class="title">🧠 Claude Sonnet LLM</div>
+                <div class="desc">Multilingual JSON extraction<br>Customer, PO#, Items, Dates, Qty</div>
+                <div class="tech">claude_client.py → Anthropic API</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="diamond">Structured JSON<br>Extracted?</div>
+        </div>
+
+        <!-- COL 3: KB ENRICHMENT -->
+        <div class="stage">
+            <div class="node n-cyan">
+                <div class="title">🔗 Customer Alias Engine</div>
+                <div class="desc">CUSTOMER_ALIASES dictionary<br>Cross-language resolution<br>"Niederwieser" → VF Verpackungen<br>"莫仕" → Molex Shanghai</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-cyan">
+                <div class="title">🔍 Fuzzy Match Engine</div>
+                <div class="desc">difflib SequenceMatcher<br>Resolve Sold-To & Ship-To IDs<br>Confidence threshold > 0.3</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-gray db">
+                <div class="title">🗄️ Knowledge Base</div>
+                <div class="desc">SQLite · 52K+ vendors<br>SAP KNA1, KNVP, KNMT</div>
+                <div class="tech">knowledge_base.db</div>
+            </div>
+        </div>
+
+        <!-- COL 4: MATERIAL MAPPING -->
+        <div class="stage">
+            <div class="node n-green">
+                <div class="title">📋 Excel Mapping File</div>
+                <div class="desc">Business-managed rules<br>Sales Org, Order Type, Material<br>SO Splitting (X/O)</div>
+                <div class="tech">EXPORT_20260216.XLSX</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-green">
+                <div class="title">🔄 Material Cross-Ref</div>
+                <div class="desc">Case-insensitive matching<br>Startswith matching<br>Reverse-prefix matching<br>Cust Mat → Internal SAP Mat</div>
+                <div class="tech">sales_order_mapper.py</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="diamond">SO Grouping<br>Rule X or O</div>
+        </div>
+
+        <!-- COL 5: VALIDATION -->
+        <div class="stage">
+            <div class="node n-amber">
+                <div class="title">✅ Celonis Validation</div>
+                <div class="desc">Business rule validation<br>Push to PO_EXTRACTION_RESULTS<br>Data Pool via pycelonis SDK</div>
+                <div class="tech">push_to_celonis.py</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="diamond">Validation<br>Passed?</div>
+            <div class="connector">↓</div>
+            <div class="node n-amber">
+                <div class="title">⚡ Celonis Action Flow</div>
+                <div class="desc">Webhook trigger<br>Posts SO payload to SAP</div>
+            </div>
+        </div>
+
+        <!-- COL 6: OUTPUT & ACTION -->
+        <div class="stage">
+            <div class="node n-emerald">
+                <div class="title">🏭 SAP EPP</div>
+                <div class="desc">Sales Order creation<br>SO_DOCUMENT_INSERT_API1<br>PO archived on specific SO</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-emerald">
+                <div class="title">📧 Roborana Inbox / SO Config</div>
+                <div class="desc">SAP Output Determination<br>Email to Roborana Box<br>TO Exit Point</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-purple" style="text-align:center;">
+                <div class="title" style="color:#7c3aed; font-size:13px;">🤖 Roborana RPA</div>
+                <div class="desc">Final Processing<br>Touchless cycle complete</div>
+            </div>
+        </div>
+
+        <!-- COL 7: EXCEPTIONS -->
+        <div class="stage">
+            <div class="node n-red">
+                <div class="title">🚨 AI Failure</div>
+                <div class="desc">OCR failed, unknown customer,<br>material not mapped</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-red">
+                <div class="title">📬 Reg. CS Inboxes</div>
+                <div class="desc">EMEA, APAC, AMS Queues<br>Routed by Sales Org/Sold-To<br>Includes PO + error reason</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-red">
+                <div class="title">👤 CS Manual Handling</div>
+                <div class="desc">Fix & re-submit to SO inbox<br>or reply to customer</div>
+            </div>
+            <div class="connector">↓</div>
+            <div class="node n-gray">
+                <div class="title">🔄 Feedback Loop</div>
+                <div class="desc">Corrections update KB<br>Aliases auto-improve</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DATA FLOW TAGS -->
+    <div class="data-row">
+        <div class="data-tag">Raw Email + PDF</div>
+        <div class="data-tag">OCR Text → JSON</div>
+        <div class="data-tag">Enriched JSON</div>
+        <div class="data-tag">Mapped Sales Orders</div>
+        <div class="data-tag">Validated Payload</div>
+        <div class="data-tag">SAP SO Created</div>
+        <div class="data-tag">Error + Original PO</div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend">
+        <div class="legend-item"><span class="ldot" style="background:var(--trigger)"></span> Trigger / Ingestion</div>
+        <div class="legend-item"><span class="ldot" style="background:var(--extract)"></span> OCR & AI Extraction</div>
+        <div class="legend-item"><span class="ldot" style="background:var(--enrich)"></span> KB Enrichment</div>
+        <div class="legend-item"><span class="ldot" style="background:var(--map)"></span> Material Mapping</div>
+        <div class="legend-item"><span class="ldot" style="background:var(--validate)"></span> Celonis Validation</div>
+        <div class="legend-item"><span class="ldot" style="background:var(--output)"></span> SAP Output</div>
+        <div class="legend-item"><span class="ldot" style="background:var(--exception)"></span> Exception Handling</div>
+        <div class="legend-item"><span class="ldot" style="background:#94a3b8"></span> Data Stores</div>
+    </div>
+
+    <div class="footer">Envalior · Touchless Order Creation · End-to-End Architecture · Confidential</div>
+</div>
+
+</body>
+</html>

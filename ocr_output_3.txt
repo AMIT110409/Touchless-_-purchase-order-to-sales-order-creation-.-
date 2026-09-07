@@ -1,0 +1,15 @@
+Source: uploaded_image_3_1768204557338.png
+Length: 1582 characters
+
+--------------------------------------------------------------------------------
+```html
+<html><body><table><tr><td colspan="2">Stebro Plast STEBRO GROUP</td><td colspan="3">Purchase order Order number 37669 Order date</td></tr><tr><td colspan="3"></td><td>Supplier number 2238 Printout date</td><td>Page 1/1</td></tr><tr><td colspan="3">Your VAT reg. no. Your quote no. Our cust. no.</td><td>24-10-22 24-10-22 Your reference</td><td></td></tr><tr><td colspan="3">NL004184543B01 Delivery address</td><td>Our reference Anna Stenberg</td><td></td></tr><tr><td colspan="3">STEBRO PLAST AB Verktygsgatan 1</td><td>Mailing address Envalior B.V</td><td></td></tr><tr><td colspan="3">Port 1</td><td>PO Box 1077 6160 BB Geleen</td><td></td></tr><tr><td colspan="3">33392 BROARYD SWEDEN</td><td>THE NETHERLANDS</td><td></td></tr><tr><td colspan="3">Delivery terms</td><td></td><td></td></tr><tr><td colspan="3">CIP Broaryd</td><td>Payment terms 60 days net</td><td></td></tr><tr><td colspan="3">Delivery method</td><td></td><td></td></tr><tr><td colspan="3"></td><td></td><td></td></tr><tr><td colspan="3">Truck</td><td></td><td></td></tr><tr><td colspan="3">Customer no., shipping agent</td><td></td><td></td></tr></table></body></html>
+```
+
+Del.date=Arrival at our warehouse 
+
+```html
+<html><body><table><thead><tr><td>Pos. Part no.</td><td>Name</td><td>Del. date</td><td>Quantity</td><td>Price each</td><td>%</td><td>Amount</td></tr></thead><tbody><tr><td>10 5245</td><td>10</td><td>Akulon F232-D natur (PA6)</td><td>25-01-28</td><td>4 125,00 KG</td><td>3,13</td><td>12 911,25</td></tr></tbody></table></body></html>
+```
+
+3.1certifikatkalloaltack.crticustbacdtotelirnk.

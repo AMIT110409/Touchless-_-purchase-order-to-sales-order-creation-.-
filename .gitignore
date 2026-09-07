@@ -1,0 +1,117 @@
+# ============================================================
+# SECRETS & CREDENTIALS — NEVER COMMIT
+# ============================================================
+.env
+.env.local
+.env.*.local
+backend/.env
+*.pem
+*.key
+secrets/
+credentials/
+
+# ============================================================
+# Python Virtual Environments (venv311/, venv/, etc.)
+# ============================================================
+venv/
+venv311/
+env/
+.venv/
+portable_python/
+
+# ============================================================
+# Python Cache & Build Artefacts
+# ============================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# ============================================================
+# Jupyter Notebook Outputs
+# ============================================================
+*.ipynb_checkpoints/
+
+# ============================================================
+# Local Email Archive Folders
+# (binary .eml/.msg/.pdf with very long filenames — not suitable for Git)
+# ============================================================
+outlook_po_archive/
+downloaded_pos_by_csr/
+outlook_all_emails/
+outlook_po_current_run/
+outlook_po_extracted/
+outlook_unprocessed_full/
+
+# ============================================================
+# Local Test / Scratch Runtime Folders
+# ============================================================
+local_test_folder/
+new_po_test/
+ocr_md/
+Stebro_reextract/
+test_data/
+test_run_evco/
+test_sig_po/
+test_unmapped/
+test_unprocessed_run/
+unprocessed_run/
+scratch/
+PO examples/
+
+# ============================================================
+# Local Celonis Cache
+# ============================================================
+.celonis_cache/
+
+# ============================================================
+# Logs & Temp Files
+# ============================================================
+*.log
+*.tmp
+temp_*.py
+scratch_*.py
+
+# ============================================================
+# Local Test Output Files (JSONL, CSV, XLSX generated during test runs)
+# ============================================================
+test_*.jsonl
+test_*.csv
+test_*.xlsx
+stebro_*.txt
+
+# ============================================================
+# Azure / Celonis Local Extraction Artefacts
+# ============================================================
+extracted_pos_*.csv
+extracted_pos_*.xlsx
+extracted_pos_*.parquet
+celonis_eda_report.xlsx
+missing_materials_report*.xlsx
+salesperson_emails_*.xlsx
+unprocessed_run*.xlsx
+po_extracted*.xlsx
+UAT_Order_Processing_and_Defect_Analysis.xlsx
+
+# ============================================================
+# Microsoft Office Temp Files (~$ lock files)
+# ============================================================
+~$*
+
+# ============================================================
+# IDE
+# ============================================================
+.idea/
+.vscode/settings.json
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
