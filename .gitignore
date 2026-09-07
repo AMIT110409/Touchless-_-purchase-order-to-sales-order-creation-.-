@@ -35,6 +35,8 @@ venv311/
 env/
 .venv/
 portable_python/
+ENV/
+.env_backup
 
 # ============================================================
 # Python Cache & Build Artefacts
@@ -51,11 +53,14 @@ build/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+*$py.class
+.eggs/
 
 # ============================================================
 # Jupyter Notebook Outputs
 # ============================================================
 *.ipynb_checkpoints/
+archive/*.ipynb
 
 # ============================================================
 # Local Email Archive Folders
