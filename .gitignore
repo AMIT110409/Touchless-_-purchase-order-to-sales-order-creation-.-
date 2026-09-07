@@ -119,6 +119,34 @@ po_extracted*.xlsx
 UAT_Order_Processing_and_Defect_Analysis.xlsx
 
 # ============================================================
+# Generated Pipeline Output Files (never commit these)
+# ============================================================
+results_*.jsonl
+results_*.csv
+results_*.xlsx
+final_output*.json
+final_output*.xlsx
+final_enriched*.xlsx
+so_creation_results_local.csv
+so_groups.xlsx
+exception_resolver_report.xlsx
+exception_resolver_report.json
+exception_resolver_actions.json
+stebro_debug.jsonl
+results.jsonl
+unique_po_example_output.csv
+unmapped_report.txt
+missing_report*.txt
+fox_*.txt
+ocr_output_*.txt
+ocr_test.txt
+ocr_batch.json
+result.txt
+smart_results.json
+fox_check_v11.txt
+reports/
+
+# ============================================================
 # Microsoft Office Temp Files (~$ lock files)
 # ============================================================
 ~$*

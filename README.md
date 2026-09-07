@@ -337,38 +337,6 @@ See `UAT_Order_Processing_and_Defect_Analysis.xlsx` for the full defect analysis
 ## 📁 Project Structure
 
 ```
-extraction ocr scripit/
-│
-├── 🚀 ENTRY POINTS
-│   ├── run_outlook_to_pipeline.py    # Stage 1: Main pipeline runner
-│   ├── run_celonis_feedback.py       # Stage 2: SO result feedback + notifications
-│   ├── celonis_to_azure.py           # Sync Celonis master data → Azure Blob
-│   ├── exception_resolver.py         # Batch re-process failed/stuck POs
-│   └── preflight_check.py            # Pre-push PO validation gate
-│
-├── 🧠 CORE ENGINE
-│   ├── po_extraction_enhanced.py     # OCR + LLM extraction (main engine, 2000+ lines)
-│   ├── sales_order_mapper.py         # Customer/material/Ship-To mapping (2000+ lines)
-│   ├── reenrich_results.py           # Production enrichment (Azure Blob Parquet)
-│   ├── enrich_results.py             # Legacy enrichment (SQLite)
-│   ├── push_to_celonis.py            # Celonis API push + deduplication registry
-│   └── order_type_decision_tree.py   # SAP order type determination logic
-│
-├── 📧 EMAIL & NOTIFICATIONS
-│   ├── graph_email_handler.py        # Microsoft Graph API: archive, exception, Roborana
-│   ├── email_templates.py            # All HTML email templates
-│   ├── csr_routing.py                # 3-Tier CSR routing logic
-│   └── robona_so_tracker.py          # Roborana notification dedup tracker
-│
-├── 🗄️ INFRASTRUCTURE & TRACKING
-│   ├── azure_email_tracker.py        # Azure Table Storage email state tracker
-│   ├── audit_logger.py               # Structured JSONL audit trail → Azure Blob
-│   ├── pre_creation_validator.py     # Final SAP field validation
-│   └── azure_table_reader.py         # Azure Table Storage reader utilities
-│
-├── ⚙️ CONFIGURATION
-│   ├── regional_config.json          # Sales Org → Regional CS email mapping
-│   ├── .env.example                  # Environment variable template
 │   ├── .env                          # 🔴 NOT COMMITTED — your local secrets
 │   └── requirements.txt              # Python dependencies
 │

@@ -54,12 +54,12 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 load_dotenv()
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Configuration
-# ─────────────────────────────────────────────────────────────────────────────
-CELONIS_URL        = os.getenv("CELONIS_URL",        "https://envalior-sb.eu-1.celonis.cloud/")
-CELONIS_API_TOKEN  = os.getenv("CELONIS_API_TOKEN",  "NTFkY2QyZTQtMDQ4OS00MTljLThhMGUtMWJkMGRlOTUxNTkzOk5KM0RITkh2eVJvZmt6Z0ZvU05tT0s2MHRwMnc5cGhtaGw1a1l3L0tkTFAx")
-CELONIS_POOL_ID    = os.getenv("CELONIS_POOL_ID",    "663e7e2d-74f0-4cf1-a0b4-ca4faf5fee06")
+# ───────────────────────────────────────────────────────────────────────────────
+# Configuration  (all values from .env — no hardcoded credentials)
+# ───────────────────────────────────────────────────────────────────────────────
+CELONIS_URL        = os.getenv("CELONIS_URL")
+CELONIS_API_TOKEN  = os.getenv("CELONIS_API_TOKEN")
+CELONIS_POOL_ID    = os.getenv("CELONIS_POOL_ID")
 
 # ── CONFIGURE THIS: name of the Celonis table/view with Action Flow SO results ──
 SO_RESULTS_TABLE   = os.getenv("SO_RESULTS_TABLE",   "SO_CREATION_RESULTS")

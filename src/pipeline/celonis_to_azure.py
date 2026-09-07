@@ -29,20 +29,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ─── Celonis Configuration ────────────────────────────────────────────────────
-CELONIS_URL     = 'https://envalior-sb.eu-1.celonis.cloud/'
-API_TOKEN       = 'NTFkY2QyZTQtMDQ4OS00MTljLThhMGUtMWJkMGRlOTUxNTkzOk5KM0RITkh2eVJvZmt6Z0ZvU05tT0s2MHRwMnc5cGhtaGw1a1l3L0tkTFAx'
-POOL_ID         = '663e7e2d-74f0-4cf1-a0b4-ca4faf5fee06'
-DATA_MODEL_ID   = '3f193f92-a398-4989-915c-cc100e67d421'
-ANALYSIS_ID     = '61ec7315-0e7a-467a-8b89-116d78e1ca9e#!'
-SPACE_NAME      = 'OCPM'
-PACKAGE_NAME    = 'Touchless Order Creation'
+# ─── Celonis Configuration (all values from .env — no hardcoded credentials) ──
+CELONIS_URL     = os.getenv('CELONIS_URL')
+API_TOKEN       = os.getenv('CELONIS_API_TOKEN')
+POOL_ID         = os.getenv('CELONIS_POOL_ID')
+DATA_MODEL_ID   = os.getenv('CELONIS_DATA_MODEL_ID')
+ANALYSIS_ID     = os.getenv('CELONIS_ANALYSIS_ID', '')  # optional, for analysis-mode queries
+SPACE_NAME      = os.getenv('CELONIS_SPACE_NAME', 'OCPM')
+PACKAGE_NAME    = os.getenv('CELONIS_PACKAGE_NAME', 'Touchless Order Creation')
 
 # Component IDs for each sheet
 TEST_MP_NAME    = 'Test MP'           # Customer Master — replaces old New Sheet 2
-TEST_MP_COMP_ID = None                # Auto-discovered at runtime (set to a string ID to pin it)
+TEST_MP_COMP_ID = os.getenv('CELONIS_TEST_MP_COMP_ID', None)  # Auto-discovered at runtime if None
 SHEET3_NAME     = 'New Sheet 3'
-SHEET3_COMP_ID  = '48615e45-2c6c-4a12-ab8c-22107237c167'  # Historical Order Mapping component
+SHEET3_COMP_ID  = os.getenv('CELONIS_SHEET3_COMP_ID', '48615e45-2c6c-4a12-ab8c-22107237c167')  # Historical Order Mapping component
 
 # ─── Azure Blob Configuration ─────────────────────────────────────────────────
 AZURE_BLOB_URL      = os.getenv('AZURE_BLOB_URL', 'https://poextstorage49245.blob.core.windows.net')
