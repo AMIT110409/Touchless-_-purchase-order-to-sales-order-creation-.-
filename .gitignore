@@ -3,6 +3,23 @@
 # ============================================================
 .env
 .env.local
+
+# ============================================================
+# Large Files — Exceed GitHub 100 MB hard limit
+# ============================================================
+materials.csv
+vendors.csv
+*.zip
+*.gz
+*.tar
+*.7z
+*.rar
+*.db
+*.db.bak
+knowledge_base.db
+knowledge_base.db.bak
+po_tracker.db
+processed_emails.db
 .env.*.local
 backend/.env
 *.pem
